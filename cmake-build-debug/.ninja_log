@@ -1,5 +1,6 @@
 # ninja log v5
-2	326	6692334162702689	CMakeFiles/Projet_1___Akinator.dir/main.c.obj	91126e37b84287b8
-327	4713	6692334206296855	Projet_1___Akinator.exe	ab2d4e9c4bd55c4c
-4	239	6692336166190928	CMakeFiles/Projet_1___Akinator.dir/main.c.obj	91126e37b84287b8
-240	563	6692336169442625	Projet_1___Akinator.exe	ab2d4e9c4bd55c4c
+4	339	6692938441139937	CMakeFiles/Projet_1___Akinator.dir/main.c.obj	91126e37b84287b8
+340	1387	6692938451630484	Projet_1___Akinator.exe	ab2d4e9c4bd55c4c
+29	290	6692943750243466	CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.obj	a8454b988612a163
+5	299	6692943750343437	CMakeFiles/Projet_1___Akinator.dir/main.c.obj	91126e37b84287b8
+300	714	6692943754487858	Projet_1___Akinator.exe	53507d47622c740

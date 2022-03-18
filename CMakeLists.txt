@@ -3,4 +3,4 @@ project(Projet_1___Akinator C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(Projet_1___Akinator main.c)
+add_executable(Projet_1___Akinator main.c structs-functions.h structs-functions.c structs-functions.h)
