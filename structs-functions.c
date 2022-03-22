@@ -9,4 +9,5 @@ void akinator() // ne pas toucher même si c'est moche car ça rend bien
 	printf(" / {} \\ | |/ / | ||  `| | / {} \\{_   _}/  {}  \\| {}  }\n");
 	printf("/  /\\  \\| |\\ \\ | || |\\  |/  /\\  \\ | |  \\      /| .-. \\\n");
 	printf("`-'  `-'`-' `-'`-'`-' `-'`-'  `-' `-'   `----' `-' `-'");
+    printf("au revoir les amis !");
 }
