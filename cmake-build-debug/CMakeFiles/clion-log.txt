@@ -1,4 +1,5 @@
-C:\Users\mathis.de-gueydon\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/ninja/win/ninja.exe -G Ninja "D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator"
+C:\Users\baptiste.saby\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/baptiste.saby/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/ninja/win/ninja.exe -G Ninja "D:\OneDrive\OneDrive - yncréa\PC-ISEN\Documents\ISEN\Cours_ISEN\N3\GoodNotes\Cours-ISEN\N3\Semestre 2\Algo\ProjetC\Projet-Akinator"
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator/cmake-build-debug
+-- Build files have been written to: D:/OneDrive/OneDrive - yncrÃ©a/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetC/Projet-Akinator/cmake-build-debug
+CMake File API: D:\OneDrive\OneDrive - yncréa\PC-ISEN\Documents\ISEN\Cours_ISEN\N3\GoodNotes\Cours-ISEN\N3\Semestre 2\Algo\ProjetC\Projet-Akinator\cmake-build-debug: target-Projet_1___Akinator-Debug-7d7b7fa58353c05a617a.json: no CMakeLists.txt file at 'D:\OneDrive\OneDrive - yncrÃ©a\PC-ISEN\Documents\ISEN\Cours_ISEN\N3\GoodNotes\Cours-ISEN\N3\Semestre 2\Algo\ProjetC\Projet-Akinator\CMakeLists.txt'

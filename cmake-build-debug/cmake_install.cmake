@@ -1,4 +1,4 @@
-# Install script for directory: D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator
+# Install script for directory: D:/OneDrive/OneDrive - yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetC/Projet-Akinator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/baptiste.saby/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/OneDrive/OneDrive - yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetC/Projet-Akinator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
