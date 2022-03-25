@@ -25,7 +25,7 @@ Star-Lord,homme,Celestien,42,equipement,extraterrestre,non-volant,non-masque,tai
 Thanos,homme,Eternel,1000,pouvoirs-equipement,extraterrestre,non-volant,non-masque,taille-normale,gris-pourpre
 Thing,homme,Etats-Unis,63,pouvoirs,humain-altere,non-volant,non-masque,taille-normale/taille-anormale,orange
 Thor,homme,Asgard,1500,pouvoirs,extraterrestre,volant,non-masque,taille-normale,rouge-et-gris
-Vision,homme,Synthézoïde,150,pouvoirs,extraterrestre,volant,non-masque,taille-normale,vert-emeraude
+Vision,homme,Synthézoïde,10,pouvoirs,extraterrestre,volant,non-masque,taille-normale,vert-emeraude
 War Machine,homme,Etats-Unis,47,équipement,humain,volant,masque,taille-normale,gris
 Wolverine,homme,Canada,140,pouvoirs,mutant,non-volant,masque,taille-normale,jaune
 
