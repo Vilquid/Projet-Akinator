@@ -3,31 +3,120 @@
 
 // Déclarer les fonctions après ce commentaire
 
-void ajouter_personnage-questions_BDD(Hero hero_de_test)
+/**
+ * @fn est_une_string
+ * @brief Teste si la string en paramètre est seulement composée de lettres
+ * @param string String à tester
+ * @return 1 si le test est valide
+ * @return 0 si le test n'est pas valide
+ */
+
+int est_une_string(char string[])
 {
+	int test = 0;
+
+	for (int i = 0; i < 256; i++)
+	{
+		if (isalpha(string[i]) == 0 && isblank(string[i]) == 0)
+		{
+			test++;
+		}
+	}
+
+	if (test == strlen(string))
+	{
+		return 1;
+	}
+
+	else
+	{
+		return 0;
+	}
+}
+
+/**
+ * @fn ajouter_personnage_questions_BDD
+ * @brief Ajoute un personnage et une ou plusieurs questions aux bases de données
+ * @param hero_de_test Structure qui est modifiée par les réponses de l'utilisateur tout au long du programme
+ * @return Rien
+ */
+
+__attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
+{
+	FILE* fichier_personnages = NULL;
+	FILE* fichier_questions = NULL;
+
 	// string à rentrer dans la BDD
 	int taille = 1;
 	char* string = (char*)malloc(taille * sizeof(char));
 
 	int choix_int = 1;
 	char choix_string[256] = "";
+	char caractere;
 
-	if (string != NULL)
+	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
-		// ajouter les caractéristiques d'un personnage à la string
-
 		printf("Quel est le nom du héros ?\n");
 		printf("Son nom : ");
 		scanf("%s", choix_string);
 		printf("\n");
 
+		strcat(choix_string, ",");
 		strcat(string, choix_string);
 
 		printf("Quel est le sexe du héros ?\n");
 		printf("  1 - Homme\n");
 		printf("  2 - Femme\n");
 		printf("  3 - Autre\n");
-		printf("Son sexe : ");
+
+		do {
+			printf("Son sexe : ");
+			scanf("%d", &choix_int);
+
+			if (!isdigit(choix_int))
+			{
+				printf("\nChoix incorrect. Veillez recommencer.\n");
+			}
+		} while (!isdigit(choix_int) && choix_int > 0 && choix_int < 4);
+		// potentiel problème avec la valeur de retour de isdigit()
+
+		switch (choix_int)
+		{
+			case 1:
+			{
+				strcpy(choix_string, "homme,");
+				strcat(string, choix_string);
+				break;
+			}
+			case 2:
+			{
+				strcpy(choix_string, "femme,");
+				strcat(string, choix_string);
+				break;
+			}
+			default:
+			{
+				do {
+					printf("Son sexe personnalisé : ");
+					scanf("%s", choix_string);
+					printf("\n");
+
+					for (int i = 0; i < 256; i++) {
+						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0) {
+							printf("\nSaisie incorrecte. Veillez recommencer.\n");
+						}
+					}
+				} while (est_une_string(string) != 1);
+
+				for (int i = 0; i < 255; i++) {
+					choix_string[i] = tolower(choix_string[i]);
+				}
+
+				strcat(choix_string, ",");
+				strcat(string, choix_string);
+				break;
+			}
+		}
 
 		printf("Quel est le nationalité du héros ?\n");
 		printf("  1 - Etats-Unis\n");
@@ -35,6 +124,10 @@ void ajouter_personnage-questions_BDD(Hero hero_de_test)
 		printf("  3 - France\n");
 		printf("  4 - Autre\n");
 		printf("Sa nationalité : ");
+		scanf("%d", &choix_int);
+		printf("\n");
+
+		strcat(string, choix_string);
 
 		printf("Quel est l'age du héros ?\n");
 		printf("Son age : ");
@@ -71,15 +164,77 @@ void ajouter_personnage-questions_BDD(Hero hero_de_test)
 		printf("Sa.es couleur.s caractéristique.s : ");
 	}
 
-	// rentrer la string dans la BDD
+	else
+	{
+		printf("\nProblème dans la création de la string  \n");
+	}
 
-	//
+	// rentrer le personnage dans la BDD
+	fichier_personnages = fopen("personnages.txt", "r+");
+
+	if (fichier_personnages != NULL)
+	{
+		fseek(fichier_personnages, 0, SEEK_END);
+		fputs(string, fichier_personnages);
+	}
+
+	else
+	{
+		printf("\nProblème d'ouverture de la base de données Personnages\n");
+	}
+
+	fclose(fichier_personnages);
+
+	if (fclose(fichier_personnages) != 0)
+	{
+		printf("\nProblème d'ouverture de la base de données Personnages\n");
+	}
+
+	// création de la.les question.s à rentrer dans la base de données Questions
+
+	// rentrer la question dans la BDD
+	fichier_questions = fopen("questions.txt", "r+");
+
+	if (fichier_questions != NULL)
+	{
+		fseek(fichier_questions, 0, SEEK_END);
+		fputs(string, fichier_questions);
+	}
+
+	else
+	{
+		printf("\nProblème d'ouverture de la base de données Questions\n");
+	}
+
+	fclose(fichier_questions);
+
+	if (fclose(fichier_questions) != 0)
+	{
+		printf("\nProblème d'ouverture de la base de données Questions\n");
+	}
 }
+
+/**
+ * @fn akinator
+ * @brief Affiche le nom du programme
+ */
 
 void akinator() // ne pas toucher même si c'est moche car ça rend bien
 {
-	printf("  .--.  .-. .-..-..-. .-.  .--.  .---.  .----. .----.\n");
+	printf("  .--.  .-. .-..-..-. .-.  .--.  .---.  .----. .----.    \n");
 	printf(" / {} \\ | |/ / | ||  `| | / {} \\{_   _}/  {}  \\| {}  }\n");
 	printf("/  /\\  \\| |\\ \\ | || |\\  |/  /\\  \\ | |  \\      /| .-. \\\n");
-	printf("`-'  `-'`-' `-'`-'`-' `-'`-'  `-' `-'   `----' `-' `-'");
+	printf("`-'  `-'`-' `-'`-'`-' `-'`-'  `-' `-'   `----' `-' `-'       \n\n");
+
+	printf(".-.   .-.  .--.  .----. .-. .-..-..-. .-.  .--.  .---.  .----. .----.    \n");
+	printf("|  `.'  | / {} \\ | {}  }| | | || ||  `| | / {} \\{_   _}/  {}  \\| {}  }\n");
+	printf("| |\\ /| |/  /\\  \\| .-. \\\\ \\_/ /| || |\\  |/  /\\  \\ | |  \\      /| .-. \\\n");
+	printf("`-' ` `-'`-'  `-'`-' `-' `---' `-'`-' `-'`-'  `-' `-'   `----' `-' `-' \n\n");
+
+	printf("___  ___                 _             _                  \n");
+	printf("|  \\/  |                (_)           | |                \n");
+	printf("| .  . | __ _ _ ____   ___ _ __   __ _| |_ ___  _ __      \n");
+	printf("| |\\/| |/ _` | '__\\ \\ / / | '_ \\ / _` | __/ _ \\| '__|\n");
+	printf("| |  | | (_| | |   \\ V /| | | | | (_| | || (_) | |       \n");
+	printf("\\_|  |_/\\__,_|_|    \\_/ |_|_| |_|\\__,_|\\__\\___/|_|\n\n");
 }
