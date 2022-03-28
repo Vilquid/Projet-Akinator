@@ -14,7 +14,7 @@ struct Hero{
     char nationality[25]; //nationalité du personnage
     int age; //Age du personnage
     bool equipement; //True => Oui en porte, False => Non en porte pas
-    char humain[20]; //humain/extraterrestre/mutant/humain-altere
+    int humain; //0 => humain/1 => extraterrestre/2 => mutant/3 => humain-altere
     bool volant; //True => il vole, False => ne vole pas
     bool masque; //True => porte un masque, False => Non
     bool taille; //True => taille normal, False => taille anormal
@@ -29,6 +29,7 @@ int est_un_int_et_est_compris_entre(char string[], int choix,int nombre_1, int n
 void ajouter_question_BDD();
 int est_une_string(char string[]);
 void convert_to_lower(char string[]);
+File_Heros *creerHero(int sexe, char nationality[25], int age,bool equipement,int humain, bool volant, bool masque, bool taille, char color[15]);
 // Placer les prototypes des fonctions avant ce commentaire
 
 #endif //PROJET_1___AKINATOR_STRUCTS_FUNCTIONS_H
