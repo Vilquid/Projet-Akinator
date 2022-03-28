@@ -1,4 +1,4 @@
-#include "structs-functions.h"
+#include "../include/structs-functions.h"
 
 
 // Déclarer les fonctions après ce commentaire
@@ -102,7 +102,8 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 					printf("\n");
 
 					for (int i = 0; i < 256; i++) {
-						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0) {
+						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
+						{
 							printf("\nSaisie incorrecte. Veillez recommencer.\n");
 						}
 					}

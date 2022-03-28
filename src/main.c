@@ -1,4 +1,4 @@
-#include "structs-functions.h"
+#include "../include/structs-functions.h"
 
 
 int main(int argc, char const *argv[])
