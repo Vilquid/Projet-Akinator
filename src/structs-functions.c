@@ -4,6 +4,21 @@
 // Déclarer les fonctions après ce commentaire
 
 /**
+ * @fn convert_to_lower
+ * @brief Convertit tous les caractère de la string en minuscule
+ * @param string String à convertir
+ * @return
+ */
+
+void convert_to_lower(char string[])
+{
+	for (int i = 0; i < strlen(string); i++)
+	{
+		string[i] = tolower(string[i]);
+	}
+}
+
+/**
  * @fn est_une_string
  * @brief Teste si la string en paramètre est seulement composée de lettres
  * @param string String à tester
@@ -41,7 +56,7 @@ int est_une_string(char string[])
  * @return Rien
  */
 
-__attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
+__attribute__((unused)) void ajouter_personnage_questions_BDD()
 {
 	FILE* fichier_personnages = NULL;
 	FILE* fichier_questions = NULL;
@@ -57,9 +72,18 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
 		printf("Quel est le nom du héros ?\n");
-		printf("Son nom : ");
-		scanf("%s", choix_string);
-		printf("\n");
+		do {
+			printf("Son nom : ");
+			scanf("%s", choix_string);
+			printf("\n");
+
+			if (est_une_string(choix_string) != 1)
+			{
+				printf("\nSaisie incorrecte. Veillez recommencer.\n");
+			}
+		} while (est_une_string(choix_string) != 1);
+
+		convert_to_lower(choix_string);
 
 		strcat(choix_string, ",");
 		strcat(string, choix_string);
@@ -77,7 +101,7 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 			{
 				printf("\nChoix incorrect. Veillez recommencer.\n");
 			}
-		} while (!isdigit(choix_int) && choix_int > 0 && choix_int < 4);
+		} while (!isdigit(choix_int) && (choix_int < 0 || choix_int > 4));
 		// potentiel problème avec la valeur de retour de isdigit()
 
 		switch (choix_int)
@@ -101,7 +125,8 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 					scanf("%s", choix_string);
 					printf("\n");
 
-					for (int i = 0; i < 256; i++) {
+					for (int i = 0; i < 256; i++)
+					{
 						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
 						{
 							printf("\nSaisie incorrecte. Veillez recommencer.\n");
@@ -109,9 +134,7 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 					}
 				} while (est_une_string(string) != 1);
 
-				for (int i = 0; i < 255; i++) {
-					choix_string[i] = tolower(choix_string[i]);
-				}
+				convert_to_lower(choix_string);
 
 				strcat(choix_string, ",");
 				strcat(string, choix_string);
@@ -124,19 +147,79 @@ __attribute__((unused)) void ajouter_personnage_questions_BDD(Hero hero_de_test)
 		printf("  2 - Russie\n");
 		printf("  3 - France\n");
 		printf("  4 - Autre\n");
-		printf("Sa nationalité : ");
-		scanf("%d", &choix_int);
-		printf("\n");
 
-		strcat(string, choix_string);
+		do {
+			printf("Sa nationalité : ");
+			scanf("%d", &choix_int);
+
+			if (!isdigit(choix_int))
+			{
+				printf("\nChoix incorrect. Veillez recommencer.\n");
+			}
+		} while (!isdigit(choix_int) && (choix_int < 0 || choix_int > 4));
+		// potentiel problème avec la valeur de retour de isdigit()
+
+		switch (choix_int)
+		{
+			case 1:
+			{
+				strcpy(choix_string, "Etats-Unis,");
+				strcat(string, choix_string);
+				break;
+			}
+			case 2:
+			{
+				strcpy(choix_string, "Russie,");
+				strcat(string, choix_string);
+				break;
+			}
+			default:
+			{
+				do {
+					printf("Son sexe personnalisé : ");
+					scanf("%s", choix_string);
+					printf("\n");
+
+					for (int i = 0; i < 256; i++) {
+						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
+						{
+							printf("\nSaisie incorrecte. Veillez recommencer.\n");
+						}
+					}
+				} while (est_une_string(string) != 1);
+
+				convert_to_lower(choix_string);
+
+				strcat(choix_string, ",");
+				strcat(string, choix_string);
+				break;
+			}
+		}
 
 		printf("Quel est l'age du héros ?\n");
-		printf("Son age : ");
+		do {
+			printf("Son age : ");
+			scanf("%d", &choix_int);
+
+			if (!isdigit(choix_int))
+			{
+				printf("\nChoix incorrect. Veillez recommencer.\n");
+			}
+		} while (!isdigit(choix_int) && (choix_int < 0 || choix_int < 2000));
 
 		printf("Votre héros utilise-t-il plus ses pouvoirs ou son équipement du héros ?\n");
 		printf("  1 - Pouvoirs\n");
 		printf("  2 - Equipement\n");
-		printf("Votre choix : ");
+
+		do {
+			printf("Votre choix : ");
+			scanf("%d", &choix_int);
+
+			if (!isdigit(choix_int))
+			{
+				printf("\nChoix incorrect. Veillez recommencer.\n");
+			}
+		} while (!isdigit(choix_int) && (choix_int < 0 || choix_int < 2));
 
 		printf("Quelle est l'espèce du héros ?\n");
 		printf("  1 - Humain\n");
