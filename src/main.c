@@ -1,9 +1,8 @@
-#include "../include/structs-functions.h"
-
+#include "../include/structs_functions.h"
 
 int main(int argc, char const *argv[])
 {
 	akinator();
 
-	return 0;
+	return EXIT_SUCCESS;
 }

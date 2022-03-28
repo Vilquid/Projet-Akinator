@@ -1,47 +1,16 @@
-#include "../include/structs-functions.h"
-
-
-// Déclarer les fonctions après ce commentaire
 /**
- * @fn creerHero
- * @brief intialize un hero avec les paramettre de la BDD.txt
- * @param age,color,equipement,humain,masque,taille,volant,nationality,sexe
- * @return
- */
+ * @file structs_functions.c
+ * @brief 
+**/
 
-File_Heros *creerHero(int sexe, char nationality[25], int age,bool equipement,int humain, bool volant, bool masque, bool taille, char color[15]) {
-
-    // Création de la file
-    Hero *hero = malloc(sizeof(Hero));
-
-    // Si l'allocation dynamique a échouée
-    if (hero == NULL) {
-        printf("Erreur d'allocation memoire !\n");
-        exit(EXIT_FAILURE);
-    }
-
-    // Initialiser les attributs (A CHANGER)
-    hero->sexe = sexe;
-    strcpy(nationality[25],hero->nationality[25]);
-    hero->age = age;
-    hero->equipement = equipement;
-    hero->humain = humain;
-    hero->volant = volant;
-    hero->masque = masque;
-    hero->taille = taille;
-    strcpy(color[15],hero->color[15]);
-
-    return hero;
-}
-
+#include "../include/structs_functions.h"
 
 /**
  * @fn convert_to_lower
  * @brief Convertit tous les caractère de la string en minuscule
  * @param string String à convertir
  * @return
- */
-
+**/
 void convert_to_lower(char string[])
 {
 	for (int i = 0; i < strlen(string); i++)
@@ -56,8 +25,7 @@ void convert_to_lower(char string[])
  * @param string String à tester
  * @return 1 si le test est valide
  * @return 0 si le test n'est pas valide
- */
-
+**/
 int est_une_string(char string[])
 {
 	int test = 0;
@@ -88,10 +56,9 @@ int est_une_string(char string[])
  * @param choix Nombre à tester
  * @param nombre_1 Borne inférieure pour le test
  * @param nombre_2 Borne supérieure pour le test
- * @return Choix correcte
- */
-
-__attribute__((unused)) int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int nombre_2)
+ * @return Choix correct
+**/
+int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int nombre_2)
 {
 	do {
 		printf("%s", string);
@@ -110,10 +77,8 @@ __attribute__((unused)) int est_un_int_et_est_compris_entre(char string[], int c
 /**
  * @fn ajouter_question_BDD
  * @brief Ajoute une ou plusieurs questions à la base de données questions
- * @return Rien
- */
-
-__attribute__((unused)) void ajouter_question_BDD()
+**/
+void ajouter_question_BDD()
 {
 	FILE* fichier_questions = NULL;
 
@@ -156,9 +121,8 @@ __attribute__((unused)) void ajouter_question_BDD()
 /**
  * @fn ajouter_personnage_questions_BDD
  * @brief Ajoute un personnage à la base de données personnages
- */
-	
-__attribute__((unused)) void ajouter_personnage_BDD()
+**/	
+void ajouter_personnage_BDD()
 {
 	FILE* fichier_personnages = NULL;
 
@@ -441,8 +405,7 @@ __attribute__((unused)) void ajouter_personnage_BDD()
 /**
  * @fn akinator
  * @brief Affiche le nom du programme
- */
-
+**/
 void akinator() // ne pas toucher même si c'est moche car ça rend bien
 {
 	printf("  .--.  .-. .-..-..-. .-.  .--.  .---.  .----. .----.    \n");
