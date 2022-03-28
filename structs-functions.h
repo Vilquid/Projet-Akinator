@@ -8,7 +8,18 @@
 #include <ctype.h>
 
 // Placer les déclarations des structures après ce commentaire
-
+typedef struct Hero Hero;
+struct Hero{
+    bool sexe; //True => feminin, False => Masculin
+    char nationality[25]; //nationalité du personnage
+    int age; //Age du personnage
+    bool equipement; //True => Oui en porte, False => Non en porte pas
+    bool humain; //True => humain, False => ExtreTerrestre
+    bool volant; //True => il vole, False => ne vole pas
+    bool masque; //True => porte un masque, False => Non
+    bool taille; //True => taille normal, False => taille anormal
+    char color[15]; //Couleur prédominante
+};
 // Placer les déclarations des structures avant ce commentaire
 
 // Placer les prototypes des fonctions après ce commentaire

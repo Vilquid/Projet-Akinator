@@ -1,4 +1,4 @@
-C:\Users\mathis.de-gueydon\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/ninja/win/ninja.exe -G Ninja "D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator"
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja "/Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre"
 -- Configuring done
 -- Generating done
--- Build files have been written to: D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator/cmake-build-debug
+-- Build files have been written to: /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre/cmake-build-debug

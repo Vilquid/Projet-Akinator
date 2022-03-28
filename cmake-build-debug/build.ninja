@@ -39,7 +39,30 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinator/cmake-build-debug/
+cmake_ninja_workdir = /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/cmake-build-debug/
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S"/Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre" -B"/Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre/cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd "/Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre/cmake-build-debug" && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
 # =============================================================================
 # Object build statements for EXECUTABLE target Projet_1___Akinator
 
@@ -49,17 +72,17 @@ cmake_ninja_workdir = D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinat
 
 build cmake_object_order_depends_target_Projet_1___Akinator: phony || CMakeFiles/Projet_1___Akinator.dir
 
-build CMakeFiles/Projet_1___Akinator.dir/main.c.obj: C_COMPILER__Projet_1___Akinator_Debug D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinator/main.c || cmake_object_order_depends_target_Projet_1___Akinator
-  DEP_FILE = CMakeFiles\Projet_1___Akinator.dir\main.c.obj.d
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
-  OBJECT_FILE_DIR = CMakeFiles\Projet_1___Akinator.dir
+build CMakeFiles/Projet_1___Akinator.dir/main.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/main.c || cmake_object_order_depends_target_Projet_1___Akinator
+  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/main.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu2x
+  OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir
 
-build CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.obj: C_COMPILER__Projet_1___Akinator_Debug D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinator/structs-functions.c || cmake_object_order_depends_target_Projet_1___Akinator
-  DEP_FILE = CMakeFiles\Projet_1___Akinator.dir\structs-functions.c.obj.d
-  FLAGS = -g
-  OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
-  OBJECT_FILE_DIR = CMakeFiles\Projet_1___Akinator.dir
+build CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/structs-functions.c || cmake_object_order_depends_target_Projet_1___Akinator
+  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu2x
+  OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir
 
 
 # =============================================================================
@@ -67,45 +90,18 @@ build CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.obj: C_COMPILER__Pr
 
 
 #############################################
-# Link the executable Projet_1___Akinator.exe
+# Link the executable Projet_1___Akinator
 
-build Projet_1___Akinator.exe: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/main.c.obj CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = Projet_1___Akinator.exe
-  TARGET_IMPLIB = libProjet_1___Akinator.dll.a
-  TARGET_PDB = Projet_1___Akinator.exe.dbg
-
-
-#############################################
-# Utility command for edit_cache
-
-build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator\cmake-build-debug" && C:\Users\mathis.de-gueydon\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build edit_cache: phony CMakeFiles/edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D "D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator\cmake-build-debug" && C:\Users\mathis.de-gueydon\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe --regenerate-during-build -S"D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator" -B"D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator\cmake-build-debug""
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+build Projet_1___Akinator: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/main.c.o CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+  OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = Projet_1___Akinator
+  TARGET_PDB = Projet_1___Akinator.dbg
 
 # =============================================================================
 # Target aliases.
-
-build Projet_1___Akinator: phony Projet_1___Akinator.exe
 
 # =============================================================================
 # Folder targets.
@@ -113,9 +109,9 @@ build Projet_1___Akinator: phony Projet_1___Akinator.exe
 # =============================================================================
 
 #############################################
-# Folder: D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator/cmake-build-debug
+# Folder: /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre 2/Algo/ProjetAlgoN3/Sans titre/cmake-build-debug
 
-build all: phony Projet_1___Akinator.exe
+build all: phony Projet_1___Akinator
 
 # =============================================================================
 # Built-in targets
@@ -124,14 +120,14 @@ build all: phony Projet_1___Akinator.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeCInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeGenericSystem.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeRCInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU-C.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Compiler/GNU.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU-C.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-GNU.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows-windres.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/Windows.cmake C$:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/cmake/win/share/cmake-3.21/Modules/Platform/WindowsPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeRCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Compiler/GNU.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-AppleClang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang-C.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Apple-Clang.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin-Initialize.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/Darwin.cmake /Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################

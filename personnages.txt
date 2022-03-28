@@ -1,7 +1,7 @@
 Ant-Man,homme,Etats-Unis,52,equipement,humain,non-volant,masque,taille-normale,rouge
 Black Panther,homme,Wakanda,43,pouvoirs,humain-altere,non-volant,masque,taille-normale,noir
 Black Widow,femme,russe,39,equipement,humain-altere,non-volant,non-masque,taille-normale,noir
-Captain America,homme,Etats-Unis,98,pouvoir,humain-altere,non-volant,masque,taille-normale,non-equipe,bleu
+Captain America,homme,Etats-Unis,98,pouvoirs,humain-altere,non-volant,masque,taille-normale,non-equipe,bleu
 Captain Marvel,femme,Etats-Unis,35,pouvoirs,humain-altere,non-volant,non-masque,taille-normale,bleu
 Colossus,homme,russe,36,pouvoirs,mutant,non-volant,non-masque,taille-anormale,gris
 Daredevil,homme,Etats-Unis,35,pouvoirs,humain-altere,non-volant,masque,taille-normale,rouge
