@@ -2,6 +2,38 @@
 
 
 // Déclarer les fonctions après ce commentaire
+/**
+ * @fn creerHero
+ * @brief intialize un hero avec les paramettre de la BDD.txt
+ * @param age,color,equipement,humain,masque,taille,volant,nationality,sexe
+ * @return
+ */
+
+File_Heros *creerHero(int sexe, char nationality[25], int age,bool equipement,int humain, bool volant, bool masque, bool taille, char color[15]) {
+
+    // Création de la file
+    Hero *hero = malloc(sizeof(Hero));
+
+    // Si l'allocation dynamique a échouée
+    if (hero == NULL) {
+        printf("Erreur d'allocation memoire !\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Initialiser les attributs (A CHANGER)
+    hero->sexe = sexe;
+    hero->nationality[25] = nationality[25];
+    hero->age = age;
+    hero->equipement = equipement;
+    hero->humain = humain;
+    hero->volant = volant;
+    hero->masque = masque;
+    hero->taille = taille;
+    hero->color[15] = color[15];
+
+    return hero;
+}
+
 
 /**
  * @fn convert_to_lower
