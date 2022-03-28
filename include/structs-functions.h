@@ -24,7 +24,9 @@ struct Hero{
 
 // Placer les prototypes des fonctions après ce commentaire
 void akinator();
-void ajouter_personnage_questions_BDD(Hero);
+void ajouter_personnage_BDD();
+int est_un_int_et_est_compris_entre(char string[], int choix,int nombre_1, int nombre_2);
+void ajouter_question_BDD();
 int est_une_string(char string[]);
 void convert_to_lower(char string[]);
 // Placer les prototypes des fonctions avant ce commentaire
