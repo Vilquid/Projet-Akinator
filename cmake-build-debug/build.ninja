@@ -72,17 +72,17 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_Projet_1___Akinator: phony || CMakeFiles/Projet_1___Akinator.dir
 
-build CMakeFiles/Projet_1___Akinator.dir/main.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/main.c || cmake_object_order_depends_target_Projet_1___Akinator
-  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/main.c.o.d
+build CMakeFiles/Projet_1___Akinator.dir/src/main.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/src/main.c || cmake_object_order_depends_target_Projet_1___Akinator
+  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/src/main.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu2x
   OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
-  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir/src
 
-build CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/structs-functions.c || cmake_object_order_depends_target_Projet_1___Akinator
-  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o.d
+build CMakeFiles/Projet_1___Akinator.dir/src/structs-functions.c.o: C_COMPILER__Projet_1___Akinator_Debug /Users/baptiste/Library/CloudStorage/OneDrive-yncréa/PC-ISEN/Documents/ISEN/Cours_ISEN/N3/GoodNotes/Cours-ISEN/N3/Semestre$ 2/Algo/ProjetAlgoN3/Sans$ titre/src/structs-functions.c || cmake_object_order_depends_target_Projet_1___Akinator
+  DEP_FILE = CMakeFiles/Projet_1___Akinator.dir/src/structs-functions.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -std=gnu2x
   OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
-  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir
+  OBJECT_FILE_DIR = CMakeFiles/Projet_1___Akinator.dir/src
 
 
 # =============================================================================
@@ -92,7 +92,7 @@ build CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o: C_COMPILER__Proj
 #############################################
 # Link the executable Projet_1___Akinator
 
-build Projet_1___Akinator: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/main.c.o CMakeFiles/Projet_1___Akinator.dir/structs-functions.c.o
+build Projet_1___Akinator: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/src/main.c.o CMakeFiles/Projet_1___Akinator.dir/src/structs-functions.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
   OBJECT_DIR = CMakeFiles/Projet_1___Akinator.dir
   POST_BUILD = :

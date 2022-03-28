@@ -10,11 +10,11 @@
 // Placer les déclarations des structures après ce commentaire
 typedef struct Hero Hero;
 struct Hero{
-    bool sexe; //True => feminin, False => Masculin
+    int sexe; //2 => feminin, 1 => Masculin, 0 => Autre
     char nationality[25]; //nationalité du personnage
     int age; //Age du personnage
     bool equipement; //True => Oui en porte, False => Non en porte pas
-    bool humain; //True => humain, False => ExtreTerrestre
+    char humain[20]; //humain/extraterrestre/mutant/humain-altere
     bool volant; //True => il vole, False => ne vole pas
     bool masque; //True => porte un masque, False => Non
     bool taille; //True => taille normal, False => taille anormal
