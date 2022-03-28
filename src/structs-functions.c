@@ -22,14 +22,14 @@ File_Heros *creerHero(int sexe, char nationality[25], int age,bool equipement,in
 
     // Initialiser les attributs (A CHANGER)
     hero->sexe = sexe;
-    hero->nationality[25] = nationality[25];
+    strcpy(nationality[25],hero->nationality[25]);
     hero->age = age;
     hero->equipement = equipement;
     hero->humain = humain;
     hero->volant = volant;
     hero->masque = masque;
     hero->taille = taille;
-    hero->color[15] = color[15];
+    strcpy(color[15],hero->color[15]);
 
     return hero;
 }
