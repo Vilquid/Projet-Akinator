@@ -1,6 +1,6 @@
 /**
- * @file structs_functions.c
- * @brief 
+ * @file fonctions_utilitaires.c
+ * @brief Fonctions utiles pour ajouter un personnage et une question à la base de données
 **/
 
 #include "../include/fonctions_utilitaires.h"
@@ -9,7 +9,6 @@
  * @fn convert_to_lower
  * @brief Convertit tous les caractère de la string en minuscule
  * @param string String à convertir
- * @return
 **/
 void convert_to_lower(char string[])
 {
@@ -81,20 +80,10 @@ int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int 
 **/
 void akinator() // ne pas toucher même si c'est moche car ça rend bien
 {
-	printf("  .--.  .-. .-..-..-. .-.  .--.  .---.  .----. .----.    \n");
-	printf(" / {} \\ | |/ / | ||  `| | / {} \\{_   _}/  {}  \\| {}  }\n");
-	printf("/  /\\  \\| |\\ \\ | || |\\  |/  /\\  \\ | |  \\      /| .-. \\\n");
-	printf("`-'  `-'`-' `-'`-'`-' `-'`-'  `-' `-'   `----' `-' `-'       \n\n");
-
-	printf(".-.   .-.  .--.  .----. .-. .-..-..-. .-.  .--.  .---.  .----. .----.    \n");
-	printf("|  `.'  | / {} \\ | {}  }| | | || ||  `| | / {} \\{_   _}/  {}  \\| {}  }\n");
-	printf("| |\\ /| |/  /\\  \\| .-. \\\\ \\_/ /| || |\\  |/  /\\  \\ | |  \\      /| .-. \\\n");
-	printf("`-' ` `-'`-'  `-'`-' `-' `---' `-'`-' `-'`-'  `-' `-'   `----' `-' `-' \n\n");
-
-	printf("___  ___                 _             _                  \n");
-	printf("|  \\/  |                (_)           | |                \n");
-	printf("| .  . | __ _ _ ____   ___ _ __   __ _| |_ ___  _ __      \n");
-	printf("| |\\/| |/ _` | '__\\ \\ / / | '_ \\ / _` | __/ _ \\| '__|\n");
-	printf("| |  | | (_| | |   \\ V /| | | | | (_| | || (_) | |       \n");
-	printf("\\_|  |_/\\__,_|_|    \\_/ |_|_| |_|\\__,_|\\__\\___/|_|\n\n");
+	printf("___  ___                 _             _                    \n");
+	printf("|  \\/  |                (_)           | |                  \n");
+	printf("| .  . | __ _ _ ____   ___ _ __   __ _| |_ ___  _ __        \n");
+	printf("| |\\/| |/ _` | '__\\ \\ / / | '_ \\ / _` | __/ _ \\| '__|  \n");
+	printf("| |  | | (_| | |   \\ V /| | | | | (_| | || (_) | |         \n");
+	printf("\\_|  |_/\\__,_|_|    \\_/ |_|_| |_|\\__,_|\\__\\___/|_|\n\n\n");
 }

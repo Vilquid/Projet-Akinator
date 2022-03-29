@@ -1,3 +1,8 @@
+/**
+ * @file gestion_BDD.C
+ * @brief Fichier contenant toutes les fonctions pour ajouter un personnage et une question aux bases de données
+ */
+
 #include "../include/gestion_BDD.h"
 
 
@@ -304,7 +309,7 @@ void ajouter_personnage_BDD()
 
 	else
 	{
-		printf("\nProblème dans la création de la string  \n");
+		printf("\nProblème dans la création de la string\n");
 	}
 
 	// rentrer le personnage dans la BDD
