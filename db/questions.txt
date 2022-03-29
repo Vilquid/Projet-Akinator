@@ -1,0 +1,17 @@
+sexe/1 : Est-ce un homme ?
+sexe/2 : Est-ce une femme ?
+humain/0 : Est-ce un humain ?
+humain/3-altere : Est-ce un humain-alterné ?
+humain/2 : Est-ce un mutant ?
+humain/1 : Est-ce un extraterrestre ?
+nationalite/Etats-Unis : Est-il de nationalite etats-unienne ?
+age/oui : Est-ce qu'il a + de 50 ans ?
+equipement/equipement : Utilise-t'il plus son pouvoir que ses equipements ?
+volant/oui : Peut-il voler ?
+masque/oui : Est-il masque ?
+taille/oui : A-t'il une taille humaine ?
+color/rouge : Est-ce que sa couleur caractéristique est le rouge?
+color/bleu : Est-ce que sa couleur caractéristique est le bleu?
+color/noir : Est-ce que sa couleur caractéristique est le noir?
+color/gris : Est-ce que sa couleur caractéristique est le gris?
+color/marron : Est-ce que sa couleur caractéristique est le marron?
