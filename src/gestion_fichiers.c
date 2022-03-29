@@ -55,3 +55,60 @@ File_Heros *chargerFichierPersonnage() {
 
 	return file;
 }
+
+// TODO : sexe char -> int / equipement char -> bool / espece char -> int / volant char -> bool / masque char -> bool / taille char -> bool
+
+/**
+ * @fn charToIntSexe
+ * @brief prend un char en param et retourne un entier/ 1>Homme, 2>Femme, 0>Autre
+ * @param type
+ * @return int num
+ */
+int charToIntSexe(char type){
+    if (strcmp(type, 'homme') == true){
+        return 1;
+    } else if (strcmp(type, 'femme') == true){
+        return 2;
+    } else if (strcmp(type, 'autre') == true){
+        return 0;
+    } else{
+        return 0;
+    }
+}
+
+/**
+ * @fn CharToIntEspece
+ * @brief 0 => Humain / 1 => Extraterrestre / 2 => Mutant / 3 => Humain-altere
+ * @param type
+ * @return
+ */
+int charToIntEspece(char type){
+    if (strcmp(type, 'humain') == true){
+        return 0;
+    } else if (strcmp(type, 'extraterrestre') == true){
+        return 1;
+    } else if (strcmp(type, 'mutant') == true){
+        return 2;
+    } else if (strcmp(type, 'humain-altere') == true){
+        return 3;
+    } else{
+        return 0;
+    }
+}
+
+
+/**
+ * @fn charToBool
+ * @brief mettre le type attendu pour avoir true
+ * @param typeAttendu
+ * @param valeur
+ * @return
+ */
+bool charToBool(char typeAttendu, char valeur){
+    if (strcmp(typeAttendu, valeur) == true){
+        return true;
+    } else{
+        return false;
+    }
+}
+
