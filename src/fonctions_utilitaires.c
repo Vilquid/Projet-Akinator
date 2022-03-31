@@ -86,4 +86,7 @@ void akinator() // ne pas toucher même si c'est moche car ça rend bien
 	printf("| |\\/| |/ _` | '__\\ \\ / / | '_ \\ / _` | __/ _ \\| '__|  \n");
 	printf("| |  | | (_| | |   \\ V /| | | | | (_| | || (_) | |         \n");
 	printf("\\_|  |_/\\__,_|_|    \\_/ |_|_| |_|\\__,_|\\__\\___/|_|\n\n\n");
+//
+//	printf("Pense à un personnage réel ou fictif.\n"
+//		   "Je vais tenter de le deviner")
 }

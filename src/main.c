@@ -8,52 +8,105 @@ int main(int argc, char const *argv[])
 	akinator();
 
 	bool heros_trouve = false;
-	char* question; // variable à suppr car elle sera remplacée par une fonction
+	bool rejouer = true;
+	char* question = (char*) malloc(1 * sizeof(char)); // variable à suppr car elle sera remplacée par une fonction
 	Elt_Hero heros_actuel;
+	int choix_int = 0;
 
 	// Création des listes de héros et de questions
 	File_Heros* liste_heros = creerListeHeros();
 	File_Questions* liste_questions = creerListeQuestions();
 
-	if (liste_heros != NULL && liste_questions != NULL && liste_heros->premier != NULL)
+	do
 	{
-		for (heros_actuel.hero = liste_heros->premier->hero; !heros_trouve || heros_actuel.suivant == NULL;
-		heros_actuel = *heros_actuel.suivant)
+		if (liste_heros != NULL && liste_questions != NULL && liste_heros->premier != NULL)
 		{
-			heros_trouve = !heros_trouve;
+			// Boucle testant tous les héros pour chaque question
+			for (heros_actuel.hero = liste_heros->premier->hero; heros_trouve == false || heros_actuel.suivant == NULL;
+				 heros_actuel = *heros_actuel.suivant) // je ne suis pas du tout sûr de cette ligne
+			{
+				heros_trouve = !heros_trouve;
 
-			// Choisir une question
-			printf("%s", question);
+				// Choisir une question
+				question;
 
-			// Choisir un personnage
+				// Afficher la question
+				printf("%s", question);
 
-			// Récupérer la question et la stocker
+				// Choisir un personnage
 
-			// Interpréter
+				// Récupérer la question et la stocker
 
-				// Parcourir la liste Liste_Heros
+				// Interpréter
 
-				// Vérifications des attributs
+					// Parcourir la liste Liste_Heros
 
-				// Eliminations de certains héros
+					// Vérifications des attributs
 
-				// Vérifications des héros qui restent
+					// Eliminations de certains héros
+
+					// Vérifications des héros qui restent
+			}
+
+			// Ajouter un personnage à la base de données
+			printf("Voulez-vous ajouter un personnage à la base de données ?");
+			printf("  1 - Oui\n");
+			printf("  2 - Non\n");
+
+			if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 1)
+			{
+				ajouter_personnage_BDD();
+			}
+
+			else
+			{
+				printf("Vous n'ajouterez pas de personnages.\n");
+			}
+
+			// Ajouter une question à la base de données
+			printf("Voulez-vous ajouter une question à la base de données ?");
+			printf("  1 - Oui\n");
+			printf("  2 - Non\n");
+
+			if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 1)
+			{
+				ajouter_question_BDD();
+			}
+
+			else
+			{
+				printf("Vous n'ajouterez pas de question.\n");
+			}
+
+			printf("Voulez-vous rejouer ?");
+			printf("  1 - Oui\n");
+			printf("  2 - Non\n");
+
+			if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 2)
+			{
+
+				rejouer = false;
+			}
+
+			// Mise à jour des listes
+			liste_heros = creerListeHeros();
+			liste_questions = creerListeQuestions();
 		}
-	}
+	} while (rejouer);
 
 	if (liste_heros == NULL)
 	{
-		printf("\nProblème détecté avec la liste des héros.\n");
+		printf("\nProblème d\x82tect\x82 avec la liste des h\x82ros.\n");
 	}
 
 	if (liste_questions == NULL)
 	{
-		printf("\nProblème détecté avec la liste des questions.\n");
+		printf("\nProblème d\x82tect\x82 avec la liste des questions.\n");
 	}
 
 	if (liste_heros->premier == NULL)
 	{
-		printf("\nProblème détecté avec le premier héro de la liste des héros.\n");
+		printf("\nProbl\xe8me d\x82tect\x82 avec le premier h\x82ro de la liste des h\x82ros.\n");
 	}
 
 	return EXIT_SUCCESS;

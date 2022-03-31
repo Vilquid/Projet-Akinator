@@ -15,8 +15,7 @@ void ajouter_question_BDD()
 	FILE* fichier_questions = NULL;
 
 	// string à rentrer dans la BDD
-	int taille = 1;
-	char* string = (char*) malloc(taille * sizeof(char));
+	char* string = (char*) malloc(1 * sizeof(char));
 
 	// création de la.les question.s à rentrer dans la base de données Questions
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
@@ -39,14 +38,14 @@ void ajouter_question_BDD()
 
 	else
 	{
-		printf("\nProblème d'ouverture de la base de données Questions\n");
+		printf("\nProblème d'ouverture de la base de données Questions\n"); // \x82
 	}
 
 	fclose(fichier_questions);
 
 	if (fclose(fichier_questions) != 0)
 	{
-		printf("\nProblème d'ouverture de la base de données Questions\n");
+		printf("\nProblème d'ouverture de la base de données Questions\n"); // \x82
 	}
 }
 
@@ -67,7 +66,7 @@ void ajouter_personnage_BDD()
 
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
-		printf("Quel est le nom du héros ?\n");
+		printf("Quel est le nom du h\x82ros ?\n");
 		do {
 			printf("Son nom : ");
 			scanf("%s", choix_string);
@@ -84,14 +83,12 @@ void ajouter_personnage_BDD()
 		strcat(choix_string, ",");
 		strcat(string, choix_string);
 
-		printf("Quel est le sexe du héros ?\n");
+		printf("Quel est le sexe du h\x82ros ?\n");
 		printf("  1 - Homme\n");
 		printf("  2 - Femme\n");
 		printf("  3 - Autre\n");
 
-		printf("Son sexe : ");
-
-		switch (est_un_int_et_est_compris_entre("", choix_int, 0, 4))
+		switch (est_un_int_et_est_compris_entre("Son sexe : ", choix_int, 0, 4))
 		{
 			case 1:
 			{
@@ -108,7 +105,7 @@ void ajouter_personnage_BDD()
 			default:
 			{
 				do {
-					printf("Son sexe personnalisé : ");
+					printf("Son sexe personnalis\x82 : ");
 					scanf("%s", choix_string);
 					printf("\n");
 
@@ -122,13 +119,13 @@ void ajouter_personnage_BDD()
 			}
 		}
 
-		printf("Quel est le nationalité du héros ?\n");
+		printf("Quel est le nationalité du h\x82ros ?\n");
 		printf("  1 - Etats-Unis\n");
 		printf("  2 - Russie\n");
 		printf("  3 - France\n");
 		printf("  4 - Autre\n");
 
-		switch (est_un_int_et_est_compris_entre("Sa nationalité : ", choix_int, 0, 4))
+		switch (est_un_int_et_est_compris_entre("Sa nationalit\x82 : ", choix_int, 0, 4))
 		{
 			case 1:
 			{
@@ -145,7 +142,7 @@ void ajouter_personnage_BDD()
 			default:
 			{
 				do {
-					printf("Son sexe personnalisé : ");
+					printf("Son sexe personnalis\x82 : ");
 					scanf("%s", choix_string);
 					printf("\n");
 
@@ -166,7 +163,7 @@ void ajouter_personnage_BDD()
 			}
 		}
 
-		printf("Quel est l'age du héros ?\n");
+		printf("Quel est l'age du h\x82ros ?\n");
 		do {
 			printf("Son age : ");
 			scanf("%d", &choix_int);
@@ -177,7 +174,7 @@ void ajouter_personnage_BDD()
 			}
 		} while (!isdigit(choix_int) && (choix_int < 0 || choix_int > 2000));
 
-		printf("Votre héros utilise-t-il plus ses pouvoirs ou son équipement du héros ?\n");
+		printf("Votre h\x82ros utilise-t-il plus ses pouvoirs ou son \x82quipement du h\x82ros ?\n");
 		printf("  1 - Pouvoirs\n");
 		printf("  2 - Equipement\n");
 
@@ -193,7 +190,7 @@ void ajouter_personnage_BDD()
 			strcat(string, choix_string);
 		}
 
-		printf("Quelle est l'espèce du héros ?\n");
+		printf("Quelle est l'espèce du h\x82ros ?\n");
 		printf("  1 - Humain\n");
 		printf("  2 - Humain altéré\n");
 		printf("  3 - Mutant\n");
@@ -241,7 +238,7 @@ void ajouter_personnage_BDD()
 			}
 		}
 
-		printf("Est-ce que le héros vole-t-il ?\n");
+		printf("Est-ce que le h\x82ros vole-t-il ?\n");
 		printf("  1 - Oui\n");
 		printf("  2 - Non\n");
 
@@ -257,23 +254,21 @@ void ajouter_personnage_BDD()
 			strcat(string, choix_string);
 		}
 
-		printf("Est-ce que le héros porte-t-il un masque ?\n");
+		printf("Est-ce que le h\x82ros porte-t-il un masque ?\n");
 		printf("  1 - Oui\n");
 		printf("  2 - Non\n");
 
 		if (choix_int == est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2))
 		{
-			strcpy(choix_string, "masque,");
-			strcat(string, choix_string);
+			strcat(string, "masque,");
 		}
 
 		else
 		{
-			strcpy(choix_string, "non-masque,");
-			strcat(string, choix_string);
+			strcat(string, "non-masque,");
 		}
 
-		printf("Est-ce que le héros a-t-il une taille d'être humain normal ?\n");
+		printf("Est-ce que le h\x82ros a-t-il une taille d'être humain normal ?\n");
 		printf("  1 - Oui\n");
 		printf("  2 - Non\n");
 
@@ -289,7 +284,7 @@ void ajouter_personnage_BDD()
 			strcat(string, choix_string);
 		}
 
-		printf("Quelle est la.les couleur.s caractéristique.s du héros ?\n");
+		printf("Quelle est la.les couleur.s caractéristique.s du h\x82ros ?\n");
 		printf("Sa.es couleur.s caractéristique.s : ");
 
 		do {
