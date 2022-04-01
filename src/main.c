@@ -10,19 +10,19 @@ int main(int argc, char const *argv[])
 	bool heros_trouve = false;
 	bool rejouer = true;
 	char* question = (char*) malloc(1 * sizeof(char)); // variable à suppr car elle sera remplacée par une fonction
-	Elt_Hero heros_actuel;
+	Elt_Heros heros_actuel;
 	int choix_int = 0;
 
 	// Création des listes de héros et de questions
-	File_Heros* liste_heros = creerListeHeros();
-	File_Questions* liste_questions = creerListeQuestions();
+	Liste_Heros* liste_heros = creerListeHeros();
+	Liste_Questions* liste_questions = creerListeQuestions();
 
 	do
 	{
 		if (liste_heros != NULL && liste_questions != NULL && liste_heros->premier != NULL)
 		{
 			// Boucle testant tous les héros pour chaque question
-			for (heros_actuel.hero = liste_heros->premier->hero; heros_trouve == false || heros_actuel.suivant == NULL;
+			for (heros_actuel.heros = liste_heros->premier->heros; heros_trouve == false || heros_actuel.suivant == NULL;
 				 heros_actuel = *heros_actuel.suivant) // je ne suis pas du tout sûr de cette ligne
 			{
 				heros_trouve = !heros_trouve;

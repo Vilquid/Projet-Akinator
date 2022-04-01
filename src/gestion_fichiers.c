@@ -5,7 +5,7 @@
 
 #include "../include/gestion_fichiers.h"
 
-File_Heros *chargerFichierPersonnage() {
+Liste_Heros *chargerFichierPersonnage() {
 
 	// Création du pointeur vers le fichier texte
 	FILE *fichier_file = NULL;
@@ -20,7 +20,7 @@ File_Heros *chargerFichierPersonnage() {
 	}
 
 	// Création du pointeur de la pile
-	File_Heros *file = creerListeHeros();
+	Liste_Heros *file = creerListeHeros();
 
 	// Variables à récupérer
 	char nom[25];

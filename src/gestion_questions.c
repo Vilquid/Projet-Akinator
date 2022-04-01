@@ -5,12 +5,12 @@
 
 const char* filename = "questions.txt";
 
-char recupQuestion(File_Questions* fileQuestion);
-File_Questions* initQuestions();
+char recupQuestion(Liste_Questions* fileQuestion);
+Liste_Questions* initQuestions();
 
-File_Questions* initQuestions(){
+Liste_Questions* initQuestions(){
     FILE* fichier_questions = NULL;
-	File_Questions* fileQuestion = creerListeQuestions();
+	Liste_Questions* fileQuestion = creerListeQuestions();
 
     fichier_questions = fopen(filename, "r");
 
@@ -38,7 +38,7 @@ File_Questions* initQuestions(){
     return fileQuestion;
 }
 
-char recupQuestion(File_Questions* fileQuestion){
+char recupQuestion(Liste_Questions* fileQuestion){
     char strQuestion[128];
 
 	

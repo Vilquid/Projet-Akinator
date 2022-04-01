@@ -18,6 +18,6 @@
    Déclaration des Fonctions
 -----------------------------*/
 
-File_Heros *chargerFichierPersonnage();
+Liste_Heros *chargerFichierPersonnage();
 
 #endif // GESTION_FICHIERS_H
