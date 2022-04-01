@@ -12,7 +12,7 @@ Hero *creerHero(char nom[25], int sexe, char nationalite[25], int age, bool equi
 
 	// Si l'allocation dynamique a échouée
 	if (hero == NULL) {
-		printf("Erreur d'allocation memoire !\n");
+		printf("Erreur d'allocation m%cmoire !\n", e_aigu);
 		exit(EXIT_FAILURE);
 	}
 
@@ -38,7 +38,7 @@ File_Heros *creerListeHeros() {
 
 	// Si l'allocation dynamique a échouée
 	if (file == NULL) {
-		printf("Erreur d'allocation memoire !\n");
+		printf("Erreur d'allocation m%cmoire !\n", e_aigu);
 		exit(EXIT_FAILURE);
 	}
 
@@ -57,7 +57,7 @@ File_Questions *creerListeQuestions() {
 
 	// Si l'allocation dynamique a échouée
 	if (file == NULL) {
-		printf("Erreur d'allocation memoire !\n");
+		printf("Erreur d'allocation m%cmoire !\n", e_aigu);
 		exit(EXIT_FAILURE);
 	}
 
