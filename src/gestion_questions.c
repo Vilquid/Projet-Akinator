@@ -26,11 +26,12 @@ File_Questions* initQuestions(){
 	}
 
 	char *file_contents = malloc(sb.st_size);
+    int priority;
     char attribute[32];
     char reponse[32];
 
-	while (fscanf(fichier_questions, "%s/%s : %[^\n] ", attribute, reponse, file_contents) != EOF){
-		printf("> %s : %s/%s\n", file_contents, attribute, reponse);
+	while (fscanf(fichier_questions, "%d/%s/%s : %[^\n] ", priority, attribute, reponse, file_contents) != EOF){
+		printf("> %s : %d/%s/%s\n", file_contents, priority, attribute, reponse);
 	}
 	
 	fclose(fichier_questions);
