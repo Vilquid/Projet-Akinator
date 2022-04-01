@@ -49,7 +49,7 @@ int main(int argc, char const *argv[])
 			}
 
 			// Ajouter un personnage à la base de données
-			printf("Voulez-vous ajouter un personnage à la base de données ?");
+			printf("Voulez-vous ajouter un personnage à la base de donn%ces ?\n", e_aigu);
 			printf("  1 - Oui\n");
 			printf("  2 - Non\n");
 
@@ -64,7 +64,7 @@ int main(int argc, char const *argv[])
 			}
 
 			// Ajouter une question à la base de données
-			printf("Voulez-vous ajouter une question à la base de données ?");
+			printf("Voulez-vous ajouter une question à la base de donn%ces ?\n", e_aigu);
 			printf("  1 - Oui\n");
 			printf("  2 - Non\n");
 
@@ -96,17 +96,17 @@ int main(int argc, char const *argv[])
 
 	if (liste_heros == NULL)
 	{
-		printf("\nProblème d\x82tect\x82 avec la liste des h\x82ros.\n");
+		printf("\nProbl%cme d%ctect%c avec la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu);
 	}
 
 	if (liste_questions == NULL)
 	{
-		printf("\nProblème d\x82tect\x82 avec la liste des questions.\n");
+		printf("\nProbl%cme d%ctect%c avec la liste des questions.\n", e_grave, e_aigu, e_aigu);
 	}
 
 	if (liste_heros->premier == NULL)
 	{
-		printf("\nProbl\xe8me d\x82tect\x82 avec le premier h\x82ro de la liste des h\x82ros.\n");
+		printf("\nProbl%cme d%ctect%c avec le premier h%cro de la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu);
 	}
 
 	return EXIT_SUCCESS;

@@ -22,7 +22,7 @@ Rocket Raccoon,homme,Halfworlder,31,equipement,extraterrestre,non-volant,non-mas
 Scarlet Witch,femme,Transie,35,pouvoirs,mutant,non-volant,non-masque,taille-normale,rouge
 Spider-Man,homme,Etats-Unis,25,pouvoir,mutant,non-volant,masque,taille-normale,non-equipe,rouge-et-bleu
 Star-Lord,homme,Celestien,42,equipement,extraterrestre,non-volant,non-masque,taille-normale,equipe,marron
-Thanos,homme,Eternel,1000,pouvoirs-equipement,extraterrestre,non-volant,non-masque,taille-normale,gris-pourpre
+Thanos,homme,Eternel,1000,equipement,extraterrestre,non-volant,non-masque,taille-normale,gris-pourpre
 Thing,homme,Etats-Unis,63,pouvoirs,humain-altere,non-volant,non-masque,taille-normale/taille-anormale,orange
 Thor,homme,Asgard,1500,pouvoirs,extraterrestre,volant,non-masque,taille-normale,rouge-et-gris
 Vision,homme,Synthézoïde,10,pouvoirs,extraterrestre,volant,non-masque,taille-normale,vert-emeraude
