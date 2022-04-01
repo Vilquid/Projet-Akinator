@@ -37,15 +37,40 @@ File_Heros *chargerFichierPersonnage() {
 	char color[15];
 	memset(color, '\0', 15 * sizeof(char));
 
+    char sexe_tmp[5];
+    memset(nom, '\0', 5 * sizeof(char));
+    char humain_tmp[10];
+    memset(nom, '\0', 10 * sizeof(char));
+    char volant_tmp[15];
+    memset(nom, '\0', 15 * sizeof(char));
+    char masque_tmp[15];
+    memset(nom, '\0', 15 * sizeof(char));
+    char taille_tmp[15];
+    memset(nom, '\0', 15 * sizeof(char));
+    char equipement_tmp[15];
+    memset(nom, '\0', 15 * sizeof(char));
+    char age_tmp[4];
+    memset(nom, '\0', 4 * sizeof(char));
+
+
+
 	// Tant qu'on n'est pas arrivé à la fin du fichier
 	while (!feof(fichier_file)) {
 
 		// Récupérer les données de la ligne
 		// TODO : Modifier les types de données et déduire infos des chaines de caractères BDD
-		fscanf(fichier_file, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe, nationalite, age, equipement, humain, volant, masque, taille, color);
+		fscanf(fichier_file, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, age_tmp, equipement_tmp, humain_tmp, volant_tmp, masque_tmp, taille_tmp, color);
 
 		// Créer et empiler un nouvel élément à partir des données récupérées
 		// TODO : Changer la création du Héro pour du Elt_Hero
+        age = charToInt(age_tmp);
+        sexe = charToIntSexe(sexe_tmp);
+        humain = charToIntEspece(humain_tmp);
+        volant = charToBool(volant_tmp, "volant");
+        masque = charToBool(masque_tmp, "masque");
+        taille = charToBool(taille_tmp, "taille-normale");
+        equipement = charToBool(equipement_tmp, "equipement"); //true -> equipement, false -> pouvoirs
+
 		creerHero(nom, sexe, nationalite, age, equipement, humain, volant, masque, taille, color);
 		//ajouterHeroListe(file, );
 	}
@@ -57,6 +82,17 @@ File_Heros *chargerFichierPersonnage() {
 }
 
 // TODO : sexe char -> int / equipement char -> bool / espece char -> int / volant char -> bool / masque char -> bool / taille char -> bool
+/**
+ * @fn charToInt
+ * @param c
+ * @return int
+ */
+int charToInt(char c){
+    int num = 0;
+    num = c - '0';
+    return num;
+}
+
 
 /**
  * @fn charToIntSexe
@@ -100,7 +136,7 @@ int charToIntEspece(char type){
 /**
  * @fn charToBool
  * @brief mettre le type attendu pour avoir true
- * @param typeAttendu
+ * @param typeAttendu, valeur
  * @param valeur
  * @return
  */
