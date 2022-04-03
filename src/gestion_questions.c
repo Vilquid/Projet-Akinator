@@ -1,6 +1,7 @@
 //#include "structs-functions.h"
 #include "../include/librairies.h"
 #include "../include/structs_donnees.h"
+#include "../include/gestion_listes.h"
 #include <sys/stat.h>
 
 const char* filename = "questions.txt";

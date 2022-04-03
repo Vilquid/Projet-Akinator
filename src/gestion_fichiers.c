@@ -71,7 +71,7 @@ Liste_Heros *chargerFichierPersonnage() {
         taille = charToBool(taille_tmp, "taille-normale");
         equipement = charToBool(equipement_tmp, "equipement"); //true -> equipement, false -> pouvoirs
 
-		creerHero(nom, sexe, nationalite, age, equipement, humain, volant, masque, taille, color);
+		creerHeros(nom, sexe, nationalite, age, equipement, humain, volant, masque, taille, color);
 		//ajouterHeroListe(file, );
 	}
 
