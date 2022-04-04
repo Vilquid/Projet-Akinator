@@ -26,7 +26,7 @@ typedef struct Liste_Questions Liste_Questions;
 
 struct Heros {
 	char nom[25];         // Nom du perso
-	int sexe;            // 0 = Homme, 1 = Femme, 2 = Autre
+	Sexe sexe;            // 0 = Homme, 1 = Femme, 2 = Autre
 	char nationalite[25]; // Nationalité du personnage
 	int age;              // Age du personnage
 	bool equipement;      // True => Oui en porte, False => Non en porte pas

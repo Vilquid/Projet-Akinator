@@ -17,8 +17,8 @@
    Déclaration des Fonctions
 -----------------------------*/
 
-Heros *creerHeros(char nom[25], Sexe, char nationalite[25], int, bool, Espece, bool, bool, bool, char couleur[15]);
-Question *creerQuestion(char question[128], char reponse_attendue[64], int, char attribut[32]);
+Heros *creerHeros(char nom[25], Sexe sexe, char nationalite[25], int age, bool equipement, Espece espece, bool volant, bool masque, bool taille, char couleur[15]);
+Question *creerQuestion(char question[128], char reponse_attendue[64], int priorite, char attribut[32]);
 
 Elt_Heros *creerEltHeros(Heros *heros);
 Elt_Question *creerEltQuestion(Question *question);
