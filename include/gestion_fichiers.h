@@ -18,7 +18,8 @@
    Déclaration des Fonctions
 -----------------------------*/
 
-Liste_Heros *chargerFichierPersonnage();
+Liste_Heros *chargerFichierPersonnages();
+Liste_Questions *chargerFichierQuestions();
 int charToInt(char c);
 int charToIntSexe(char type);
 int charToIntEspece(char type);

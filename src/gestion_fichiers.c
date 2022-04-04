@@ -5,7 +5,9 @@
 
 #include "../include/gestion_fichiers.h"
 
-Liste_Heros *chargerFichierPersonnage() {
+Liste_Questions *chargerFichierQuestions(){}
+
+Liste_Heros *chargerFichierPersonnages() {
 
 	// Création du pointeur vers le fichier texte
 	FILE *fichier_file = NULL;
