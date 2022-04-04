@@ -202,9 +202,11 @@ void ajouterHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 
 	else {
 		Elt_Heros *tmp = liste->premier;
+
 		while (tmp->suivant != NULL) {
 			tmp = tmp->suivant;
 		}
+
 		tmp->suivant = elt_heros;
 	}
 
@@ -237,11 +239,93 @@ void ajouterQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
 
 	else {
 		Elt_Question *tmp = liste->premier;
+
 		while (tmp->suivant != NULL) {
 			tmp = tmp->suivant;
 		}
+
 		tmp->suivant = elt_question;
 	}
 
 	liste->nb_questions++;
+}
+
+/**
+ * @brief Fonction permettant de vider la liste des héros
+ * @param liste Liste à vider
+**/
+void viderListeHeros(Liste_Heros *liste) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("viderListeHeros() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste est vide
+	if (liste->premier == NULL) {
+		printf("viderListeHeros() : La liste des héros est vide !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste contient un seul élément
+	if (liste->premier->suivant == NULL) {
+		free(liste->premier);
+		liste->premier = NULL;
+	}
+
+	else {
+		Elt_Heros *tmp = liste->premier;
+
+		while (tmp->suivant != NULL) {
+			Elt_Heros *tmp2 = tmp->suivant;
+			free(tmp);
+			tmp = tmp2;
+		}
+
+		free(tmp);
+		liste->premier = NULL;
+	}
+
+	liste->nb_heros = 0;
+}
+
+/**
+ * @brief Fonction permettant de vider la liste de questions
+ * @param liste Liste à vider
+**/
+void viderListeQuestions(Liste_Questions *liste) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("viderListeQuestions() : La liste des questions est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste est vide
+	if (liste->premier == NULL) {
+		printf("viderListeQuestions() : La liste des questions est vide !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste contient un seul élément
+	if (liste->premier->suivant == NULL) {
+		free(liste->premier);
+		liste->premier = NULL;
+	}
+
+	else {
+		Elt_Question *tmp = liste->premier;
+
+		while (tmp->suivant != NULL) {
+			Elt_Question *tmp2 = tmp->suivant;
+			free(tmp);
+			tmp = tmp2;
+		}
+
+		free(tmp);
+		liste->premier = NULL;
+	}
+
+	liste->nb_questions = 0;
 }
