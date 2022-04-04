@@ -202,9 +202,11 @@ void ajouterHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 
 	else {
 		Elt_Heros *tmp = liste->premier;
+
 		while (tmp->suivant != NULL) {
 			tmp = tmp->suivant;
 		}
+
 		tmp->suivant = elt_heros;
 	}
 
