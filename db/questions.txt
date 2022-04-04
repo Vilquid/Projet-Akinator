@@ -4,7 +4,7 @@
 0/humain/1 : Est-ce un extraterrestre ?
 0/humain/2 : Est-ce un mutant ?
 0/humain/3 : Est-ce un humain-alterne ?
-1/nationalite/Etats-Unis : Est-il de nationalite etats-unienne ?
+1/nationalite/Etats-Unis : Est-ce que le personnage est de nationalite etats-unienne ?
 1/age/true : Est-ce que le personnage a plus de
 1/equipement/true : Utilise-t-il plus son pouvoir que ses equipements ?
 1/volant/true : Peut-il voler ?
@@ -19,10 +19,10 @@
 
 Est-ce un homme ?
 Est-ce un humain ?
-Est-il de nationalite etats-unienne ?
+Est-ce que le personnage est de nationalite etats-unienne ?
 Est-ce qu'il a plus de
-Utilise-t-il plus son pouvoir que ses equipements ?
-Peut-il voler ?
+Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?
+Est-ce que le personnage vole ?
 Est-il masque ?
 A-t-il une taille humaine ?
 

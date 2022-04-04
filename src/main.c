@@ -2,9 +2,8 @@
 #include "../include/structs_donnees.h"
 #include "../include/gestion_listes.h"
 #include "../include/gestion_fichiers.h"
+#include "../include/jeu.h"
 
-
-void supprimer_heros_sexe_femme(Liste_Heros* p_heros);
 
 int main(/*int argc, char const *argv[]*/)
 {
@@ -48,11 +47,12 @@ int main(/*int argc, char const *argv[]*/)
 		heros_actuel.heros = liste_heros->premier->heros;
 
 		// Appel fonction pour choisir une question
-		Question question_actuelle = choisirQuestion(liste_questions);
+		Question question_actuelle = (Question) NULL;
+//		Question *question_actuelle = choisirQuestionAleatoire(liste_questions);
 
 		if (strcmp(question_actuelle.question, "Est-ce que le personnage a plus de") == 1)
 		{
-			itoa(calculer_moyenne_ages(liste_heros), string_age, 4);
+			itoa(calculAgeMoyenHerosSuspects(liste_heros), string_age, 4);
 
 			strcat(question_actuelle.question, " ");
 			strcat(question_actuelle.question, string_age);
@@ -64,7 +64,7 @@ int main(/*int argc, char const *argv[]*/)
 			printf("  2 - Non - Je ne sais pas\n");
 
 			// Supprimer les hérosqui ont un age supérieur à la moyenne
-			supprimer_heros_age_sup(liste_heros, calculer_moyenne_ages(liste_heros));
+			supprimerHerosSuspectsSelonAge(liste_heros);
 		}
 
 		else
@@ -80,64 +80,63 @@ int main(/*int argc, char const *argv[]*/)
 				&& est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1)
 			{
 				// Supprimer tous les héros qui ne sont pas des hommes
-				supprimer_heros_sexe_femme(liste_heros);
 			}
 
-				// C'est une femme
+			// C'est une femme
 			else if (strcmp(question_actuelle.question, "Est-ce un femme ?") == 0
-					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
+			&& est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est autre chose
+			// C'est autre chose (ni un homme, ni un femme)
 			else if (strcmp(question_actuelle.question, "Est-ce autre chose ?") == 0
 					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un humain
+			// C'est un humain
 			else if (strcmp(question_actuelle.question, "Est-ce un humain ?") == 0
 					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un extraterrestre
+			// C'est un extraterrestre
 			else if (strcmp(question_actuelle.question, "Est-ce un mutant ?") == 1
 					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un humain altéré
-			else if (strcmp(question_actuelle.question, "Est-ce un humain-alterne ?") == 1
+			// C'est un humain altéré
+			else if (strcmp(question_actuelle.question, "Est-ce un humain alterne ?") == 1
 					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un Etats-Uniens
-			else if (strcmp(question_actuelle.question, "Est-il de nationalite etats-unienne ?") == 1
-					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
+			// C'est un Etats-Uniens
+			else if (strcmp(question_actuelle.question, "Est-ce que le personnage est de nationalite etats-unienne ?")== 1 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// Age
-			else if (strcmp(question_actuelle.question, "Est-ce qu'il a plus de") == 1
-					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
+			// Le personnage utilise plus ses pouvoirs que ses equipements
+			else if (strcmp(question_actuelle.question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 1
+			&& est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un extraterrestre
-			else if (strcmp(question_actuelle.question, "Est-ce un extraterrestre ?") == 1
-					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
+			// Le personnage utilise moins ses pouvoirs que ses equipements
+			else if (strcmp(question_actuelle.question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 1
+			&& est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 2)
+			{
 
 			}
 
-				// C'est un extraterrestre
-			else if (strcmp(question_actuelle.question, "Est-ce un extraterrestre ?") == 1
-					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
+			// Le personnage vole
+			else if (strcmp(question_actuelle.question, "Est-ce que le personnage vole ?") == 1
+			&& est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
 			}
 
-				// C'est un extraterrestre
+			// C'est un extraterrestre
 			else if (strcmp(question_actuelle.question, "Est-ce un extraterrestre ?") == 1
 					 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1) {
 
@@ -187,7 +186,7 @@ int main(/*int argc, char const *argv[]*/)
 		}
 
 		// Eliminer les héros qui ne possèdent pas cet attribut
-		eliminerHeros(liste_heros, question_actuelle.attribut);
+//		eliminerHeros(liste_heros, question_actuelle.attribut);
 		// help
 
 		if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 1) // Oui
