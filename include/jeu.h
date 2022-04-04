@@ -12,11 +12,14 @@
 
 #include "librairies.h"
 #include "structs_donnees.h"
+#include <time.h>
 
 /*-----------------------------
    Déclaration des Fonctions
 -----------------------------*/
 
-int calculAgeMoyenHerosSuspects(Liste_Heros *liste_heros);
+int calculAgeMoyenHerosSuspects(Liste_Heros *liste);
+void supprimerHerosSuspectsSelonAge(Liste_Heros *liste);
+Question *choisirQuestionAleatoire(Liste_Questions *liste);
 
 #endif // JEU_H
