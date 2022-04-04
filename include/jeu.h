@@ -17,6 +17,6 @@
    Déclaration des Fonctions
 -----------------------------*/
 
-
+int calculAgeMoyenHerosSuspects(Liste_Heros *liste_heros);
 
 #endif // JEU_H
