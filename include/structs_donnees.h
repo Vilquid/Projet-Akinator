@@ -26,11 +26,11 @@ typedef struct Liste_Questions Liste_Questions;
 
 struct Heros {
 	char nom[25];         // Nom du perso
+	int age;              // Age du personnage
 	Sexe sexe;            // 0 = Homme, 1 = Femme, 2 = Autre
 	char nationalite[25]; // Nationalité du personnage
-	int age;              // Age du personnage
-	bool equipement;      // True => Oui en porte, False => Non en porte pas
 	Espece espece;        // 0 => Humain / 1 => Extraterrestre / 2 => Mutant / 3 => Humain-altere
+	bool equipement;      // True => Oui en porte, False => Non en porte pas
 	bool volant;          // True => il vole, False => ne vole pas
 	bool masque;          // True => porte un masque, False => Non
 	bool taille;          // True => taille normal, False => taille anormal
