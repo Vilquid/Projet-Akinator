@@ -3,6 +3,7 @@
 #include "../include/gestion_listes.h"
 #include "../include/gestion_fichiers.h"
 #include "../include/jeu.h"
+#include "../include/gestion_BDD.h"
 
 
 int main(/*int argc, char const *argv[]*/)
@@ -44,7 +45,6 @@ int main(/*int argc, char const *argv[]*/)
 		heros_actuel.heros = liste_heros->premier->heros;
 
 		// Appel fonction pour choisir une question
-//		Question question_actuelle = (Question) NULL;
 		Question *question_actuelle = choisirQuestionAleatoire(liste_questions);
 
 		if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 1)
@@ -195,7 +195,7 @@ int main(/*int argc, char const *argv[]*/)
 
 		if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 1)
 		{
-			ajouter_personnage_BDD();
+			ajouter_personnage_BDD(heros_temporaire);
 		}
 
 		else

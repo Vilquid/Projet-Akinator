@@ -19,8 +19,6 @@
 void convert_to_lower(char string[]);
 int est_une_string(char string[]);
 int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int nombre_2);
-void ajouter_question_BDD();
-void ajouter_personnage_BDD();
 void akinator();
 
 #endif // STRUCTS_FUNCTIONS_H
