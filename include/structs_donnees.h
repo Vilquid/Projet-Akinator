@@ -46,7 +46,6 @@ struct Question {
 
 struct Elt_Heros {
 	Heros *heros;
-	bool suspect;
 	Elt_Heros *suivant;
 };
 

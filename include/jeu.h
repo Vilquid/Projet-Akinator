@@ -12,6 +12,7 @@
 
 #include "librairies.h"
 #include "structs_donnees.h"
+#include "gestion_listes.h"
 #include <time.h>
 
 /*-----------------------------
@@ -19,8 +20,8 @@
 -----------------------------*/
 
 Question *choisirQuestionAleatoire(Liste_Questions *liste);
+Heros *choisirSuspect(Liste_Heros *liste);
 void afficherHeros(Heros *heros);
-
 int calculAgeMoyenHeros(Liste_Heros *liste);
 
 void supprimerHerosSelonAge(Liste_Heros *liste);

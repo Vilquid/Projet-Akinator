@@ -97,7 +97,6 @@ Elt_Heros *creerEltHeros(Heros *heros) {
 
 	// Initialiser les attributs
 	elt_heros->heros = heros;
-	elt_heros->suspect = false;
 	elt_heros->suivant = NULL;
 
 	return elt_heros;
@@ -251,6 +250,96 @@ void ajouterQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
 }
 
 /**
+ * @brief Fonction permettant de supprimer un héros de la liste de héros
+ * @param liste Liste des héros
+ * @param elt_heros Héros à supprimer de la liste
+**/
+void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosListe() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si l'élément est NULL
+	if (elt_heros == NULL) {
+		printf("supprimerHerosListe() : L'élément à supprimer est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste est vide
+	if (liste->premier == NULL) {
+		printf("supprimerHerosListe() : La liste des héros est vide !\n");
+		return;
+	}
+
+	// Si la liste contient un seul élément
+	if (liste->premier->suivant == NULL) {
+		free(liste->premier);
+		liste->premier = NULL;
+	}
+
+	else {
+		Elt_Heros *tmp = liste->premier;
+
+		while (tmp->suivant != elt_heros) {
+			tmp = tmp->suivant;
+		}
+
+		tmp->suivant = elt_heros->suivant;
+		free(elt_heros);
+	}
+
+	liste->nb_heros--;
+}
+
+/**
+ * @brief Fonction permettant de supprimer une question de la liste des questions
+ * @param liste Liste des questions
+ * @param elt_question Question à supprimer de la liste
+**/
+void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerQuestionListe() : La liste des questions est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si l'élément est NULL
+	if (elt_question == NULL) {
+		printf("supprimerQuestionListe() : L'élément à supprimer est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Si la liste est vide
+	if (liste->premier == NULL) {
+		printf("supprimerQuestionListe() : La liste des questions est vide !\n");
+		return;
+	}
+
+	// Si la liste contient un seul élément
+	if (liste->premier->suivant == NULL) {
+		free(liste->premier);
+		liste->premier = NULL;
+	}
+
+	else {
+		Elt_Question *tmp = liste->premier;
+
+		while (tmp->suivant != elt_question) {
+			tmp = tmp->suivant;
+		}
+
+		tmp->suivant = elt_question->suivant;
+		free(elt_question);
+	}
+
+	liste->nb_questions--;
+}
+
+/**
  * @brief Fonction permettant de vider la liste des héros
  * @param liste Liste à vider
 **/
@@ -265,7 +354,7 @@ void viderListeHeros(Liste_Heros *liste) {
 	// Si la liste est vide
 	if (liste->premier == NULL) {
 		printf("viderListeHeros() : La liste des héros est vide !\n");
-		exit(EXIT_FAILURE);
+		return;
 	}
 
 	// Si la liste contient un seul élément
@@ -305,7 +394,7 @@ void viderListeQuestions(Liste_Questions *liste) {
 	// Si la liste est vide
 	if (liste->premier == NULL) {
 		printf("viderListeQuestions() : La liste des questions est vide !\n");
-		exit(EXIT_FAILURE);
+		return;
 	}
 
 	// Si la liste contient un seul élément

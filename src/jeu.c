@@ -12,6 +12,12 @@
 **/
 Question *choisirQuestionAleatoire(Liste_Questions *liste) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("choisirQuestionAleatoire() : La liste des questions est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	// Initialiser l'aléatoire
 	srand(time(NULL));
 
@@ -27,23 +33,67 @@ Question *choisirQuestionAleatoire(Liste_Questions *liste) {
 }
 
 /**
+ * @brief Fonction permettant de choisir un suspect dans la liste des héros, s'il reste 2 héros ou moins dans la liste 
+ * @param liste Liste des héros
+ * @return Heros* – Pointeur vers le suspect identifié (tiré au sort si 2 restants) ou NULL s'il y a plus de 2 héros restants dans la liste
+**/
+Heros *choisirSuspect(Liste_Heros *liste) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("choisirSuspect() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// S'il reste 2 héros dans la liste
+	if (liste->nb_heros == 2) {
+
+		// Initialiser l'aléatoire
+		srand(time(NULL));
+
+		// Choisir un héros au hasard
+		int nb_aleatoire = rand() % 2;
+
+		Elt_Heros *elt_actuel = liste->premier;
+
+		for (int i = 0; i < nb_aleatoire; i++) {
+			elt_actuel = elt_actuel->suivant;
+		}
+
+		return elt_actuel->heros;
+	}
+
+	// S'il reste 1 héros dans la liste
+	else if (liste->nb_heros == 1) {
+
+		Elt_Heros *elt_actuel = liste->premier;
+
+		return elt_actuel->heros;
+	}
+
+	return NULL;
+}
+
+/**
  * @brief Fonction permettant d'afficher les informations d'un héros
  * @param heros Héros à afficher
 **/
 void afficherHeros(Heros *heros) {
 
-	// Afficher les attributs
-	printf("Nom : %s\n", heros->nom);
-	printf("Age : %d ans\n", heros->age);
-	printf("Sexe : %s\n", heros->sexe);
-	printf("Nationalité : %s\n", heros->nationalite);
-	printf("Espece : %s\n", heros->espece);
-	printf("Equipement : %s\n", heros->equipement ? "Oui" : "Non");
-	printf("Volant : %s\n", heros->volant ? "Oui" : "Non");
-	printf("Masque : %s\n", heros->masque ? "Oui" : "Non");
-	printf("Taille Humaine : %s\n", heros->taille ? "Oui" : "Non");
-	printf("Couleur associee : %s\n", heros->couleur);
-	printf("\n");
+	if (heros != NULL) {
+		// Afficher les attributs
+		printf("Nom : %s\n", heros->nom);
+		printf("Age : %d ans\n", heros->age);
+		printf("Sexe : %s\n", heros->sexe);
+		printf("Nationalité : %s\n", heros->nationalite);
+		printf("Espece : %s\n", heros->espece);
+		printf("Equipement : %s\n", heros->equipement ? "Oui" : "Non");
+		printf("Volant : %s\n", heros->volant ? "Oui" : "Non");
+		printf("Masque : %s\n", heros->masque ? "Oui" : "Non");
+		printf("Taille Humaine : %s\n", heros->taille ? "Oui" : "Non");
+		printf("Couleur associee : %s\n", heros->couleur);
+		printf("\n");
+	}
 }
 
 /**
@@ -53,22 +103,23 @@ void afficherHeros(Heros *heros) {
 **/
 int calculAgeMoyenHeros(Liste_Heros *liste) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("calculAgeMoyenHeros() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	float age_moyen = 0;
-	int nb_heros = 0;
 
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->suspect == true) {
-			age_moyen += elt_actuel->heros->age;
-			nb_heros++;
-		}
-
+		age_moyen += elt_actuel->heros->age;
 		elt_actuel = elt_actuel->suivant;
 	}
 
-	return (int)(age_moyen / nb_heros);
+	return (int)(age_moyen / liste->nb_heros);
 }
 
 /**
@@ -77,13 +128,19 @@ int calculAgeMoyenHeros(Liste_Heros *liste) {
 **/
 void supprimerHerosSelonAge(Liste_Heros *liste) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonAge() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 	int age_moyen = calculAgeMoyenHeros(liste);
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->age > age_moyen) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -97,12 +154,18 @@ void supprimerHerosSelonAge(Liste_Heros *liste) {
 **/
 void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonSexe() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->sexe != sexe) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -116,12 +179,18 @@ void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 **/
 void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[25]) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonNationalite() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (strcmp(elt_actuel->heros->nationalite, nationalite) != 0) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -135,12 +204,18 @@ void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[25]) {
 **/
 void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonEspece() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->espece != espece) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -154,12 +229,18 @@ void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 **/
 void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonEquipement() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->equipement != equipement) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -173,12 +254,18 @@ void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 **/
 void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonVolant() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->volant != volant) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -192,12 +279,18 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 **/
 void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonMasque() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->masque != masque) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -211,12 +304,18 @@ void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 **/
 void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonTaille() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->taille != taille) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -230,12 +329,18 @@ void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 **/
 void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[25]) {
 
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonCouleur() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
 	Elt_Heros *elt_actuel = liste->premier;
 
 	while (elt_actuel != NULL)
 	{
 		if (strcmp(elt_actuel->heros->couleur, couleur) != 0) {
-			elt_actuel->suspect = false;
+			supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;

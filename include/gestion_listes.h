@@ -29,6 +29,9 @@ Liste_Questions *creerListeQuestions();
 void ajouterHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros);
 void ajouterQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
 
+void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros);
+void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
+
 void viderListeHeros(Liste_Heros *liste);
 void viderListeQuestions(Liste_Questions *liste);
 
