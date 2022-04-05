@@ -22,9 +22,10 @@ Est-ce un humain ?
 Est-ce que le personnage est de nationalite etats-unienne ?
 Est-ce qu'il a plus de
 Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?
+Est-ce que le personnage utilise plus ses equipements que ses pouvoirs ?
 Est-ce que le personnage vole ?
 Est-il masque ?
-A-t-il une taille humaine ?
+Est-ce que le personnage a la taille d'un humain adulte ?
 
 Est-ce un extraterrestre ?
 Est-ce un mutant ?
