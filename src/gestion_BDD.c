@@ -58,15 +58,15 @@ void ajouter_personnage_BDD()
 	FILE* fichier_personnages = NULL;
 
 	// string à rentrer dans la BDD
-	int taille = 1;
-	char* string = (char*)malloc(taille * sizeof(char));
+	char string[256];
+	memset(string, '\0', 256 * sizeof(char));
 
 	int choix_int = 1;
 	char choix_string[256] = "";
 
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
-		printf("Quel est le nom du h%cros ?\n");
+		printf("Quel est le nom du h%cros ?\n", e_aigu);
 		do {
 			printf("Son nom : ");
 			scanf("%s", choix_string);
@@ -146,7 +146,7 @@ void ajouter_personnage_BDD()
 					scanf("%s", choix_string);
 					printf("\n");
 
-					for (int i = 0; i < strlen(choix_string); i++)
+					for (size_t i = 0; i < strlen(choix_string); i++)
 					{
 						if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
 						{
@@ -238,7 +238,7 @@ void ajouter_personnage_BDD()
 			}
 		}
 
-		printf("Est-ce que le h%cros vole-t-il ?\n");
+		printf("Est-ce que le h%cros vole-t-il ?\n", e_aigu);
 		printf("  1 - Oui\n");
 		printf("  2 - Non\n");
 
@@ -254,7 +254,7 @@ void ajouter_personnage_BDD()
 			strcat(string, choix_string);
 		}
 
-		printf("Est-ce que le h%cros porte-t-il un masque ?\n");
+		printf("Est-ce que le h%cros porte-t-il un masque ?\n", e_aigu);
 		printf("  1 - Oui\n");
 		printf("  2 - Non\n");
 

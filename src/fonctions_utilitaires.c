@@ -12,7 +12,7 @@
 **/
 void convert_to_lower(char string[])
 {
-	for (int i = 0; i < strlen(string); i++)
+	for (size_t i = 0; i < strlen(string); i++)
 	{
 		string[i] = tolower(string[i]);
 	}
@@ -27,7 +27,7 @@ void convert_to_lower(char string[])
 **/
 int est_une_string(char string[])
 {
-	int test = 0;
+	size_t test = 0;
 
 	for (int i = 0; i < 256; i++)
 	{
