@@ -69,3 +69,23 @@ Question *choisirQuestionAleatoire(Liste_Questions *liste) {
 
 	return elt_actuel->question;
 }
+
+/**
+ * @brief Fonction permettant d'afficher les informations d'un héros
+ * @param heros Héros à afficher
+**/
+void afficherHeros(Heros *heros) {
+
+	// Afficher les attributs
+	printf("Nom : %s\n", heros->nom);
+	printf("Age : %d ans\n", heros->age);
+	printf("Sexe : %s\n", heros->sexe);
+	printf("Nationalité : %s\n", heros->nationalite);
+	printf("Equipement : %s\n", heros->equipement ? "Oui" : "Non");
+	printf("Espece : %s\n", heros->espece);
+	printf("Volant : %s\n", heros->volant ? "Oui" : "Non");
+	printf("Masque : %s\n", heros->masque ? "Oui" : "Non");
+	printf("Taille Humaine : %s\n", heros->taille ? "Oui" : "Non");
+	printf("Couleur associee : %s\n", heros->couleur);
+	printf("\n");
+}
