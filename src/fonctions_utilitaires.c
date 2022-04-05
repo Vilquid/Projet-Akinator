@@ -68,7 +68,7 @@ int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int 
 			printf("\nChoix incorrect. Veillez recommencer.\n");
 		}
 	} while (!isdigit(choix) && (choix < nombre_1 || choix > nombre_2));
-	// potentiel problème avec la valeur de retour de isdigit()
+	// potentiel problème avec la valeur de retour d'isdigit()
 	
 	return choix;
 }
@@ -78,7 +78,7 @@ int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int 
  * @fn akinator
  * @brief Affiche le nom du programme
 **/
-void akinator() // ne pas toucher même si c'est moche car ça rend bien
+void akinator() // ne pas toucher même si c'est moche, car ça rend bien
 {
 	printf("___  ___                 _             _                    \n");
 	printf("|  \\/  |                (_)           | |                  \n");

@@ -26,7 +26,7 @@ typedef struct Liste_Questions Liste_Questions;
 
 struct Heros {
 	char nom[25];         // Nom du perso
-	int age;              // Age du personnage
+	int age;              // Âge du personnage
 	Sexe sexe;            // 0 = Homme, 1 = Femme, 2 = Autre
 	char nationalite[25]; // Nationalité du personnage
 	Espece espece;        // 0 => Humain / 1 => Extraterrestre / 2 => Mutant / 3 => Humain-altere
@@ -40,7 +40,7 @@ struct Heros {
 struct Question {
 	char question[128];
 	char reponse_attendue[64];
-	int priorite;
+//	int priorite;
 	char attribut[32];
 };
 

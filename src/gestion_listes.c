@@ -67,7 +67,7 @@ Question *creerQuestion(char question[128], char reponse_attendue[64], int prior
 	// Initialiser les attributs
 	strcpy(quest->question, question);
 	strcpy(quest->reponse_attendue, reponse_attendue);
-	quest->priorite = priorite;
+//	quest->priorite = priorite;
 	strcpy(quest->attribut, attribut);
 
 	return quest;
