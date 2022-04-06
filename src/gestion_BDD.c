@@ -5,13 +5,11 @@
 
 #include "../include/gestion_BDD.h"
 
-
 /**
- * @fn ajouter_question_BDD
- * @brief Ajoute une ou plusieurs questions à la base de données questions
+ * @brief Fonction permettant d'ajouter une question à la base de données questions
 **/
-void ajouter_question_BDD()
-{
+void ajouter_question_BDD() {
+
 	FILE* fichier_questions = NULL;
 
 	// string à rentrer dans la BDD
@@ -50,11 +48,11 @@ void ajouter_question_BDD()
 }
 
 /**
- * @fn ajouter_personnage_questions_BDD
- * @brief Ajoute un personnage à la base de données personnages
+ * @brief Fonction permettant d'ajouter un personnage à la base de données personnages
+ * @param heros Héros à ajouter
 **/
-void ajouter_personnage_BDD(Heros heros)
-{
+void ajouter_personnage_BDD(Heros heros) {
+
 	FILE* fichier_personnages = NULL;
 
 	// string à rentrer dans la BDD

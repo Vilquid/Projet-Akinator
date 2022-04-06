@@ -1,13 +1,12 @@
-#include "../include/fonctions_utilitaires.h"
-#include "../include/structs_donnees.h"
-#include "../include/gestion_listes.h"
-#include "../include/gestion_fichiers.h"
-#include "../include/jeu.h"
-#include "../include/gestion_BDD.h"
+/**
+ * @file main.c
+ * @brief Fichier contenant la fonction principale du programme
+**/
 
+#include "../include/main.h"
 
-int main(/*int argc, char const *argv[]*/)
-{
+int main() {
+
 	akinator();
 
 	bool heros_trouve = false;

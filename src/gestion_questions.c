@@ -1,12 +1,11 @@
-#include "../include/librairies.h"
-#include "../include/structs_donnees.h"
-#include "../include/gestion_listes.h"
-#include <sys/stat.h>
+/**
+ * @file gestion_questions.c
+ * @brief Fichier contenant toutes les fonctions gérer les questions
+**/
+
+#include "../include/gestion_questions.h"
 
 const char *filename = "questions.txt";
-
-char recupQuestion(Liste_Questions *file_questions);
-Liste_Questions *initQuestions();
 
 Liste_Questions *initQuestions() {
 
@@ -40,7 +39,7 @@ Liste_Questions *initQuestions() {
 	return file_questions;
 }
 
-char recupQuestion(Liste_Questions *file_questions) {
+char recupQuestion(Liste_Questions *liste) {
 
 	char str_question[128];
 
