@@ -59,7 +59,7 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 	while (!feof(fichier_persos)) {
 
 		// Récupérer les données de la ligne courante du fichier texte
-		fscanf(fichier_persos, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
+		fscanf(fichier_persos, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, &age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
 
 		// Faire correspondre la chaîne de caractères à l'énumération Sexe
 		if (strcmp(sexe_tmp, "homme") == 0) {
