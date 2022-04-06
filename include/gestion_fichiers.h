@@ -18,7 +18,7 @@
    Déclaration des Fonctions
 -----------------------------*/
 
-Liste_Heros *chargerFichierPersonnages();
-Liste_Questions *chargerFichierQuestions();
+Liste_Heros *chargerDonneesFichierPersonnages();
+Liste_Questions *chargerDonneesFichierQuestions();
 
 #endif // GESTION_FICHIERS_H

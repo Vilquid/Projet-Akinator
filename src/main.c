@@ -22,8 +22,8 @@ int main() {
 	do // Boucle testant tous les héros pour chaque question
 	{
 		// Mise à jour des listes
-		liste_heros = chargerFichierPersonnages();
-		liste_questions = chargerFichierQuestions();
+		liste_heros = chargerDonneesFichierPersonnages();
+		liste_questions = chargerDonneesFichierQuestions();
 
 		if (liste_heros == NULL)
 		{

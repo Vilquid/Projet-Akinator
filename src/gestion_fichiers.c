@@ -5,27 +5,26 @@
 
 #include "../include/gestion_fichiers.h"
 
-// TODO : Fonction de récupération des questions
-Liste_Questions *chargerFichierQuestions() {
-	return NULL;
-}
-
-Liste_Heros *chargerFichierPersonnages() {
+/**
+ * @brief Fonction permettant de lire le fichier des personnages, créer les héros trouvés, et les ajouter à la liste des héros
+ * @return Liste_Heros* – Pointeur vers la liste de héros créée
+**/
+Liste_Heros *chargerDonneesFichierPersonnages() {
 
 	// Création du pointeur vers le fichier texte
-	FILE *fichier_file = NULL;
+	FILE *fichier_persos = NULL;
 
 	// Ouverture du fichier texte en lecture
-	fichier_file = fopen("../db/personnages.txt", "r");
+	fichier_persos = fopen("../db/personnages.txt", "r");
 
 	// Si le fichier texte n'a pas pu être ouvert
-	if (fichier_file == NULL) {
-		printf("Erreur d'ouverture du fichier texte !\n");
+	if (fichier_persos == NULL) {
+		printf("chargerDonneesFichierPersonnages() : Erreur d'ouverture du fichier texte !\n");
 		exit(EXIT_FAILURE);
 	}
 
-	// Création du pointeur de la pile
-	Liste_Heros *file = creerListeHeros();
+	// Création du pointeur de la liste
+	Liste_Heros *liste_heros = creerListeHeros();
 
 	// Variables à récupérer
 	char nom[25];
@@ -57,10 +56,10 @@ Liste_Heros *chargerFichierPersonnages() {
 	memset(taille_tmp, '\0', 15 * sizeof(char));
 
 	// Tant qu'on n'est pas arrivé à la fin du fichier
-	while (!feof(fichier_file)) {
+	while (!feof(fichier_persos)) {
 
 		// Récupérer les données de la ligne courante du fichier texte
-		fscanf(fichier_file, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
+		fscanf(fichier_persos, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
 
 		// Faire correspondre la chaîne de caractères à l'énumération Sexe
 		if (strcmp(sexe_tmp, "homme") == 0) {
@@ -111,11 +110,75 @@ Liste_Heros *chargerFichierPersonnages() {
 		}
 
 		// Créer et ajouter à la liste des héros un nouvel élément à partir des données récupérées
-		ajouterHerosListe(file, creerEltHeros(creerHeros(nom, age, sexe, nationalite, espece, equipement, volant, masque, taille, couleur)));
+		ajouterHerosListe(liste_heros, creerEltHeros(creerHeros(nom, age, sexe, nationalite, espece, equipement, volant, masque, taille, couleur)));
+
+		// Réinitialiser les chaînes de caractères
+		memset(nom, '\0', 25 * sizeof(char));
+		memset(nationalite, '\0', 25 * sizeof(char));
+		memset(couleur, '\0', 15 * sizeof(char));
+		memset(sexe_tmp, '\0', 10 * sizeof(char));
+		memset(espece_tmp, '\0', 10 * sizeof(char));
+		memset(equipement_tmp, '\0', 15 * sizeof(char));
+		memset(volant_tmp, '\0', 15 * sizeof(char));
+		memset(masque_tmp, '\0', 15 * sizeof(char));
+		memset(taille_tmp, '\0', 15 * sizeof(char));
 	}
 
 	// Fermeture du fichier texte
-	fclose(fichier_file);
+	fclose(fichier_persos);
 
-	return file;
+	return liste_heros;
+}
+
+/**
+ * @brief Fonction permettant de lire le fichier des questions, créer les questions trouvées, et les ajouter à la liste des questions
+ * @return Liste_Questions* – Pointeur vers la liste de questions créée
+**/
+Liste_Questions *chargerDonneesFichierQuestions() {
+
+	// Création du pointeur vers le fichier texte
+	FILE *fichier_questions = NULL;
+
+	// Ouverture du fichier texte en lecture
+	fichier_questions = fopen("../db/questions.txt", "r");
+
+	// Si le fichier texte n'a pas pu être ouvert
+	if (fichier_questions == NULL) {
+		printf("chargerDonneesFichierQuestions() : Erreur d'ouverture du fichier texte !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	// Création du pointeur de la liste
+	Liste_Questions *liste_questions = creerListeQuestions();
+
+	// Variables à récupérer
+	char question[128];
+	memset(question, '\0', 128 * sizeof(char));
+	char reponse_attendue[64];
+	memset(reponse_attendue, '\0', 64 * sizeof(char));
+	int priorite = 0;
+	char attribut[32];
+	memset(attribut, '\0', 32 * sizeof(char));
+
+	// Tant qu'on n'est pas arrivé à la fin du fichier
+	while (!feof(fichier_questions)) {
+
+		// Récupérer les données de la ligne courante du fichier texte
+		// TODO : Récupération et traitement des données récupérées du fichier texte
+		fscanf(fichier_questions, "%s\n", question);
+
+		// Créer et ajouter à la liste des questions un nouvel élément à partir des données récupérées
+		ajouterQuestionListe(liste_questions, creerEltQuestion(creerQuestion(question, reponse_attendue, priorite, attribut)));
+
+		// Réinitialiser les chaînes de caractères
+		memset(question, '\0', 128 * sizeof(char));
+		memset(reponse_attendue, '\0', 64 * sizeof(char));
+		memset(attribut, '\0', 32 * sizeof(char));
+	}
+
+	// Fermer le fichier texte
+	fclose(fichier_questions);
+
+	// Retourner la liste des questions
+	return liste_questions;
 }
