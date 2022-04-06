@@ -6,14 +6,19 @@
 #ifndef LIBRAIRIES_H
 #define LIBRAIRIES_H
 
+/*---------------------
+   Appel des Headers
+---------------------*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
 #include <ctype.h>
 
-
-#endif // LIBRAIRIES_H
+/*-------------------------------
+   Déclaration des Définitions
+-------------------------------*/
 
 #define e_aigu 130
 #define a_circonflexe 131
@@ -22,3 +27,5 @@
 #define e_circonflexe 136
 #define e_grave 138
 #define E_aigu 144
+
+#endif // LIBRAIRIES_H

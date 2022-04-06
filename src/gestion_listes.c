@@ -8,18 +8,18 @@
 /**
  * @brief Fonction permettant de créer un héros
  * @param nom Nom du personnage
+ * @param age Age du personnage
  * @param sexe Sexe du personnage
  * @param nationalite Nationalité du personnage
- * @param age Age du personnage
- * @param equipement Si le personnage porte un équipement
  * @param espece Espèce du personnage
+ * @param equipement Si le personnage porte un équipement
  * @param volant Si le personnage peut voler nativement (sans équipement)
  * @param masque Si le personnage porte un masque
  * @param taille Si le personnage est de taille normale ou non
  * @param couleur Couleur prédominante du personnage
  * @return Heros* – Pointeur vers le héros créé
 **/
-Heros *creerHeros(char nom[25], Sexe sexe, char nationalite[25], int age, bool equipement, Espece espece, bool volant, bool masque, bool taille, char couleur[15]) {
+Heros *creerHeros(char nom[], int age, Sexe sexe, char nationalite[], Espece espece, bool equipement, bool volant, bool masque, bool taille, char couleur[]) {
 
 	// Création de la liste
 	Heros *heros = malloc(sizeof(Heros));
@@ -32,11 +32,11 @@ Heros *creerHeros(char nom[25], Sexe sexe, char nationalite[25], int age, bool e
 
 	// Initialiser les attributs
 	strcpy(heros->nom, nom);
+	heros->age = age;
 	heros->sexe = sexe;
 	strcpy(nationalite, heros->nationalite);
-	heros->age = age;
-	heros->equipement = equipement;
 	heros->espece = espece;
+	heros->equipement = equipement;
 	heros->volant = volant;
 	heros->masque = masque;
 	heros->taille = taille;
@@ -53,7 +53,7 @@ Heros *creerHeros(char nom[25], Sexe sexe, char nationalite[25], int age, bool e
  * @param attribut Attribut ciblé par la question
  * @return Question* – Pointeur vers la question créée
 **/
-Question *creerQuestion(char question[128], char reponse_attendue[64], int priorite, char attribut[32]) {
+Question *creerQuestion(char question[], char reponse_attendue[], int priorite, char attribut[]) {
 
 	// Création de la liste
 	Question *quest = malloc(sizeof(Question));
@@ -67,7 +67,7 @@ Question *creerQuestion(char question[128], char reponse_attendue[64], int prior
 	// Initialiser les attributs
 	strcpy(quest->question, question);
 	strcpy(quest->reponse_attendue, reponse_attendue);
-//	quest->priorite = priorite;
+	quest->priorite = priorite;
 	strcpy(quest->attribut, attribut);
 
 	return quest;

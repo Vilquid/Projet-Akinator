@@ -15,7 +15,6 @@ int main(/*int argc, char const *argv[]*/)
 	Elt_Heros heros_actuel;
 	Heros heros_temporaire;
 	int choix_int = 0;
-	char* string_age;
 
 	// Création des listes de héros et de questions
 	Liste_Heros* liste_heros = NULL;
@@ -49,14 +48,8 @@ int main(/*int argc, char const *argv[]*/)
 
 		if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 1)
 		{
-			itoa(calculAgeMoyenHeros(liste_heros), string_age, 4);
-
-			strcat(question_actuelle->question, " ");
-			strcat(question_actuelle->question, string_age);
-			strcat(question_actuelle->question, " ans ?\n");
-
 			// Afficher la question
-			printf("%s", question_actuelle->question);
+			printf("%s %d ans ?\n", question_actuelle->question, calculAgeMoyenHeros(liste_heros));
 			printf("  1 - Oui\n");
 			printf("  2 - Non - Je ne sais pas\n");
 
@@ -131,8 +124,8 @@ int main(/*int argc, char const *argv[]*/)
 			else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?")== 1 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1)
 			{
 				// Supprimer tous les héros qui sont de nationalité
-				supprimerHerosSelonNationalite(liste_heros, "");
-				strcpy(heros_temporaire.nationalite, "");
+				supprimerHerosSelonNationalite(liste_heros, "Etats-Unis");
+				strcpy(heros_temporaire.nationalite, "Etats-Unis");
 			}
 
 			// Equipement
@@ -141,14 +134,14 @@ int main(/*int argc, char const *argv[]*/)
 				if (est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1)
 				{
 					// Supprimer tous les héros qui n'utilisent pas pluis leurs pouvoirs que leur équipement
-					supprimerHerosSelonEquipement(liste_heros, "pouvoirs");
+					supprimerHerosSelonEquipement(liste_heros, false);
 					heros_temporaire.equipement = false;
 				}
 
 				else
 				{
 					// Supprimer tous les héros qui n'utilisent pas plus leurs pouvoirs que leur équipement
-					supprimerHerosSelonEquipement(liste_heros, "equipement");
+					supprimerHerosSelonEquipement(liste_heros, true);
 					heros_temporaire.equipement = true;
 				}
 			}

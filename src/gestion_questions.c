@@ -1,25 +1,25 @@
-//#include "structs-functions.h"
 #include "../include/librairies.h"
 #include "../include/structs_donnees.h"
 #include "../include/gestion_listes.h"
 #include <sys/stat.h>
 
-const char* filename = "questions.txt";
+const char *filename = "questions.txt";
 
-char recupQuestion(Liste_Questions* fileQuestion);
-Liste_Questions* initQuestions();
+char recupQuestion(Liste_Questions *file_questions);
+Liste_Questions *initQuestions();
 
-Liste_Questions* initQuestions(){
-    FILE* fichier_questions = NULL;
-	Liste_Questions* fileQuestion = creerListeQuestions();
+Liste_Questions *initQuestions() {
 
-    fichier_questions = fopen(filename, "r");
+	FILE *fichier_questions = NULL;
+	Liste_Questions *file_questions = creerListeQuestions();
 
-	if(!fichier_questions){
+	fichier_questions = fopen(filename, "r");
+
+	if (!fichier_questions) {
 		perror("fopen");
 		exit(EXIT_FAILURE);
 	}
-	
+
 	struct stat sb;
 	if (stat(filename, &sb) == -1) {
 		perror("stat");
@@ -27,22 +27,22 @@ Liste_Questions* initQuestions(){
 	}
 
 	char *file_contents = malloc(sb.st_size);
-    int priority;
-    char attribute[32];
-    char reponse[32];
+	int priority = 0;
+	char attribute[32];
+	char reponse[32];
 
-	while (fscanf(fichier_questions, "%d/%s/%s : %[^\n] ", priority, attribute, reponse, file_contents) != EOF){
+	while (fscanf(fichier_questions, "%d/%s/%s : %[^\n] ", priority, attribute, reponse, file_contents) != EOF) {
 		printf("> %s : %d/%s/%s\n", file_contents, priority, attribute, reponse);
 	}
-	
+
 	fclose(fichier_questions);
-    return fileQuestion;
+
+	return file_questions;
 }
 
-char recupQuestion(Liste_Questions* fileQuestion){
-    char strQuestion[128];
+char recupQuestion(Liste_Questions *file_questions) {
 
-	
+	char str_question[128];
 
-    return strQuestion;
+	return str_question;
 }

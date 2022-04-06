@@ -118,7 +118,7 @@ void ajouter_personnage_BDD(Heros heros)
 						scanf("%s", choix_string);
 						printf("\n");
 
-						for (int i = 0; i < strlen(choix_string); i++)
+						for (size_t i = 0; i < strlen(choix_string); i++)
 						{
 							if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
 							{
@@ -233,7 +233,7 @@ void ajouter_personnage_BDD(Heros heros)
 
 		else
 		{
-			printf("Quel est le nom du h%cros ?\n");
+			printf("Quel est le nom du h%cros ?\n", e_aigu);
 			do {
 				printf("Son nom : ");
 				scanf("%s", choix_string);
@@ -313,7 +313,7 @@ void ajouter_personnage_BDD(Heros heros)
 						scanf("%s", choix_string);
 						printf("\n");
 
-						for (int i = 0; i < strlen(choix_string); i++)
+						for (size_t i = 0; i < strlen(choix_string); i++)
 						{
 							if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
 							{

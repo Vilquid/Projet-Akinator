@@ -81,12 +81,48 @@ Heros *choisirSuspect(Liste_Heros *liste) {
 void afficherHeros(Heros *heros) {
 
 	if (heros != NULL) {
+
 		// Afficher les attributs
 		printf("Nom : %s\n", heros->nom);
 		printf("Age : %d ans\n", heros->age);
-		printf("Sexe : %s\n", heros->sexe);
+
+		// Afficher le sexe en toute lettre à partir de l'énumération Sexe
+		switch (heros->sexe) {
+			case HOMME:
+				printf("Sexe : Homme\n");
+				break;
+			case FEMME:
+				printf("Sexe : Femme\n");
+				break;
+			case AUTRE:
+				printf("Sexe : Autre\n");
+				break;
+			default:
+				printf("Sexe : Inconnu\n");
+				break;
+		}
+
 		printf("Nationalité : %s\n", heros->nationalite);
-		printf("Espece : %s\n", heros->espece);
+
+		// Afficher l'espèce en toute lettre à partir de l'énumération Espece
+		switch (heros->espece) {
+			case HUMAIN:
+				printf("Espece : Humain\n");
+				break;
+			case EXTRATERRESTRE:
+				printf("Espece : Extraterrestre\n");
+				break;
+			case MUTANT:
+				printf("Espece : Mutant\n");
+				break;
+			case HUMAIN_ALTERE:
+				printf("Espece : Humain Altere\n");
+				break;
+			default:
+				printf("Espece : Inconnu\n");
+				break;
+		}
+
 		printf("Equipement : %s\n", heros->equipement ? "Oui" : "Non");
 		printf("Volant : %s\n", heros->volant ? "Oui" : "Non");
 		printf("Masque : %s\n", heros->masque ? "Oui" : "Non");
@@ -177,7 +213,7 @@ void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
  * @param liste Liste des héros
  * @param nationalite Nationalité précisée par l'utilisateur
 **/
-void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[25]) {
+void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
@@ -327,7 +363,7 @@ void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
  * @param liste Liste des héros
  * @param couleur Attribut couleur précisé par l'utilisateur
 **/
-void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[25]) {
+void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
