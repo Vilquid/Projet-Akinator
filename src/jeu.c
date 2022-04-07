@@ -102,7 +102,7 @@ void afficherHeros(Heros *heros) {
 				break;
 		}
 
-		printf("Nationalité : %s\n", heros->nationalite);
+		printf("Nationalite : %s\n", heros->nationalite);
 
 		// Afficher l'espèce en toute lettre à partir de l'énumération Espece
 		switch (heros->espece) {
@@ -126,7 +126,7 @@ void afficherHeros(Heros *heros) {
 		printf("Equipement : %s\n", heros->equipement ? "Oui" : "Non");
 		printf("Volant : %s\n", heros->volant ? "Oui" : "Non");
 		printf("Masque : %s\n", heros->masque ? "Oui" : "Non");
-		printf("Taille Humaine : %s\n", heros->taille ? "Oui" : "Non");
+		printf("Taille humaine : %s\n", heros->taille ? "Oui" : "Non");
 		printf("Couleur associee : %s\n", heros->couleur);
 		printf("\n");
 	}

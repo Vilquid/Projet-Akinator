@@ -39,13 +39,13 @@ Heros *creerHeros(char nom[], int age, Sexe sexe, char nationalite[], Espece esp
 	strcpy(heros->nom, nom);
 	heros->age = age;
 	heros->sexe = sexe;
-	strcpy(nationalite, heros->nationalite);
+	strcpy(heros->nationalite, nationalite);
 	heros->espece = espece;
 	heros->equipement = equipement;
 	heros->volant = volant;
 	heros->masque = masque;
 	heros->taille = taille;
-	strcpy(couleur, heros->couleur);
+	strcpy(heros->couleur, couleur);
 
 	return heros;
 }
