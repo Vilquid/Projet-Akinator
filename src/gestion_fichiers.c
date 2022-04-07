@@ -28,35 +28,37 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 
 	// Variables à récupérer
 	char nom[25];
-	memset(nom, '\0', 25 * sizeof(char));
 	int age = 0;
 	Sexe sexe = 0;
 	char nationalite[25];
-	memset(nationalite, '\0', 25 * sizeof(char));
 	Espece espece = 0;
 	bool equipement = false;
 	bool volant = false;
 	bool masque = false;
 	bool taille = false;
-	char couleur[15];
-	memset(couleur, '\0', 15 * sizeof(char));
+	char couleur[25];
 
 	// Variables temporaires pour traiter et interpréter les chaînes de caractères
 	char sexe_tmp[10];
-	memset(sexe_tmp, '\0', 10 * sizeof(char));
-	char espece_tmp[15];
-	memset(espece_tmp, '\0', 15 * sizeof(char));
-	char equipement_tmp[15];
-	memset(equipement_tmp, '\0', 15 * sizeof(char));
-	char volant_tmp[15];
-	memset(volant_tmp, '\0', 15 * sizeof(char));
-	char masque_tmp[15];
-	memset(masque_tmp, '\0', 15 * sizeof(char));
-	char taille_tmp[15];
-	memset(taille_tmp, '\0', 15 * sizeof(char));
+	char espece_tmp[25];
+	char equipement_tmp[25];
+	char volant_tmp[25];
+	char masque_tmp[25];
+	char taille_tmp[25];
 
 	// Tant qu'on n'est pas arrivé à la fin du fichier
 	while (!feof(fichier_persos)) {
+
+		// Réinitialiser les chaînes de caractères
+		memset(nom, '\0', 25 * sizeof(char));
+		memset(nationalite, '\0', 25 * sizeof(char));
+		memset(couleur, '\0', 25 * sizeof(char));
+		memset(sexe_tmp, '\0', 10 * sizeof(char));
+		memset(espece_tmp, '\0', 25 * sizeof(char));
+		memset(equipement_tmp, '\0', 25 * sizeof(char));
+		memset(volant_tmp, '\0', 25 * sizeof(char));
+		memset(masque_tmp, '\0', 25 * sizeof(char));
+		memset(taille_tmp, '\0', 25 * sizeof(char));
 
 		// Récupérer les données de la ligne courante du fichier texte
 		fscanf(fichier_persos, "%s %s %s %d %s %s %s %s %s %s\n", nom, sexe_tmp, nationalite, &age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
@@ -125,17 +127,6 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 
 		// Créer et ajouter à la liste des héros un nouvel élément à partir des données récupérées
 		ajouterHerosListe(liste_heros, creerEltHeros(creerHeros(nom, age, sexe, nationalite, espece, equipement, volant, masque, taille, couleur)));
-
-		// Réinitialiser les chaînes de caractères
-		memset(nom, '\0', 25 * sizeof(char));
-		memset(nationalite, '\0', 25 * sizeof(char));
-		memset(couleur, '\0', 15 * sizeof(char));
-		memset(sexe_tmp, '\0', 10 * sizeof(char));
-		memset(espece_tmp, '\0', 15 * sizeof(char));
-		memset(equipement_tmp, '\0', 15 * sizeof(char));
-		memset(volant_tmp, '\0', 15 * sizeof(char));
-		memset(masque_tmp, '\0', 15 * sizeof(char));
-		memset(taille_tmp, '\0', 15 * sizeof(char));
 	}
 
 	// Fermeture du fichier texte
@@ -167,27 +158,24 @@ Liste_Questions *chargerDonneesFichierQuestions() {
 
 	// Variables à récupérer
 	char question[128];
-	memset(question, '\0', 128 * sizeof(char));
 	char reponse_attendue[64];
-	memset(reponse_attendue, '\0', 64 * sizeof(char));
 	int priorite = 0;
 	char attribut[32];
-	memset(attribut, '\0', 32 * sizeof(char));
 
 	// Tant qu'on n'est pas arrivé à la fin du fichier
 	while (!feof(fichier_questions)) {
-
-		// Récupérer les données de la ligne courante du fichier texte
-		// TODO : Récupération et traitement des données récupérées du fichier texte
-		fscanf(fichier_questions, "%s\n", question);
-
-		// Créer et ajouter à la liste des questions un nouvel élément à partir des données récupérées
-		ajouterQuestionListe(liste_questions, creerEltQuestion(creerQuestion(question, reponse_attendue, priorite, attribut)));
 
 		// Réinitialiser les chaînes de caractères
 		memset(question, '\0', 128 * sizeof(char));
 		memset(reponse_attendue, '\0', 64 * sizeof(char));
 		memset(attribut, '\0', 32 * sizeof(char));
+
+		// Récupérer les données de la ligne courante du fichier texte
+		// TODO : Récupération et traitement des données récupérées du fichier texte
+		fscanf(fichier_questions, "%d/%s/%s : %[^\n] ", &priorite, attribut, reponse_attendue, question);
+
+		// Créer et ajouter à la liste des questions un nouvel élément à partir des données récupérées
+		ajouterQuestionListe(liste_questions, creerEltQuestion(creerQuestion(question, reponse_attendue, priorite, attribut)));
 	}
 
 	// Fermer le fichier texte

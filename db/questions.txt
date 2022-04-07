@@ -1,3 +1,22 @@
+0/sexe/0 : Est-ce un homme ?
+0/sexe/1 : Est-ce une femme ?
+0/humain/0 : Est-ce un humain ?
+0/humain/1 : Est-ce un extraterrestre ?
+0/humain/2 : Est-ce un mutant ?
+0/humain/3 : Est-ce un humain-alterne ?
+1/nationalite/Etats-Unis : Est-ce que le personnage est de nationalite etats-unienne ?
+1/age/true : Est-ce que le personnage a plus de
+1/equipement/true : Utilise-t-il plus son pouvoir que ses equipements ?
+1/volant/true : Peut-il voler ?
+1/masque/true : Est-il masque ?
+1/taille/true : A-t-il une taille humaine ?
+2/color/rouge : Est-ce que sa couleur caracteristique est le rouge ?
+2/color/bleu : Est-ce que sa couleur caracteristique est le bleu ?
+2/color/noir : Est-ce que sa couleur caracteristique est le noir ?
+2/color/gris : Est-ce que sa couleur caracteristique est le gris ?
+2/color/marron : Est-ce que sa couleur caracteristique est le marron ?
+
+
 Est-ce que le personnage est un homme ?
 Est-ce que le personnage est un humain ?
 Est-ce que le personnage est de nationalite etats-unienne ?
@@ -12,3 +31,8 @@ Est-ce que le personnage est un mutant ?
 Est-ce un humain alterne ?
 Est-ce que le personnage est une femme ?
 Est-ce que le personnage est ni une femme, ni un homme ?
+Est-ce que sa couleur caracteristique est le rouge ?
+Est-ce que sa couleur caracteristique est le bleu ?
+Est-ce que sa couleur caracteristique est le noir ?
+Est-ce que sa couleur caracteristique est le gris ?
+Est-ce que sa couleur caracteristique est le marron ?

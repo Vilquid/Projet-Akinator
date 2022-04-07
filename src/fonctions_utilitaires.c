@@ -124,9 +124,9 @@ void akinator() // ne pas toucher même si c'est moche, car ça rend bien
 			printf("= L'ing%cnieur remplit au d%cpart la base de donn%ces avec 100 personnages et 100 questions mais la force du jeu est de      =\n", e_aigu, e_aigu, e_aigu);
 			printf("= s'enrichir au fil des parties : quand le jeu est battu par le joueur parce qu'il n'a pas su deviner le personnage,      =\n");
 			printf("= Devinettor enregistre les informations de la partie. Ainsi, la base de donn%ces se diversifie au fil des parties et les  =\n", e_aigu);
-			printf("= personnages pr%cc%cdemment jou%cs sont de plus en plus facilement devin%cs par l'intelligence artificielle.              =\n", e_aigu);
+			printf("= personnages pr%cc%cdemment jou%cs sont de plus en plus facilement devin%cs par l'intelligence artificielle.                 =\n", e_aigu, e_aigu, e_aigu, e_aigu);
 			printf("=                                                                                                                         =\n");
-			printf("= Arnaud Megret partage le jeu %c ses connaissances et peu apr%cs, Devinettor commence %c circuler sur les forums en          =\n", a_grave, e_grave, a_grave);
+			printf("= Arnaud Megret partage le jeu %c ses connaissances et peu apr%cs, Devinettor commence %c circuler sur les forums en         =\n", a_grave, e_grave, a_grave);
 			printf("= ligne et atteint une relative popularit%c rapidement et le jeu est renomm%c en Akinator.                                  =\n", e_aigu, e_aigu);
 			printf("===========================================================================================================================\n");
 			printf("\n\n");

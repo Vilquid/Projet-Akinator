@@ -34,7 +34,7 @@ struct Heros {
 	bool volant;          // True => il vole, False => ne vole pas
 	bool masque;          // True => porte un masque, False => Non
 	bool taille;          // True => taille normal, False => taille anormal
-	char couleur[15];     // Couleur prédominante
+	char couleur[25];     // Couleur prédominante
 };
 
 struct Question {
