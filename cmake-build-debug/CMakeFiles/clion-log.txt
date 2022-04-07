@@ -1,4 +1,0 @@
-C:\Users\mathis.de-gueydon\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.7172.20\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/mathis.de-gueydon/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.7172.20/bin/ninja/win/ninja.exe -G Ninja "D:\Documents\Bureau\ISEN\CIN 3\C\TD\Projet 1 - Akinator"
--- Configuring done
--- Generating done
--- Build files have been written to: D:/Documents/Bureau/ISEN/CIN 3/C/TD/Projet 1 - Akinator/cmake-build-debug
