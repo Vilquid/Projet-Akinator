@@ -33,7 +33,7 @@ Heros *creerHeros(char nom[], int age, Sexe sexe, char nationalite[], Espece esp
 	// Initialiser les chaînes de caractères du héros
 	memset(heros->nom, '\0', 25 * sizeof(char));
 	memset(heros->nationalite, '\0', 25 * sizeof(char));
-	memset(heros->couleur, '\0', 25 * sizeof(char));
+	memset(heros->couleur, '\0', 15 * sizeof(char));
 
 	// Initialiser les attributs
 	strcpy(heros->nom, nom);
