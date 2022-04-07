@@ -217,7 +217,6 @@ int main() {
 
 		if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2) == 2)
 		{
-
 			rejouer = false;
 		}
 

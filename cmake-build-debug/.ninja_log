@@ -1,9 +1,10 @@
 # ninja log v5
-379	842	6706973686087717	Projet_1___Akinator.exe	f8b4a5a5450c7402
-78	1343	6708548428415946	CMakeFiles/Projet_1___Akinator.dir/src/gestion_BDD.c.obj	ad2baca79b1c9b3f
-5	1308	6708548427863875	CMakeFiles/Projet_1___Akinator.dir/src/main.c.obj	513c8ee4b04c7fcf
-31	1321	6708548428004847	CMakeFiles/Projet_1___Akinator.dir/src/fonctions_utilitaires.c.obj	a7bc55fdc9650937
-125	1332	6708548428104849	CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj	c34940d8e28eb45f
-53	1276	6708548427733851	CMakeFiles/Projet_1___Akinator.dir/src/gestion_fichiers.c.obj	7a366feab1bd72e0
-5	258	6708550481680419	CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj	ae9052a6d8737ad9
-259	577	6708550484876740	Projet_1___Akinator.exe	6a6cdc69d50c5b14
+287	761	6710448901301227	Projet_1___Akinator.exe	6a6cdc69d50c5b14
+33	529	6710446881182615	CMakeFiles/Projet_1___Akinator.dir/src/gestion_BDD.c.obj	ad2baca79b1c9b3f
+6	466	6710446880507242	CMakeFiles/Projet_1___Akinator.dir/src/main.c.obj	513c8ee4b04c7fcf
+6	286	6710448896571226	CMakeFiles/Projet_1___Akinator.dir/src/fonctions_utilitaires.c.obj	a7bc55fdc9650937
+209	677	6710446882737783	CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj	c34940d8e28eb45f
+81	596	6710446881897834	CMakeFiles/Projet_1___Akinator.dir/src/gestion_fichiers.c.obj	7a366feab1bd72e0
+129	645	6710446882417829	CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj	ae9052a6d8737ad9
+6	296	6710450764389292	CMakeFiles/Projet_1___Akinator.dir/src/gestion_questions.c.obj	59e03ef21f79ddac
+298	653	6710450767959249	Projet_1___Akinator.exe	98c503aec71e10e3

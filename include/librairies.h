@@ -27,5 +27,6 @@
 #define e_circonflexe 136
 #define e_grave 138
 #define E_aigu 144
+#define u_grave 151
 
 #endif // LIBRAIRIES_H

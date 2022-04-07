@@ -79,6 +79,12 @@ build CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj: C_COMPILER__P
   OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
   OBJECT_FILE_DIR = CMakeFiles\Projet_1___Akinator.dir\src
 
+build CMakeFiles/Projet_1___Akinator.dir/src/gestion_questions.c.obj: C_COMPILER__Projet_1___Akinator_Debug D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinator/src/gestion_questions.c || cmake_object_order_depends_target_Projet_1___Akinator
+  DEP_FILE = CMakeFiles\Projet_1___Akinator.dir\src\gestion_questions.c.obj.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
+  OBJECT_FILE_DIR = CMakeFiles\Projet_1___Akinator.dir\src
+
 build CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj: C_COMPILER__Projet_1___Akinator_Debug D$:/Documents/Bureau/ISEN/CIN$ 3/C/TD/Projet$ 1$ -$ Akinator/src/jeu.c || cmake_object_order_depends_target_Projet_1___Akinator
   DEP_FILE = CMakeFiles\Projet_1___Akinator.dir\src\jeu.c.obj.d
   FLAGS = -g
@@ -93,7 +99,7 @@ build CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj: C_COMPILER__Projet_1___A
 #############################################
 # Link the executable Projet_1___Akinator.exe
 
-build Projet_1___Akinator.exe: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/src/main.c.obj CMakeFiles/Projet_1___Akinator.dir/src/fonctions_utilitaires.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_BDD.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_fichiers.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj
+build Projet_1___Akinator.exe: C_EXECUTABLE_LINKER__Projet_1___Akinator_Debug CMakeFiles/Projet_1___Akinator.dir/src/main.c.obj CMakeFiles/Projet_1___Akinator.dir/src/fonctions_utilitaires.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_BDD.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_fichiers.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj CMakeFiles/Projet_1___Akinator.dir/src/gestion_questions.c.obj CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Projet_1___Akinator.dir
