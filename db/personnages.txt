@@ -1,14 +1,14 @@
 Ant-Man homme Etats-Unis 52 equipement humain non-volant masque taille-normale rouge
 Black-Panther homme Wakanda 43 pouvoirs humain-altere non-volant masque taille-normale noir
-Black-Widow femme russe 39 equipement humain-altere non-volant non-masque taille-normale noir
+Black-Widow femme Russe 39 equipement humain-altere non-volant non-masque taille-normale noir
 Captain-America homme Etats-Unis 98 pouvoirs humain-altere non-volant masque taille-normale bleu
 Captain-Marvel femme Etats-Unis 35 pouvoirs humain-altere non-volant non-masque taille-normale bleu
-Colossus homme russe 36 pouvoirs mutant non-volant non-masque taille-anormale gris
+Colossus homme Russe 36 pouvoirs mutant non-volant non-masque taille-anormale gris
 Daredevil homme Etats-Unis 35 pouvoirs humain-altere non-volant masque taille-normale rouge
 Deadpool homme Etats-Unis 31 pouvoirs humain-altere non-volant masque taille-normale rouge
 Docteur-Strange homme Etats-Unis 58 pouvoirs humain-altere volant non-masque taille-normale rouge
-Drax homme inconnu 41 equipement extraterrestre non-volant non-masque taille-normale gris
-Gamora femme zehoberienne 49 pouvoirs extraterrestre non-volant non-masque taille-normale vert
+Drax homme Inconnu 41 equipement extraterrestre non-volant non-masque taille-normale gris
+Gamora femme Zehoberienne 49 pouvoirs extraterrestre non-volant non-masque taille-normale vert
 Groot homme Colosse-Floralien 25 pouvoirs extraterrestre non-volant non-masque taille-anormale marron
 Hawkeye homme Etats-Unis 49 equipement humain non-volant masque taille-normale violet
 Hulk homme Etats-Unis 50 pouvoirs humain-altere non-volant non-masque taille-anormale vert
@@ -25,6 +25,6 @@ Star-Lord homme Celestien 42 equipement extraterrestre non-volant non-masque tai
 Thanos homme Eternel 1000 equipement extraterrestre non-volant non-masque taille-normale gris-pourpre
 Thing homme Etats-Unis 63 pouvoirs humain-altere non-volant non-masque taille-anormale orange
 Thor homme Asgard 1500 pouvoirs extraterrestre volant non-masque taille-normale rouge-et-gris
-Vision homme Synthézoïde 10 pouvoirs extraterrestre volant non-masque taille-normale vert-emeraude
+Vision homme Synthezoide 10 pouvoirs extraterrestre volant non-masque taille-normale vert-emeraude
 War-Machine homme Etats-Unis 47 equipement humain volant masque taille-normale gris
 Wolverine homme Canada 140 pouvoirs mutant non-volant masque taille-normale jaune

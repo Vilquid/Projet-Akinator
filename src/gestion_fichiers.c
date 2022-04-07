@@ -171,8 +171,15 @@ Liste_Questions *chargerDonneesFichierQuestions() {
 		memset(attribut, '\0', 32 * sizeof(char));
 
 		// Récupérer les données de la ligne courante du fichier texte
-		// TODO : Récupération et traitement des données récupérées du fichier texte
-		fscanf(fichier_questions, "%d/%s/%s : %[^\n] ", &priorite, attribut, reponse_attendue, question);
+		fscanf(fichier_questions, "%d %s %s %[^\n]", &priorite, attribut, reponse_attendue, question);
+
+		// Afficher tous les attributs récupérés
+		printf("===============================\n");
+		printf("Question : %s\n", question);
+		printf("Reponse attendue : %s\n", reponse_attendue);
+		printf("Priorite : %d\n", priorite);
+		printf("Attribut : %s\n", attribut);
+		printf("===============================\n");
 
 		// Créer et ajouter à la liste des questions un nouvel élément à partir des données récupérées
 		ajouterQuestionListe(liste_questions, creerEltQuestion(creerQuestion(question, reponse_attendue, priorite, attribut)));
