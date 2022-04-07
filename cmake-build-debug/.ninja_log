@@ -8,3 +8,7 @@
 129	645	6710446882417829	CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj	ae9052a6d8737ad9
 6	296	6710450764389292	CMakeFiles/Projet_1___Akinator.dir/src/gestion_questions.c.obj	59e03ef21f79ddac
 298	653	6710450767959249	Projet_1___Akinator.exe	98c503aec71e10e3
+6	415	6710486148870691	CMakeFiles/Projet_1___Akinator.dir/src/gestion_fichiers.c.obj	7a366feab1bd72e0
+32	433	6710486149117953	CMakeFiles/Projet_1___Akinator.dir/src/gestion_listes.c.obj	c34940d8e28eb45f
+55	457	6710486149331073	CMakeFiles/Projet_1___Akinator.dir/src/jeu.c.obj	ae9052a6d8737ad9
+457	1005	6710486154832343	Projet_1___Akinator.exe	98c503aec71e10e3
