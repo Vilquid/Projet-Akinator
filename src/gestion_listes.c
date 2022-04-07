@@ -30,6 +30,11 @@ Heros *creerHeros(char nom[], int age, Sexe sexe, char nationalite[], Espece esp
 		exit(EXIT_FAILURE);
 	}
 
+	// Initialiser les chaînes de caractères du héros
+	memset(heros->nom, '\0', 25 * sizeof(char));
+	memset(heros->nationalite, '\0', 25 * sizeof(char));
+	memset(heros->couleur, '\0', 25 * sizeof(char));
+
 	// Initialiser les attributs
 	strcpy(heros->nom, nom);
 	heros->age = age;
@@ -63,6 +68,11 @@ Question *creerQuestion(char question[], char reponse_attendue[], int priorite, 
 		printf("creerQuestion() : Erreur d'allocation memoire !\n");
 		exit(EXIT_FAILURE);
 	}
+
+	// Initialiser les chaînes de caractères de question
+	memset(quest->question, '\0', 128 * sizeof(char));
+	memset(quest->reponse_attendue, '\0', 64 * sizeof(char));
+	memset(quest->attribut, '\0', 32 * sizeof(char));
 
 	// Initialiser les attributs
 	strcpy(quest->question, question);

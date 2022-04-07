@@ -44,8 +44,8 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 	// Variables temporaires pour traiter et interpréter les chaînes de caractères
 	char sexe_tmp[10];
 	memset(sexe_tmp, '\0', 10 * sizeof(char));
-	char espece_tmp[10];
-	memset(espece_tmp, '\0', 10 * sizeof(char));
+	char espece_tmp[15];
+	memset(espece_tmp, '\0', 15 * sizeof(char));
 	char equipement_tmp[15];
 	memset(equipement_tmp, '\0', 15 * sizeof(char));
 	char volant_tmp[15];
@@ -59,7 +59,7 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 	while (!feof(fichier_persos)) {
 
 		// Récupérer les données de la ligne courante du fichier texte
-		fscanf(fichier_persos, "%s,%s,%s,%d,%s,%s,%s,%s,%s,%s\n", nom, sexe_tmp, nationalite, &age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
+		fscanf(fichier_persos, "%s %s %s %d %s %s %s %s %s %s\n", nom, sexe_tmp, nationalite, &age, equipement_tmp, espece_tmp, volant_tmp, masque_tmp, taille_tmp, couleur);
 
 		// Faire correspondre la chaîne de caractères à l'énumération Sexe
 		if (strcmp(sexe_tmp, "homme") == 0) {
@@ -109,6 +109,20 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 			taille = false;
 		}
 
+		// Afficher tous les attributs récupérés
+		printf("===============================\n");
+		printf("Nom : %s\n", nom);
+		printf("Sexe : %s\n", sexe_tmp);
+		printf("Nationalite : %s\n", nationalite);
+		printf("Age : %d\n", age);
+		printf("Equipement : %s\n", equipement_tmp);
+		printf("Espece : %s\n", espece_tmp);
+		printf("Volant : %s\n", volant_tmp);
+		printf("Masque : %s\n", masque_tmp);
+		printf("Taille : %s\n", taille_tmp);
+		printf("Couleur : %s\n", couleur);
+		printf("===============================\n");
+
 		// Créer et ajouter à la liste des héros un nouvel élément à partir des données récupérées
 		ajouterHerosListe(liste_heros, creerEltHeros(creerHeros(nom, age, sexe, nationalite, espece, equipement, volant, masque, taille, couleur)));
 
@@ -117,7 +131,7 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 		memset(nationalite, '\0', 25 * sizeof(char));
 		memset(couleur, '\0', 15 * sizeof(char));
 		memset(sexe_tmp, '\0', 10 * sizeof(char));
-		memset(espece_tmp, '\0', 10 * sizeof(char));
+		memset(espece_tmp, '\0', 15 * sizeof(char));
 		memset(equipement_tmp, '\0', 15 * sizeof(char));
 		memset(volant_tmp, '\0', 15 * sizeof(char));
 		memset(masque_tmp, '\0', 15 * sizeof(char));
