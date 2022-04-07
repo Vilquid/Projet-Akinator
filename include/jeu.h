@@ -13,6 +13,8 @@
 #include "librairies.h"
 #include "structs_donnees.h"
 #include "gestion_listes.h"
+#include "gestion_fichiers.h"
+#include "gestion_BDD.h"
 #include <time.h>
 
 /*-----------------------------
@@ -33,5 +35,11 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant);
 void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque);
 void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille);
 void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]);
+
+void boucle_jeu();
+void question_ajouter_perso_BDD(Heros);
+void question_ajouter_question_BDD();
+bool question_rejouer();
+Heros attribution_caracteristiques_heros_temporaire(Heros, Liste_Heros*, Liste_Questions*);
 
 #endif // JEU_H

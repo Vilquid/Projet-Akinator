@@ -5,6 +5,290 @@
 
 #include "../include/jeu.h"
 
+
+/**
+ * @fn question_rejouer
+ * @brief Pose la question d'un nouveau tour de boucle/jeu (et rejoue si la réponse est positive)
+ */
+bool question_rejouer()
+{
+	int choix = 1;
+
+	printf("Voulez-vous rejouer ?");
+	printf("  1 - Oui\n");
+	printf("  2 - Non\n");
+
+	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 2)
+	{
+		return false;
+	}
+
+	else
+	{
+		return true;
+	}
+}
+
+/**
+ * @fn question_ajouter_perso_BDD
+ * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
+ * @param jeu Pointeur sur le jeu
+ */
+void question_ajouter_question_BDD()
+{
+	int choix = 1;
+
+	printf("Voulez-vous ajouter une question à la base de donn%ces ?\n", e_aigu);
+	printf("  1 - Oui\n");
+	printf("  2 - Non\n");
+
+	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 1)
+	{
+		ajouter_question_BDD();
+	}
+
+	else
+	{
+		printf("Vous n'ajouterez pas de question.\n");
+	}
+}
+
+/**
+ * @fn question_ajouter_perso_BDD
+ * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
+ * @param jeu Pointeur sur le jeu
+ */
+void question_ajouter_perso_BDD(Heros heros)
+{
+	int choix = 1;
+	printf("Voulez-vous ajouter un personnage %c la base de donn%ces ?\n", a_grave, e_aigu);
+	printf("  1 - Oui\n");
+	printf("  2 - Non\n");
+
+	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 1)
+	{
+		ajouter_personnage_BDD(heros);
+	}
+
+	else
+	{
+		printf("Vous n'ajouterez pas de personnages.\n");
+	}
+}
+
+/**
+ * @fn attribution_caracteristiques_heros_temporaire
+ * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
+ * @param heros_temporaire Pointeur sur le heros temporaire
+ * @param liste_heros Liste des héros
+ * @param liste_questions Liste des questions
+ * @return heros_temporaire
+ */
+Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, Liste_Heros* liste_heros, Liste_Questions* liste_questions)
+{
+	// TODO : utiliser supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) et void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[])
+	int choix_int = 0;
+	Elt_Heros heros_actuel;
+	heros_actuel.heros = liste_heros->premier->heros;
+
+	// Appel fonction pour choisir une question
+	Question *question_actuelle = choisirQuestionAleatoire(liste_questions);
+
+	if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 1)
+	{
+		// Afficher la question
+		printf("%s %d ans ?\n", question_actuelle->question, calculAgeMoyenHeros(liste_heros));
+		printf("  1 - Oui\n");
+		printf("  2 - Non - Je ne sais pas\n");
+
+		// Supprimer les hérosqui ont un age supérieur à la moyenne
+		supprimerHerosSelonAge(liste_heros);
+	}
+
+	else
+	{
+		// Afficher la question
+		printf("%s", question_actuelle->question);
+		printf("  1 - Oui\n");
+		printf("  2 - Non - Je ne sais pas\n");
+
+		// Comparer le choix de l'utilisateur avec la réponse attendue à la question en fonction de l'attribut de la question
+		// C'est un homme
+		if (strcmp(question_actuelle->question, "Est-ce que le personnage est un homme ?") == 0
+			&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des hommes
+			supprimerHerosSelonSexe(liste_heros, HOMME);
+			heros_temporaire.sexe = HOMME;
+		}
+
+			// C'est une femme
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est une femme ?") == 0
+				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des femmes
+			supprimerHerosSelonSexe(liste_heros, FEMME);
+			heros_temporaire.sexe = FEMME;
+		}
+
+			// C'est autre chose (ni un homme, ni un femme)
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est ni une femme, ni un homme ?")== 0
+				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des hommes ou des femmes
+			supprimerHerosSelonSexe(liste_heros, AUTRE);
+			heros_temporaire.sexe = AUTRE;
+		}
+
+			// C'est un humain
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un humain ?") == 0
+				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des humains
+			supprimerHerosSelonEspece(liste_heros, HUMAIN);
+			heros_temporaire.espece = HUMAIN;
+
+		}
+
+			// C'est un extraterrestre
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un mutant ?") == 1
+				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des mutants
+			supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+			heros_temporaire.espece = MUTANT;
+		}
+
+			// C'est un humain altéré
+		else if (strcmp(question_actuelle->question, "Est-ce un humain alterne ?") == 1
+				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des mutants
+			supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
+			heros_temporaire.espece = HUMAIN_ALTERE;
+		}
+
+			// C'est un Etats-Uniens
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?")== 1 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui sont de nationalité
+			supprimerHerosSelonNationalite(liste_heros, "Etats-Unis");
+			strcpy(heros_temporaire.nationalite, "Etats-Unis");
+		}
+
+			// Equipement
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 1)
+		{
+			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+			{
+				// Supprimer tous les héros qui n'utilisent pas pluis leurs pouvoirs que leur équipement
+				supprimerHerosSelonEquipement(liste_heros, false);
+				heros_temporaire.equipement = false;
+			}
+
+			else
+			{
+				// Supprimer tous les héros qui n'utilisent pas plus leurs pouvoirs que leur équipement
+				supprimerHerosSelonEquipement(liste_heros, true);
+				heros_temporaire.equipement = true;
+			}
+		}
+
+			// Volant
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage vole ?") == 1)
+		{
+			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+			{
+				// Supprimer tous les héros qui ne volent pas
+				supprimerHerosSelonVolant(liste_heros, "volant");
+				heros_temporaire.volant = true;
+			}
+
+			else
+			{
+				// Supprimer tous les héros qui ne volent pas
+				supprimerHerosSelonVolant(liste_heros, "non-volant");
+				heros_temporaire.volant = false;
+			}
+		}
+
+		// Masque
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage porte un masque ?") == 1)
+		{
+			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+			{
+				// Supprimer tous les héros qui ne volent pas
+				supprimerHerosSelonMasque(liste_heros, true);
+				heros_temporaire.masque = true;
+			}
+
+			else
+			{
+				// Supprimer tous les héros qui ne volent pas
+				supprimerHerosSelonVolant(liste_heros, false);
+				heros_temporaire.masque = false;
+			}
+		}
+
+			// Taille normale
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage a la taille d'un humain adulte ?")== 1)
+		{
+			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+			{
+				supprimerHerosSelonTaille(liste_heros, "taille-normale");
+				heros_temporaire.taille = true;
+			}
+
+			else
+			{
+				supprimerHerosSelonTaille(liste_heros, "taille-anormale");
+				heros_temporaire.taille = false;
+			}
+		}
+	}
+
+	return heros_temporaire;
+}
+
+/**
+ * @fn boucle_jeu
+ * @brief Fonction principale du jeu
+**/
+void boucle_jeu()
+{
+	bool heros_trouve = false;
+	bool rejouer = true;
+	Elt_Heros heros_actuel;
+	Heros heros_temporaire;
+
+	// Création des listes de héros et de questions
+	Liste_Heros* liste_heros = NULL;
+	Liste_Questions* liste_questions = NULL;
+
+	do // Boucle testant tous les héros pour chaque question
+	{
+		// Mise à jour des listes
+		liste_heros = chargerDonneesFichierPersonnages();
+		liste_questions = chargerDonneesFichierQuestions();
+
+		test_si_listes_NULL(liste_heros, liste_questions);
+
+		heros_temporaire = attribution_caracteristiques_heros_temporaire(heros_temporaire, liste_heros, liste_questions);
+
+		question_ajouter_perso_BDD(heros_temporaire);
+
+		question_ajouter_question_BDD();
+
+		rejouer = question_rejouer();
+
+		// Vidage des listes
+		viderListeHeros(liste_heros);
+		viderListeQuestions(liste_questions);
+
+		heros_actuel = *heros_actuel.suivant;
+	} while (rejouer && (/*heros_trouve == false || */heros_actuel.suivant == NULL));
+}
+
 /**
  * @brief Fonction permettant de choisir une question aléatoire parmis la liste de questions (FONCTION TEMPORAIRE)
  * @param liste Liste des questions

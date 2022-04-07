@@ -35,4 +35,6 @@ void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
 void viderListeHeros(Liste_Heros *liste);
 void viderListeQuestions(Liste_Questions *liste);
 
+void test_si_listes_NULL(Liste_Heros*, Liste_Questions*);
+
 #endif // GESTION_LISTES_H

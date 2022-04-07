@@ -6,6 +6,35 @@
 #include "../include/gestion_listes.h"
 
 /**
+ * @fn test_si_listes_NULL
+ * @brief Teste si les listes passées en paramètres sont nulle ou pas
+ * @param liste_heros Liste des héros
+ * @param liste_questions Liste des questions
+**/
+void test_si_listes_NULL(Liste_Heros* liste_heros, Liste_Questions* liste_questions)
+{
+	if (liste_heros == NULL)
+	{
+		printf("\nProbl%cme d%ctect%c avec la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu);
+	}
+
+	if (liste_questions == NULL)
+	{
+		printf("\nProbl%cme d%ctect%c avec la liste des questions.\n", e_grave, e_aigu, e_aigu);
+	}
+
+	if (liste_heros->premier == NULL)
+	{
+		printf("\nProbl%cme d%ctect%c avec le premier h%cro de la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu, e_aigu);
+	}
+
+	if (liste_questions->premier == NULL)
+	{
+		printf("\nProbl%cme d%ctect%c avec le premier h%cro de la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu, e_aigu);
+	}
+}
+
+/**
  * @brief Fonction permettant de créer un héros
  * @param nom Nom du personnage
  * @param age Age du personnage
