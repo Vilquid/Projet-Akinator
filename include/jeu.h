@@ -35,6 +35,7 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant);
 void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque);
 void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille);
 void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]);
+void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[128]);
 
 void boucle_jeu();
 void question_ajouter_perso_BDD(Heros);
