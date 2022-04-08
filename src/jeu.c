@@ -94,14 +94,14 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 	// Appel fonction pour choisir une question
 	Question *question_actuelle = choisirQuestionAleatoire(liste_questions);
 
-	if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 1)
+	if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 0)
 	{
 		// Afficher la question
 		printf("%s %d ans ?\n", question_actuelle->question, calculAgeMoyenHeros(liste_heros));
 		printf("  1 - Oui\n");
 		printf("  2 - Non - Je ne sais pas\n");
 
-		// Supprimer les hérosqui ont un age supérieur à la moyenne
+		supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		supprimerHerosSelonAge(liste_heros);
 	}
 
@@ -112,72 +112,122 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 		printf("  1 - Oui\n");
 		printf("  2 - Non - Je ne sais pas\n");
 
-		// Comparer le choix de l'utilisateur avec la réponse attendue à la question en fonction de l'attribut de la question
 		// C'est un homme
 		if (strcmp(question_actuelle->question, "Est-ce que le personnage est un homme ?") == 0
-			&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des hommes
 			supprimerHerosSelonSexe(liste_heros, HOMME);
 			heros_temporaire.sexe = HOMME;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est une femme ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est ni une femme, ni un homme ?");
 		}
 
-			// C'est une femme
+		// C'est une femme
 		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est une femme ?") == 0
-				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des femmes
 			supprimerHerosSelonSexe(liste_heros, FEMME);
 			heros_temporaire.sexe = FEMME;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un homme ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est ni une femme, ni un homme ?");
 		}
 
-			// C'est autre chose (ni un homme, ni un femme)
+		// C'est autre chose (ni un homme, ni une femme)
 		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est ni une femme, ni un homme ?")== 0
-				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des hommes ou des femmes
 			supprimerHerosSelonSexe(liste_heros, AUTRE);
 			heros_temporaire.sexe = AUTRE;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est une femme ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un homme ?");
 		}
 
-			// C'est un humain
+		// C'est un humain
 		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un humain ?") == 0
-				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des humains
 			supprimerHerosSelonEspece(liste_heros, HUMAIN);
 			heros_temporaire.espece = HUMAIN;
 
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
 		}
 
-			// C'est un extraterrestre
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un mutant ?") == 1
-				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		// C'est un extraterrestre
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un mutant ?") == 0
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
+		{
+			// Supprimer tous les héros qui ne sont pas des mutants
+			supprimerHerosSelonEspece(liste_heros, MUTANT);
+			heros_temporaire.espece = MUTANT;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
+		}
+
+		// C'est un extraterrestre
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un extraterrestre ?") == 0
+		&& est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des mutants
 			supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
-			heros_temporaire.espece = MUTANT;
+			heros_temporaire.espece = EXTRATERRESTRE;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
 		}
 
-			// C'est un humain altéré
-		else if (strcmp(question_actuelle->question, "Est-ce un humain alterne ?") == 1
+		// C'est un humain altéré
+		else if (strcmp(question_actuelle->question, "Est-ce un humain alterne ?") == 0
 				 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des mutants
 			supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
 			heros_temporaire.espece = HUMAIN_ALTERE;
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
 		}
 
-			// C'est un Etats-Uniens
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?")== 1 && est_un_int_et_est_compris_entre("Votre choix", choix_int, 1, 2) == 1)
+		// C'est un Etats-Uniens
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?")
+		== 0 && est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 		{
 			// Supprimer tous les héros qui sont de nationalité
 			supprimerHerosSelonNationalite(liste_heros, "Etats-Unis");
 			strcpy(heros_temporaire.nationalite, "Etats-Unis");
+
+			// Supprimer les questions en rapport avec l'attribut
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		}
 
-			// Equipement
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 1)
+		// Equipement
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 0)
 		{
 			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 			{
@@ -192,10 +242,12 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				supprimerHerosSelonEquipement(liste_heros, true);
 				heros_temporaire.equipement = true;
 			}
+
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		}
 
-			// Volant
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage vole ?") == 1)
+		// Volant
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage vole ?") == 0)
 		{
 			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 			{
@@ -210,10 +262,12 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				supprimerHerosSelonVolant(liste_heros, "non-volant");
 				heros_temporaire.volant = false;
 			}
+
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		}
 
 		// Masque
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage porte un masque ?") == 1)
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage porte un masque ?") == 0)
 		{
 			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 			{
@@ -228,10 +282,12 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				supprimerHerosSelonVolant(liste_heros, false);
 				heros_temporaire.masque = false;
 			}
+
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		}
 
-			// Taille normale
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage a la taille d'un humain adulte ?")== 1)
+		// Taille normale
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage a la taille d'un humain adulte ?") == 0)
 		{
 			if (est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2) == 1)
 			{
@@ -244,6 +300,8 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				supprimerHerosSelonTaille(liste_heros, "taille-anormale");
 				heros_temporaire.taille = false;
 			}
+
+			supprimerQuestionListe(liste_questions, (Elt_Question*) question_actuelle);
 		}
 	}
 
@@ -256,7 +314,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 **/
 void boucle_jeu()
 {
-	bool heros_trouve = false;
+//	bool heros_trouve = false;
 	bool rejouer = true;
 	Elt_Heros heros_actuel;
 	Heros heros_temporaire;
@@ -286,7 +344,7 @@ void boucle_jeu()
 		viderListeQuestions(liste_questions);
 
 		heros_actuel = *heros_actuel.suivant;
-	} while (rejouer && (/*heros_trouve == false || */heros_actuel.suivant == NULL));
+	} while (rejouer == true && (/*heros_trouve == false || */heros_actuel.suivant == NULL));
 }
 
 /**
@@ -301,9 +359,6 @@ Question *choisirQuestionAleatoire(Liste_Questions *liste) {
 		printf("choisirQuestionAleatoire() : La liste des questions est NULL !\n");
 		exit(EXIT_FAILURE);
 	}
-
-	// Initialiser l'aléatoire
-	srand(time(NULL));
 
 	int nb_aleatoire = rand() % liste->nb_questions;
 
@@ -330,11 +385,8 @@ Heros *choisirSuspect(Liste_Heros *liste) {
 	}
 
 	// S'il reste 2 héros dans la liste
-	if (liste->nb_heros == 2) {
-
-		// Initialiser l'aléatoire
-		srand(time(NULL));
-
+	if (liste->nb_heros == 2)
+	{
 		// Choisir un héros au hasard
 		int nb_aleatoire = rand() % 2;
 
@@ -509,7 +561,7 @@ void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
 
 	while (elt_actuel != NULL)
 	{
-		if (strcmp(elt_actuel->heros->nationalite, nationalite) != 0) {
+		if (strcmp(elt_actuel->heros->nationalite, nationalite) == 0) {
 			supprimerHerosListe(liste, elt_actuel);
 		}
 
@@ -659,7 +711,7 @@ void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
 
 	while (elt_actuel != NULL)
 	{
-		if (strcmp(elt_actuel->heros->couleur, couleur) != 0) {
+		if (strcmp(elt_actuel->heros->couleur, couleur) == 0) {
 			supprimerHerosListe(liste, elt_actuel);
 		}
 

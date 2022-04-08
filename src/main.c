@@ -7,6 +7,9 @@
 
 int main()
 {
+	// Initialiser l'aléatoire
+	srand(time(NULL));
+
 	akinator();
 	boucle_jeu();
 
