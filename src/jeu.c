@@ -666,3 +666,23 @@ void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
 		elt_actuel = elt_actuel->suivant;
 	}
 }
+
+void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[128]) {
+
+    // Si la liste est NULL
+    if (liste == NULL) {
+        printf("supprimerQuestionSelonQuestion() : La liste des question est NULL !\n");
+        exit(EXIT_FAILURE);
+    }
+
+    Elt_Question *elt_actuel = liste->premier;
+
+    while (elt_actuel != NULL)
+    {
+        if (elt_actuel->question->question != question) {
+            supprimerQuestionListe(liste, elt_actuel);
+        }
+
+        elt_actuel = elt_actuel->suivant;
+    }
+}
