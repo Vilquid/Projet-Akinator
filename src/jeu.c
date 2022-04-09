@@ -735,11 +735,16 @@ void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
 	}
 }
 
-void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[128]) {
+/**
+ * @brief Fonction permettant de supprimer de la liste la question précisée
+ * @param liste Liste des questions
+ * @param question Question à supprimer
+**/
+void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[]) {
 
     // Si la liste est NULL
     if (liste == NULL) {
-        printf("supprimerQuestionSelonQuestion() : La liste des question est NULL !\n");
+        printf("supprimerQuestionSelonQuestion() : La liste des questions est NULL !\n");
         exit(EXIT_FAILURE);
     }
 
@@ -747,7 +752,7 @@ void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[128]) 
 
     while (elt_actuel != NULL)
     {
-        if (elt_actuel->question->question != question) {
+        if (strcmp(elt_actuel->question->question, question) != 0) {
             supprimerQuestionListe(liste, elt_actuel);
         }
 
