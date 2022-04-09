@@ -64,4 +64,9 @@ struct Liste_Questions {
 	int nb_questions;
 };
 
+typedef struct Attribut_Ordre {
+	char attribut[32];
+	int ordre;
+} Attribut_Ordre;
+
 #endif // STRUCT_DONNEES_H
