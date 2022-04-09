@@ -3,7 +3,7 @@
 0 humain 0 Est-ce un humain ?
 0 humain 1 Est-ce un extraterrestre ?
 0 humain 2 Est-ce un mutant ?
-0 humain 3 Est-ce un humain-alterne ?
+0 humain 3 Est-ce un humain-altere ?
 1 nationalite Etats-Unis Est-ce que le personnage est de nationalite Americaine ?
 1 age true Est-ce qu'il a plus de
 1 equipement true Utilise-t-il plus ses pouvoirs que ses equipements ?
