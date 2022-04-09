@@ -65,7 +65,7 @@ int est_un_int_et_est_compris_entre(char string[], int choix, int borne_inf, int
 
 		if (!isdigit(choix) && (choix < borne_inf || choix > borne_sup))
 		{
-			printf("Choix incorrect. Veillez recommencer.\n\n");
+			printf("Choix incorrect. Veuillez recommencer.\n\n");
 		}
 	} while (!isdigit(choix) && (choix < borne_inf || choix > borne_sup));
 	// potentiel problème avec la valeur de retour d'isdigit()

@@ -56,7 +56,7 @@ void question_ajouter_question_BDD()
 /**
  * @fn question_ajouter_perso_BDD
  * @brief Pose la question de l'ajout d'un personnage dans la base de données Personnages (et l'ajoute si la réponse est positive)
- * @param heros Strture heros à rentrer dans la base de données Personnages
+ * @param heros Structure heros à rentrer dans la base de données Personnages
  */
 void question_ajouter_perso_BDD(Heros heros)
 {
@@ -357,8 +357,8 @@ void boucle_jeu()
 		viderListeHeros(liste_heros);
 		viderListeQuestions(liste_questions);
 
-		heros_actuel = *heros_actuel.suivant;
-	} while (rejouer == true && (/*heros_trouve == false || */heros_actuel.suivant == NULL));
+//		heros_actuel = *heros_actuel.suivant;
+	} while (rejouer == true || (/*heros_trouve == false || */heros_actuel.suivant == NULL));
 }
 
 /**

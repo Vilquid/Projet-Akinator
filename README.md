@@ -2,8 +2,7 @@
 
 ![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)
 
-<img src="https://img.shields.io/badge/env-Linux-brightgreen?logo=linux">
-<img src="https://img.shields.io/badge/env-Windows-blue?logo=Windows">
+<img src="https://img.shields.io/badge/env-Linux-brightgreen?logo=linux"> <img src="https://img.shields.io/badge/env-Windows-blue?logo=Windows">
 
 Akinator (le génie du web) permet de trouver un personnage ou un
 objet à travers une série de questions/réponses.
