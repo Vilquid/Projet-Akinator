@@ -76,7 +76,7 @@ int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int 
 
 /**
  * @fn akinator
- * @brief Affiche le nom du programme
+ * @brief Affiche le nom du programme et demande à l'utilisateur s'il veut connaitre les règles ou la genèse d'Akinator
 **/
 void akinator() // ne pas toucher même si c'est moche, car ça rend bien
 {

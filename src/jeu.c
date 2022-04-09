@@ -31,9 +31,8 @@ bool question_rejouer()
 }
 
 /**
- * @fn question_ajouter_perso_BDD
- * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
- * @param jeu Pointeur sur le jeu
+ * @fn question_ajouter_question_BDD
+ * @brief Pose la question de l'ajout d'une question dans la base de données Questions (et l'ajoute si la réponse est positive)
  */
 void question_ajouter_question_BDD()
 {
@@ -56,8 +55,8 @@ void question_ajouter_question_BDD()
 
 /**
  * @fn question_ajouter_perso_BDD
- * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
- * @param jeu Pointeur sur le jeu
+ * @brief Pose la question de l'ajout d'un personnage dans la base de données Personnages (et l'ajoute si la réponse est positive)
+ * @param heros Strture heros à rentrer dans la base de données Personnages
  */
 void question_ajouter_perso_BDD(Heros heros)
 {
@@ -306,7 +305,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 
 /**
  * @fn boucle_jeu
- * @brief Fonction principale du jeu
+ * @brief Fonction (boucle) principale du jeu
 **/
 void boucle_jeu()
 {
