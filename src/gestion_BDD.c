@@ -81,9 +81,6 @@ void ajouter_personnage_BDD(Heros heros) {
 				case FEMME:
 					strcat(string, "femme,");
 					break;
-				case AUTRE:
-					strcat(string, "autre,");
-					break;
 				default:
 					strcat(string, "autre,");
 					break;

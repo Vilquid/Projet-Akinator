@@ -121,7 +121,7 @@ void akinator() // ne pas toucher même si c'est moche, car ça rend bien
 //			printf("===================================================  Histoire du projet  ==================================================\n");
 //			printf("= En 2007, Arnaud Megret, ing%cnieur en informatique, a l'id%ce de cr%cer Devinettor, projet pas tr%cs ambitieux, pour        =\n", e_aigu, e_aigu, e_aigu, e_grave);
 //			printf("= s'amuser, o%c une intelligence artificielle pose 20 questions %c un joueur pour deviner %c quel personnage il pense.       =\n", u_grave, a_grave, a_grave);
-//			printf("= L'ing%cnieur remplit au d%cpart la base de donn%ces avec 100 personnages et 100 questions mais la force du jeu est de      =\n", e_aigu, e_aigu, e_aigu);
+//			printf("= L'ing%cnieur remplit au d%cpart la base de donn%ces avec 100 personnages et 100 questions, mais la force du jeu est de     =\n", e_aigu, e_aigu, e_aigu);
 //			printf("= s'enrichir au fil des parties : quand le jeu est battu par le joueur parce qu'il n'a pas su deviner le personnage,      =\n");
 //			printf("= Devinettor enregistre les informations de la partie. Ainsi, la base de donn%ces se diversifie au fil des parties et les  =\n", e_aigu);
 //			printf("= personnages pr%cc%cdemment jou%cs sont de plus en plus facilement devin%cs par l'intelligence artificielle.                 =\n", e_aigu, e_aigu, e_aigu, e_aigu);
