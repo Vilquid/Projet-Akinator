@@ -358,7 +358,7 @@ void boucle_jeu()
 		viderListeQuestions(liste_questions);
 
 //		heros_actuel = *heros_actuel.suivant;
-	} while (rejouer == true || (/*heros_trouve == false || */heros_actuel.suivant == NULL));
+	} while (rejouer == true/* || (heros_trouve == false || heros_actuel.suivant == NULL)*/);
 }
 
 /**
