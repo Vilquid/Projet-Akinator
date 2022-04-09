@@ -29,7 +29,7 @@
 *.dylib
 
 # Executables
-*.exe
+#*.exe
 *.out
 *.app
 *.i*86
@@ -54,3 +54,7 @@ dkms.conf
 # IDEA
 .idea/
 cmake-build-debug/
+
+# PDF
+Compte rendu - Avancement projet Akinator.pdf
+Sujet.pdf
