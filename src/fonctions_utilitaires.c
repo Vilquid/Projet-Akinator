@@ -53,21 +53,21 @@ int est_une_string(char string[])
  * @brief Vérifie si le int passé en paramètre est bien un int et s'il est bien compris entre nombre_1 et nombre_2
  * @param string Chaine qui sera répétée si le choix n'est pas bon
  * @param choix Nombre à tester
- * @param nombre_1 Borne inférieure pour le test
- * @param nombre_2 Borne supérieure pour le test
+ * @param borne_inf Borne inférieure pour le test
+ * @param borne_sup Borne supérieure pour le test
  * @return Choix correct
 **/
-int est_un_int_et_est_compris_entre(char string[], int choix, int nombre_1, int nombre_2)
+int est_un_int_et_est_compris_entre(char string[], int choix, int borne_inf, int borne_sup)
 {
 	do {
 		printf("%s", string);
 		scanf("%d", &choix);
 
-		if (!isdigit(choix) && (choix < nombre_1 - 1 || choix > nombre_2 + 1))
+		if (!isdigit(choix) && (choix < borne_inf || choix > borne_sup))
 		{
 			printf("Choix incorrect. Veillez recommencer.\n\n");
 		}
-	} while (!isdigit(choix) && (choix < nombre_1 - 1 || choix > nombre_2 + 1));
+	} while (!isdigit(choix) && (choix < borne_inf || choix > borne_sup));
 	// potentiel problème avec la valeur de retour d'isdigit()
 	
 	return choix;
