@@ -457,3 +457,38 @@ void viderListeQuestions(Liste_Questions *liste) {
 
 	liste->nb_questions = 0;
 }
+
+bool inferieurATrois(Liste_Heros *liste){
+    // Si la liste est NULL
+    if (liste == NULL) {
+        printf("viderListeHeros() : La liste des héros est NULL !\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Si la liste est vide
+    if (liste->premier == NULL) {
+        printf("viderListeHeros() : La liste des héros est vide !\n");
+
+    }
+
+    // Si la liste contient un seul élément
+    if (liste->premier->suivant == NULL) {
+        return true;
+    } else{
+        Elt_Heros *tmp = liste->premier;
+        int cpt = 0;
+
+        while (tmp->suivant != NULL){
+            Elt_Heros *tmp2 = tmp->suivant;
+            tmp = tmp2;
+            cpt+=1;
+        }
+
+        if (cpt >= 3){
+            return false;
+        } else if (cpt < 3){
+            return true;
+        }
+    }
+
+}

@@ -37,4 +37,6 @@ void viderListeQuestions(Liste_Questions *liste);
 
 void test_si_listes_NULL(Liste_Heros*, Liste_Questions*);
 
+bool inferieurATrois(Liste_Heros *liste);
+
 #endif // GESTION_LISTES_H

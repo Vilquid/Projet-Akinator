@@ -333,16 +333,38 @@ void boucle_jeu()
 		{
 			heros_temporaire = attribution_caracteristiques_heros_temporaire(heros_temporaire, liste_heros, liste_questions);
 
-			// test s'il reste moins de 3 héros dans la liste
-			// Poser la question si le héros 1 est celui auquel on pense
-			// Si oui alors :
-			sortie_boucle_question = true;
-			heros_trouve = true;
-			// Poser la question si le héros 2 est celui auquel on pense
-			// Si oui alors :
-			sortie_boucle_question = true;
-			heros_trouve = true;
-			// Si non alors ne rien faire
+            // test s'il reste moins de 3 héros dans la liste
+            if(inferieurATrois(liste_heros)){
+                // Poser la question si le héros 1 est celui auquel on pense
+                Elt_Heros *elt_hero_actuel = liste_heros->premier;
+                int choix = 0;
+                printf("Est-ce le personnage suivant : %s ans ?\n", elt_hero_actuel->heros->nom);
+                printf("  1 - Oui\n");
+                printf("  2 - Non - Je ne sais pas\n");
+                scanf("%s", choix);
+                // Si oui alors :
+                if (choix == 1){
+                    sortie_boucle_question = true;
+                    heros_trouve = true;
+                }
+                else if (choix == 2){ // sinon Poser la question si le héros 2 est celui auquel on pense
+                    if ( elt_hero_actuel->suivant != NULL){
+                        Elt_Heros *elt_hero_1 = elt_hero_actuel->suivant;
+                        printf("Est-ce le personnage suivant : %s ans ?\n", elt_hero_1->heros->nom);
+                        printf("  1 - Oui\n");
+                        printf("  2 - Non - Je ne sais pas\n");
+                        scanf("%s", choix);
+                        // Si oui alors :
+                        if (choix == 1){
+                            sortie_boucle_question = true;
+                            heros_trouve = true;
+                        } else if(choix == 2){
+                            sortie_boucle_question = true;
+                            heros_trouve = false;
+                        }
+                    }
+                }
+            }
 		} while (sortie_boucle_question == false);
 
 		if (heros_trouve == false)
