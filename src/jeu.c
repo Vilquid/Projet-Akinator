@@ -142,7 +142,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 		}
 
 		// C'est autre chose (ni un homme, ni une femme)
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est ni une femme, ni un homme ?")== 0 && choix_int == 1)
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est ni une femme, ni un homme ?") == 0 && choix_int == 1)
 		{
 			// Supprimer tous les héros qui ne sont pas des hommes ou des femmes
 			supprimerHerosSelonSexe(liste_heros, AUTRE);
@@ -162,7 +162,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 			heros_temporaire.espece = HUMAIN;
 
 			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
@@ -176,7 +176,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 			heros_temporaire.espece = MUTANT;
 
 			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
@@ -190,7 +190,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 			heros_temporaire.espece = EXTRATERRESTRE;
 
 			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
@@ -205,22 +205,21 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 			heros_temporaire.espece = HUMAIN_ALTERE;
 
 			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce un humain altere ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
 			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
 		}
 
 		// C'est un Etats-Uniens
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?")
-		== 0 && choix_int == 1)
+		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?") == 0 && choix_int == 1)
 		{
 			// Supprimer tous les héros qui sont de nationalité
 			supprimerHerosSelonNationalite(liste_heros, "Etats-Unis");
 			strcpy(heros_temporaire.nationalite, "Etats-Unis");
 
 			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est de nationalite etats-unienne ?");
 		}
 
 		// Equipement
@@ -240,7 +239,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				heros_temporaire.equipement = true;
 			}
 
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?");
 		}
 
 		// Volant
@@ -260,7 +259,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				heros_temporaire.volant = false;
 			}
 
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage vole ?");
 		}
 
 		// Masque
@@ -280,7 +279,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				heros_temporaire.masque = false;
 			}
 
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage porte un masque ?");
 		}
 
 		// Taille normale
@@ -298,7 +297,7 @@ Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, List
 				heros_temporaire.taille = false;
 			}
 
-			supprimerQuestionSelonQuestion(liste_questions, "");
+			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage a la taille d'un humain adulte ?");
 		}
 	}
 
