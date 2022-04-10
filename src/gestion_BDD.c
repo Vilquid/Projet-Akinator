@@ -53,7 +53,7 @@ void ajouterQuestionBDD() {
 **/
 void ajouterPersonnageBDD(Heros *heros) {
 
-	FILE* fichier_personnages = NULL;
+
 
 	// string à rentrer dans la BDD
 	char string[256];
@@ -446,7 +446,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 			scanf("%s", choix_string);
 			printf("\n");
 
-			strcpy(choix_string, " ");
+			//strcpy(choix_string, " ");
 			strcat(string, choix_string);
 		}
 	}
@@ -456,13 +456,18 @@ void ajouterPersonnageBDD(Heros *heros) {
 		printf("\nProbl%cme dans la cr%cation de la string\n", e_grave, e_aigu);
 	}
 
+    FILE* fichier_personnages = NULL;
 	// rentrer le personnage dans la BDD
-	fichier_personnages = fopen("personnages.txt", "a");
+	fichier_personnages = fopen("../db/personnages.txt", "a");
+    printf("string : %s\n", string);
 
 	if (fichier_personnages != NULL)
 	{
 		fseek(fichier_personnages, 0, SEEK_END);
-		fputs(string, fichier_personnages);
+		//fputs(string, fichier_personnages);
+        fprintf(fichier_personnages, string);
+        printf("à écrit\n");
+        fclose(fichier_personnages);
 	}
 
 	else
@@ -470,10 +475,10 @@ void ajouterPersonnageBDD(Heros *heros) {
 		printf("\nProbl%cme d'ouverture de la base de donn%ces Personnages\n", e_grave, e_aigu);
 	}
 
-	fclose(fichier_personnages);
 
-	if (fclose(fichier_personnages) != 0)
+
+	/*if (fclose(fichier_personnages) != 0)
 	{
-		printf("\nProbl%cme d'ouverture de la base de donn%ces Personnages\n", e_grave, e_aigu);
-	}
+		printf("\nProbl%cme de fermeture de la base de donn%ces Personnages\n", e_grave, e_aigu);
+	}*/
 }
