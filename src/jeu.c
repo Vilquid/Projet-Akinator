@@ -289,7 +289,7 @@ void jeu() {
                             heros_trouve = true;
 
                             questionAjouterPersoBDD(heros_test);
-                            questionAjouterQuestionBDD();
+//                            questionAjouterQuestionBDD();
                         }
                     }
 				}
