@@ -28,3 +28,4 @@ Thor homme Asgard 1500 pouvoirs extraterrestre volant non-masque taille-normale 
 Vision homme Synthezoide 10 pouvoirs extraterrestre volant non-masque taille-normale vert-emeraude
 War-Machine homme Etats-Unis 47 equipement humain volant masque taille-normale gris
 Wolverine homme Canada 140 pouvoirs mutant non-volant masque taille-normale jaune
+

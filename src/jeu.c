@@ -52,7 +52,7 @@ void jeu() {
 			if (liste_questions->nb_questions == 0) {
 
 				printf("Je ne sais plus quoi vous demander.\n");
-				printf("Fin du jeu !\n");
+				printf("Fin du jeu !\n\n");
 				heros_trouve = true;
 			}
 
@@ -272,7 +272,7 @@ void jeu() {
 			// S'il n'y a plus aucun héros
 			if (liste_heros->nb_heros == 0) {
 
-				printf("Oh non... Je ne connais pas votre personnage\n");
+				printf("Oh non... Je ne connais pas votre personnage\n\n");
 				heros_trouve = true;
 
 				questionAjouterPersoBDD(heros_test);
@@ -289,7 +289,7 @@ void jeu() {
 
 				// Si c'était le bon personnage
 				if (choix == 1) {
-					printf("Incroyable ! Je suis trop fort :)\n");
+					printf("Incroyable ! Je suis trop fort :)\n\n");
 					heros_trouve = true;
 				}
 
@@ -301,7 +301,7 @@ void jeu() {
 
 					if (liste_heros->premier == NULL) {
 
-						printf("Oh non... Je ne connais pas votre personnage\n");
+						printf("Oh non... Je ne connais pas votre personnage\n\n");
 						heros_trouve = true;
 
 						questionAjouterPersoBDD(heros_test);
@@ -316,17 +316,16 @@ void jeu() {
 
 						// Si c'était le bon personnage
 						if (choix == 1) {
-							printf("Excellent ! Je ne suis pas trop mauvais\n");
+							printf("Excellent ! Je ne suis pas trop mauvais\n\n");
 							heros_trouve = true;
 						}
 
 						// Si ce n'était toujours pas le bon personnage
 						else if (choix == 2) {
-							printf("Oh non... Je ne connais donc pas votre personnage\n");
+							printf("Oh non... Je ne connais donc pas votre personnage\n\n");
 							heros_trouve = true;
 
 							questionAjouterPersoBDD(heros_test);
-							questionAjouterQuestionBDD();
 						}
 					}
 				}
