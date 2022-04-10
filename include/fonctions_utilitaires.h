@@ -22,6 +22,5 @@ bool isString(char string[]);
 int demanderIntIntervalle(char texte[], int borne_inf, int borne_sup);
 void pauseProgramme();
 void akinator();
-void akinator_recursif();
 
 #endif // STRUCTS_FUNCTIONS_H
