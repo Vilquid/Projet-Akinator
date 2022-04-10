@@ -28,9 +28,33 @@ void jeu() {
 		// Initialisation du héros pour faire nos tests
 		heros_test = creerHeros("", 0, HOMME, "", HUMAIN, false, false, false, false, "");
 
+		// Nettoyage de l'écran
+		#ifdef _WIN32
+			system("cls");
+		#endif
+		#ifdef __linux__
+			system("clear");
+		#endif
+
+		// Affichage du logo
+		printf("___  ___                 _             _                    \n");
+		printf("|  \\/  |                (_)           | |                  \n");
+		printf("| .  . | __ _ _ ____   ___ _ __   __ _| |_ ___  _ __        \n");
+		printf("| |\\/| |/ _` | '__\\ \\ / / | '_ \\ / _` | __/ _ \\| '__|  \n");
+		printf("| |  | | (_| | |   \\ V /| | | | | (_| | || (_) | |         \n");
+		printf("\\_|  |_/\\__,_|_|    \\_/ |_|_| |_|\\__,_|\\__\\___/|_|\n\n\n");
+
 		// Boucle de jeu
 		do {
 			// Poser la question suivante de la liste
+
+			// S'il n'y a plus de questions à poser
+			if (liste_questions->nb_questions == 0) {
+
+				printf("Je ne sais plus quoi vous demander.\n");
+				printf("Fin du jeu !\n");
+				heros_trouve = true;
+			}
 
 			// Cas particulier pour l'âge
 			if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
@@ -245,8 +269,17 @@ void jeu() {
 				supprimerQuestionListe(liste_questions, liste_questions->premier);
 			}
 
+			// S'il n'y a plus aucun héros
+			if (liste_heros->nb_heros == 0) {
+
+				printf("Oh non... Je ne connais pas votre personnage\n");
+				heros_trouve = true;
+
+				questionAjouterPersoBDD(heros_test);
+			}
+
 			// S'il reste moins de 3 héros
-			if (liste_heros->nb_heros < 3) {
+			else if (liste_heros->nb_heros < 3) {
 
 				// Tenter le premier choix de personnage
 				printf("Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
@@ -262,36 +295,40 @@ void jeu() {
 
 				// Si ce n'était pas le bon personnage
 				else if (choix == 2) {
-                    // Supprimer le personnage de la liste
-                    liste_heros->premier = supprimerHerosListe(liste_heros, liste_heros->premier);
-                    if (liste_heros->premier == NULL){
-                        //TODO enregistrer en BDD le perso test
-                        //TODO Quitter le programme
-                        printf("fin du jeu \n");
-                        heros_trouve = true;
 
-                    } else{
-                        // Tenter le deuxième choix de personnage
-                        printf("Zut ! Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
-                        printf("  1 - Oui\n");
-                        printf("  2 - Non\n");
-                        choix = demanderIntIntervalle("Votre choix : ", 1, 2);
+					// Supprimer le personnage de la liste
+					liste_heros->premier = supprimerHerosListe(liste_heros, liste_heros->premier);
 
-                        // Si c'était le bon personnage
-                        if (choix == 1) {
-                            printf("Excellent ! Je ne suis pas trop mauvais\n");
-                            heros_trouve = true;
-                        }
+					if (liste_heros->premier == NULL) {
 
-                            // Si ce n'était toujours pas le bon personnage
-                        else if (choix == 2) {
-                            printf("Oh non... Je ne connais donc pas votre personnage\n");
-                            heros_trouve = true;
+						printf("Oh non... Je ne connais pas votre personnage\n");
+						heros_trouve = true;
 
-                            questionAjouterPersoBDD(heros_test);
-                            questionAjouterQuestionBDD();
-                        }
-                    }
+						questionAjouterPersoBDD(heros_test);
+					}
+
+					else {
+						// Tenter le deuxième choix de personnage
+						printf("Zut ! Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
+						printf("  1 - Oui\n");
+						printf("  2 - Non\n");
+						choix = demanderIntIntervalle("Votre choix : ", 1, 2);
+
+						// Si c'était le bon personnage
+						if (choix == 1) {
+							printf("Excellent ! Je ne suis pas trop mauvais\n");
+							heros_trouve = true;
+						}
+
+						// Si ce n'était toujours pas le bon personnage
+						else if (choix == 2) {
+							printf("Oh non... Je ne connais donc pas votre personnage\n");
+							heros_trouve = true;
+
+							questionAjouterPersoBDD(heros_test);
+							questionAjouterQuestionBDD();
+						}
+					}
 				}
 			}
 

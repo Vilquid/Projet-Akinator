@@ -289,6 +289,7 @@ Elt_Heros *supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 	if (liste->premier->suivant == NULL) {
 		free(liste->premier);
 		liste->premier = NULL;
+		liste->nb_heros--;
 	}
 
 	else {
@@ -353,6 +354,7 @@ Elt_Question *supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_q
 	if (liste->premier->suivant == NULL) {
 		free(liste->premier);
 		liste->premier = NULL;
+		liste->nb_questions--;
 	}
 
 	else {
