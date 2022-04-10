@@ -68,7 +68,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 		printf("  1 - De mani%cre automatique ?\n", e_grave);
 		printf("  2 - De mani%cre manuelle ?\n", e_grave);
 
-		if (demanderIntIntervalle("Votre choix : ", 0, 3) == 1)
+		if (demanderIntIntervalle("Votre choix : ", 1, 2) == 1)
 		{
 			strcat(string, heros->nom);
 			strcat(string, " ");
