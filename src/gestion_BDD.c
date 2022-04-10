@@ -120,7 +120,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 								printf("\nSaisie incorrecte. Veillez recommencer.\n");
 							}
 						}
-					} while (isString(string) != 1);
+					} while (!isString(string));
 
 					stringToLower(choix_string);
 					strcat(string, choix_string);
@@ -216,11 +216,11 @@ void ajouterPersonnageBDD(Heros *heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (isString(choix_string) != 1)
+				if (!isString(choix_string))
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (isString(choix_string) != 1);
+			} while (!isString(choix_string));
 
 			strcat(string, choix_string);
 			strcpy(string, ",");
@@ -234,11 +234,11 @@ void ajouterPersonnageBDD(Heros *heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (isString(choix_string) != 1)
+				if (!isString(choix_string))
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (isString(choix_string) != 1);
+			} while (!isString(choix_string));
 
 			stringToLower(choix_string);
 
@@ -271,7 +271,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 						scanf("%s", choix_string);
 						printf("\n");
 
-					} while (isString(string) != 1);
+					} while (!isString(string));
 
 					stringToLower(choix_string);
 
@@ -315,7 +315,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 								printf("\nSaisie incorrecte. Veillez recommencer.\n");
 							}
 						}
-					} while (isString(string) != 1);
+					} while (!isString(string));
 
 					stringToLower(choix_string);
 
@@ -390,7 +390,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 						printf("Son esp%cce : ", e_grave);
 						scanf("%s", choix_string);
 						printf("\n");
-					} while (isString(choix_string) != 1);
+					} while (!isString(choix_string));
 
 					stringToLower(choix_string);
 
@@ -453,11 +453,11 @@ void ajouterPersonnageBDD(Heros *heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (isString(choix_string) != 1)
+				if (!isString(choix_string))
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (isString(choix_string) != 1);
+			} while (!isString(choix_string));
 
 			strcpy(choix_string, ",");
 			strcat(string, choix_string);

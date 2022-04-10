@@ -19,9 +19,9 @@ void stringToLower(char string[]) {
 /**
  * @brief Teste si la string en paramètre est seulement composée de lettres
  * @param string String à tester
- * @return int – 1 si le test est valide, 0 sinon
+ * @return bool
 **/
-int isString(char string[]) {
+bool isString(char string[]) {
 
 	size_t test = 0;
 
@@ -32,10 +32,10 @@ int isString(char string[]) {
 	}
 
 	if (test == strlen(string)) {
-		return 1;
+		return true;
 	}
 	else {
-		return 0;
+		return false;
 	}
 }
 

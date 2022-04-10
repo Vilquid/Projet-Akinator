@@ -18,7 +18,7 @@
 -----------------------------*/
 
 void stringToLower(char string[]);
-int isString(char string[]);
+bool isString(char string[]);
 int demanderIntIntervalle(char texte[], int borne_inf, int borne_sup);
 void pauseProgramme();
 void akinator();
