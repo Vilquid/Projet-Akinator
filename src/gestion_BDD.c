@@ -8,7 +8,7 @@
 /**
  * @brief Fonction permettant d'ajouter une question à la base de données questions
 **/
-void ajouter_question_BDD() {
+void ajouterQuestionBDD() {
 
 	FILE* fichier_questions = NULL;
 
@@ -51,7 +51,7 @@ void ajouter_question_BDD() {
  * @brief Fonction permettant d'ajouter un personnage à la base de données personnages
  * @param heros Héros à ajouter
 **/
-void ajouter_personnage_BDD(Heros heros) {
+void ajouterPersonnageBDD(Heros *heros) {
 
 	FILE* fichier_personnages = NULL;
 
@@ -68,12 +68,12 @@ void ajouter_personnage_BDD(Heros heros) {
 		printf("  1 - De mani%cre automatique ?\n", e_grave);
 		printf("  2 - De mani%cre manuelle ?\n", e_grave);
 
-		if (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 0, 3) == 1)
+		if (demanderIntIntervalle("Votre choix : ", 0, 3) == 1)
 		{
-			strcat(string, heros.nom);
+			strcat(string, heros->nom);
 			strcat(string, ",");
 
-			switch (heros.sexe)
+			switch (heros->sexe)
 			{
 				case HOMME:
 					strcat(string, "homme,");
@@ -92,7 +92,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  3 - France\n");
 			printf("  4 - Autre\n");
 
-			switch (est_un_int_et_est_compris_entre("Sa nationalite : ", choix_int, 0, 4))
+			switch (demanderIntIntervalle("Sa nationalite : ", 0, 4))
 			{
 				case 1:
 				{
@@ -120,9 +120,9 @@ void ajouter_personnage_BDD(Heros heros) {
 								printf("\nSaisie incorrecte. Veillez recommencer.\n");
 							}
 						}
-					} while (est_une_string(string) != 1);
+					} while (isString(string) != 1);
 
-					convert_to_lower(choix_string);
+					stringToLower(choix_string);
 					strcat(string, choix_string);
 					strcat(string, ",");
 
@@ -145,7 +145,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			strcat(string, choix_string);
 			strcat(string, ",");
 
-			if (heros.equipement)
+			if (heros->equipement)
 			{
 				strcat(string, "equipement,");
 			}
@@ -155,7 +155,7 @@ void ajouter_personnage_BDD(Heros heros) {
 				strcat(string, "pouvoirs,");
 			}
 
-			switch (heros.espece)
+			switch (heros->espece)
 			{
 				case HUMAIN:
 				{
@@ -179,7 +179,7 @@ void ajouter_personnage_BDD(Heros heros) {
 				}
 			}
 
-			if (heros.volant)
+			if (heros->volant)
 			{
 				strcat(string, "volant,");
 			}
@@ -189,7 +189,7 @@ void ajouter_personnage_BDD(Heros heros) {
 				strcat(string, "non-volant,");
 			}
 
-			if (heros.masque)
+			if (heros->masque)
 			{
 				strcat(string, "masque,");
 			}
@@ -199,7 +199,7 @@ void ajouter_personnage_BDD(Heros heros) {
 				strcat(string, "non-masque,");
 			}
 
-			if (heros.taille)
+			if (heros->taille)
 			{
 				strcat(string, "taille-normale,");
 			}
@@ -216,11 +216,11 @@ void ajouter_personnage_BDD(Heros heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (est_une_string(choix_string) != 1)
+				if (isString(choix_string) != 1)
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (est_une_string(choix_string) != 1);
+			} while (isString(choix_string) != 1);
 
 			strcat(string, choix_string);
 			strcpy(string, ",");
@@ -234,13 +234,13 @@ void ajouter_personnage_BDD(Heros heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (est_une_string(choix_string) != 1)
+				if (isString(choix_string) != 1)
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (est_une_string(choix_string) != 1);
+			} while (isString(choix_string) != 1);
 
-			convert_to_lower(choix_string);
+			stringToLower(choix_string);
 
 			strcat(choix_string, ",");
 			strcat(string, choix_string);
@@ -250,7 +250,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  2 - Femme\n");
 			printf("  3 - Autre\n");
 
-			switch (est_un_int_et_est_compris_entre("Son sexe : ", choix_int, 0, 4))
+			switch (demanderIntIntervalle("Son sexe : ", 0, 4))
 			{
 				case 1:
 				{
@@ -271,9 +271,9 @@ void ajouter_personnage_BDD(Heros heros) {
 						scanf("%s", choix_string);
 						printf("\n");
 
-					} while (est_une_string(string) != 1);
+					} while (isString(string) != 1);
 
-					convert_to_lower(choix_string);
+					stringToLower(choix_string);
 
 					strcat(choix_string, ",");
 					strcat(string, choix_string);
@@ -287,7 +287,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  3 - France\n");
 			printf("  4 - Autre\n");
 
-			switch (est_un_int_et_est_compris_entre("Sa nationalit%c : ", choix_int, 0, 4))
+			switch (demanderIntIntervalle("Sa nationalite : ", 0, 4))
 			{
 				case 1:
 				{
@@ -315,9 +315,9 @@ void ajouter_personnage_BDD(Heros heros) {
 								printf("\nSaisie incorrecte. Veillez recommencer.\n");
 							}
 						}
-					} while (est_une_string(string) != 1);
+					} while (isString(string) != 1);
 
-					convert_to_lower(choix_string);
+					stringToLower(choix_string);
 
 					strcat(choix_string, ",");
 					strcat(string, choix_string);
@@ -340,7 +340,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  1 - Pouvoirs\n");
 			printf("  2 - %cquipement\n", E_aigu);
 
-			if (choix_int == est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2))
+			if (choix_int == demanderIntIntervalle("Votre choix : ", 1, 2))
 			{
 				strcpy(choix_string, "pouvoirs,");
 				strcat(string, choix_string);
@@ -359,7 +359,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  4 - Extraterrestre\n");
 			printf("  5 - Autre\n");
 
-			switch (est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 0, 5))
+			switch (demanderIntIntervalle("Votre choix : ", 0, 5))
 			{
 				case 1:
 				{
@@ -390,9 +390,9 @@ void ajouter_personnage_BDD(Heros heros) {
 						printf("Son esp%cce : ", e_grave);
 						scanf("%s", choix_string);
 						printf("\n");
-					} while (est_une_string(choix_string) != 1);
+					} while (isString(choix_string) != 1);
 
-					convert_to_lower(choix_string);
+					stringToLower(choix_string);
 
 					strcat(choix_string, ",");
 					strcat(string, choix_string);
@@ -404,7 +404,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  1 - Oui\n");
 			printf("  2 - Non\n");
 
-			if (choix_int == est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2))
+			if (choix_int == demanderIntIntervalle("Votre choix : ", 1, 2))
 			{
 				strcpy(choix_string, "volant,");
 				strcat(string, choix_string);
@@ -420,7 +420,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  1 - Oui\n");
 			printf("  2 - Non\n");
 
-			if (choix_int == est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 1, 2))
+			if (choix_int == demanderIntIntervalle("Votre choix : ", 1, 2))
 			{
 				strcat(string, "masque,");
 			}
@@ -434,7 +434,7 @@ void ajouter_personnage_BDD(Heros heros) {
 			printf("  1 - Oui\n");
 			printf("  2 - Non\n");
 
-			if (choix_int == est_un_int_et_est_compris_entre("Votre choix : ", choix_int, 0, 5))
+			if (choix_int == demanderIntIntervalle("Votre choix : ", 0, 5))
 			{
 				strcpy(choix_string, "taille-normale,");
 				strcat(string, choix_string);
@@ -453,11 +453,11 @@ void ajouter_personnage_BDD(Heros heros) {
 				scanf("%s", choix_string);
 				printf("\n");
 
-				if (est_une_string(choix_string) != 1)
+				if (isString(choix_string) != 1)
 				{
 					printf("\nSaisie incorrecte. Veillez recommencer.\n");
 				}
-			} while (est_une_string(choix_string) != 1);
+			} while (isString(choix_string) != 1);
 
 			strcpy(choix_string, ",");
 			strcat(string, choix_string);

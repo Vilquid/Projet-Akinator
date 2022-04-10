@@ -7,11 +7,9 @@
 
 int main()
 {
-	// Initialiser l'aléatoire
-	srand(time(NULL));
-
-	akinator();
-	boucle_jeu();
+	while(1) {
+		akinator();
+	}
 
 	return EXIT_SUCCESS;
 }

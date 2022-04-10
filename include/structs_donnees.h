@@ -29,19 +29,19 @@ struct Heros {
 	int age;              // Age du personnage
 	Sexe sexe;            // 0 = Homme, 1 = Femme, 2 = Autre
 	char nationalite[25]; // Nationalité du personnage
-	Espece espece;        // 0 => Humain / 1 => Extraterrestre / 2 => Mutant / 3 => Humain-altere
-	bool equipement;      // True => Oui en porte, False => Non en porte pas
-	bool volant;          // True => il vole, False => ne vole pas
-	bool masque;          // True => porte un masque, False => Non
-	bool taille;          // True => taille normal, False => taille anormal
+	Espece espece;        // 0 = Humain, 1 = Extraterrestre, 2 = Mutant, 3 = Humain altéré
+	bool equipement;      // True = Oui en porte, False = Non en porte pas
+	bool volant;          // True = il vole, False = ne vole pas
+	bool masque;          // True = porte un masque, False = Non
+	bool taille;          // True = taille normale, False = taille anormale
 	char couleur[25];     // Couleur prédominante
 };
 
 struct Question {
-	char question[128];
-	char reponse_attendue[64];
-	int priorite;
-	char attribut[32];
+	char question[128];        // Texte de la question
+	char reponse_attendue[25]; // Réponse positive attendue
+	int priorite;              // Priorité de la question
+	char attribut[32];         // Attribut ciblé par la question
 };
 
 struct Elt_Heros {
@@ -63,10 +63,5 @@ struct Liste_Questions {
 	Elt_Question *premier;
 	int nb_questions;
 };
-
-typedef struct Attribut_Ordre {
-	char attribut[32];
-	int ordre;
-} Attribut_Ordre;
 
 #endif // STRUCT_DONNEES_H

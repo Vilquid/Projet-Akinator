@@ -11,14 +11,14 @@
 ---------------------*/
 
 #include "librairies.h"
-#include "fonctions_utilitaires.h"
 #include "structs_donnees.h"
+#include "fonctions_utilitaires.h"
 
 /*-----------------------------
    Déclaration des Fonctions
 -----------------------------*/
 
-void ajouter_question_BDD();
-void ajouter_personnage_BDD(Heros heros);
+void ajouterQuestionBDD();
+void ajouterPersonnageBDD(Heros *heros);
 
 #endif // GESTION_BDD_H

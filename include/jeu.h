@@ -15,16 +15,19 @@
 #include "gestion_listes.h"
 #include "gestion_fichiers.h"
 #include "gestion_BDD.h"
-#include <time.h>
 
 /*-----------------------------
    Déclaration des Fonctions
 -----------------------------*/
 
-Question *choisirQuestionAleatoire(Liste_Questions *liste);
-Heros *choisirSuspect(Liste_Heros *liste);
+void jeu();
+
+bool questionRejouer();
+void questionAjouterQuestionBDD();
+void questionAjouterPersoBDD(Heros *heros);
+
 void afficherHeros(Heros *heros);
-int calculAgeMoyenHeros(Liste_Heros *liste);
+int calculAgeMoyenHerosRestants(Liste_Heros *liste);
 
 void supprimerHerosSelonAge(Liste_Heros *liste);
 void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe);
@@ -35,12 +38,7 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant);
 void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque);
 void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille);
 void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]);
-void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[]);
 
-void boucle_jeu();
-void question_ajouter_perso_BDD(Heros);
-void question_ajouter_question_BDD();
-bool question_rejouer();
-Heros attribution_caracteristiques_heros_temporaire(Heros, Liste_Heros*, Liste_Questions*);
+void supprimerQuestionsSelonAttribut(Liste_Questions *liste, char attribut[]);
 
 #endif // JEU_H

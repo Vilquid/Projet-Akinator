@@ -29,14 +29,10 @@ Liste_Questions *creerListeQuestions();
 void ajouterHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros);
 void ajouterQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
 
-void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros);
-void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
+Elt_Heros *supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros);
+Elt_Question *supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question);
 
 void viderListeHeros(Liste_Heros *liste);
 void viderListeQuestions(Liste_Questions *liste);
-
-void test_si_listes_NULL(Liste_Heros*, Liste_Questions*);
-
-bool inferieurATrois(Liste_Heros *liste);
 
 #endif // GESTION_LISTES_H

@@ -72,13 +72,6 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 			sexe = AUTRE;
 		}
 
-		// Faire correspondre la chaîne de caractères au booléen équipement
-		if (strcmp(equipement_tmp, "equipement") == 0) {
-			equipement = true;
-		} else if (strcmp(equipement_tmp, "pouvoirs") == 0) {
-			equipement = false;
-		}
-
 		// Faire correspondre la chaîne de caractères à l'énumération Espece
 		if (strcmp(espece_tmp, "humain") == 0) {
 			espece = HUMAIN;
@@ -88,6 +81,13 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 			espece = MUTANT;
 		} else if (strcmp(espece_tmp, "humain-altere") == 0) {
 			espece = HUMAIN_ALTERE;
+		}
+
+		// Faire correspondre la chaîne de caractères au booléen équipement
+		if (strcmp(equipement_tmp, "equipement") == 0) {
+			equipement = true;
+		} else if (strcmp(equipement_tmp, "pouvoirs") == 0) {
+			equipement = false;
 		}
 
 		// Faire correspondre la chaîne de caractères au booléen volant
@@ -158,7 +158,7 @@ Liste_Questions *chargerDonneesFichierQuestions() {
 
 	// Variables à récupérer
 	char question[128];
-	char reponse_attendue[64];
+	char reponse_attendue[25];
 	int priorite = 0;
 	char attribut[32];
 
@@ -167,7 +167,7 @@ Liste_Questions *chargerDonneesFichierQuestions() {
 
 		// Réinitialiser les chaînes de caractères
 		memset(question, '\0', 128 * sizeof(char));
-		memset(reponse_attendue, '\0', 64 * sizeof(char));
+		memset(reponse_attendue, '\0', 25 * sizeof(char));
 		memset(attribut, '\0', 32 * sizeof(char));
 
 		// Récupérer les données de la ligne courante du fichier texte

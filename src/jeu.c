@@ -5,445 +5,344 @@
 
 #include "../include/jeu.h"
 
+/**
+ * @brief Fonction principale du jeu
+**/
+void jeu() {
+
+	bool rejouer = false;
+
+	// Boucle rejouer
+	do {
+
+		// Variables de jeu
+		bool heros_trouve = false;
+		Liste_Heros *liste_heros = NULL;
+		Liste_Questions *liste_questions = NULL;
+		Heros *heros_test = NULL;
+
+		// Charger les données des personnages et des questions
+		liste_heros = chargerDonneesFichierPersonnages();
+		liste_questions = chargerDonneesFichierQuestions();
+
+		// Initialisation du héros pour faire nos tests
+		heros_test = creerHeros("", 0, HOMME, "", HUMAIN, false, false, false, false, "");
+
+		// Boucle de jeu
+		do {
+			// Poser la question suivante de la liste
+
+			// Cas particulier pour l'âge
+			if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
+			{
+				printf("%s %d ans ?\n", liste_questions->premier->question->question, calculAgeMoyenHerosRestants(liste_heros));
+			}
+			else {
+				printf("%s\n", liste_questions->premier->question->question);
+			}
+
+			printf("  1 - Oui\n");
+			printf("  2 - Non\n");
+			int choix = demanderIntIntervalle("Votre choix : ", 1, 2);
+
+			// Si l'utilisateur a répondu "Oui"
+			if (choix == 1) {
+
+				// Si l'attribut de la question était "age"
+				if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
+				{
+					// TODO
+				}
+
+				// Si l'attribut de la question était "sexe"
+				else if (strcmp(liste_questions->premier->question->attribut, "sexe") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					if (strcmp(liste_questions->premier->question->reponse_attendue, "homme") == 0) {
+						heros_test->sexe = HOMME;
+						supprimerHerosSelonSexe(liste_heros, HOMME);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "femme") == 0) {
+						heros_test->sexe = FEMME;
+						supprimerHerosSelonSexe(liste_heros, FEMME);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "autre") == 0) {
+						heros_test->sexe = AUTRE;
+						supprimerHerosSelonSexe(liste_heros, AUTRE);
+					}
+				}
+
+				// Si l'attribut de la question était "nationalite"
+				else if (strcmp(liste_questions->premier->question->attribut, "nationalite") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					strcpy(heros_test->nationalite, liste_questions->premier->question->reponse_attendue);
+					supprimerHerosSelonNationalite(liste_heros, liste_questions->premier->question->reponse_attendue);
+				}
+
+				// Si l'attribut de la question était "espece"
+				else if (strcmp(liste_questions->premier->question->attribut, "espece") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					if (strcmp(liste_questions->premier->question->reponse_attendue, "humain") == 0) {
+						heros_test->espece = HUMAIN;
+						supprimerHerosSelonEspece(liste_heros, HUMAIN);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "extraterrestre") == 0) {
+						heros_test->espece = EXTRATERRESTRE;
+						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "mutant") == 0) {
+						heros_test->espece = MUTANT;
+						supprimerHerosSelonEspece(liste_heros, MUTANT);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "humain-altere") == 0) {
+						heros_test->espece = HUMAIN_ALTERE;
+						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
+					}
+				}
+
+				// Si l'attribut de la question était "equipement"
+				else if (strcmp(liste_questions->premier->question->attribut, "equipement") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					heros_test->equipement = true;
+					supprimerHerosSelonEquipement(liste_heros, true);
+				}
+
+				// Si l'attribut de la question était "volant"
+				else if (strcmp(liste_questions->premier->question->attribut, "volant") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					heros_test->volant = true;
+					supprimerHerosSelonVolant(liste_heros, true);
+				}
+
+				// Si l'attribut de la question était "masque"
+				else if (strcmp(liste_questions->premier->question->attribut, "masque") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					heros_test->masque = true;
+					supprimerHerosSelonMasque(liste_heros, true);
+				}
+
+				// Si l'attribut de la question était "taille"
+				else if (strcmp(liste_questions->premier->question->attribut, "taille") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					heros_test->taille = true;
+					supprimerHerosSelonTaille(liste_heros, true);
+				}
+
+				// Si l'attribut de la question était "couleur"
+				else if (strcmp(liste_questions->premier->question->attribut, "couleur") == 0)
+				{
+					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
+					strcpy(heros_test->couleur, liste_questions->premier->question->reponse_attendue);
+					supprimerHerosSelonCouleur(liste_heros, liste_questions->premier->question->reponse_attendue);
+				}
+
+				// Supprimer toutes les questions qui répondent au même attribut
+				supprimerQuestionsSelonAttribut(liste_questions, liste_questions->premier->question->attribut);
+			}
+
+			// Si l'utilisateur a répondu "Non"
+			else if (choix == 2) {
+
+				// Si l'attribut de la question était "age"
+				if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
+				{
+					// TODO
+				}
+
+				// Si l'attribut de la question était "sexe"
+				else if (strcmp(liste_questions->premier->question->attribut, "sexe") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					if (strcmp(liste_questions->premier->question->reponse_attendue, "homme") == 0) {
+						//supprimerHerosSelonSexe(liste_heros, HOMME);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "femme") == 0) {
+						//supprimerHerosSelonSexe(liste_heros, FEMME);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "autre") == 0) {
+						//supprimerHerosSelonSexe(liste_heros, AUTRE);
+					}
+				}
+
+				// Si l'attribut de la question était "nationalite"
+				else if (strcmp(liste_questions->premier->question->attribut, "nationalite") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					//supprimerHerosSelonNationalite(liste_heros, liste_questions->premier->question->reponse_attendue);
+				}
+
+				// Si l'attribut de la question était "espece"
+				else if (strcmp(liste_questions->premier->question->attribut, "espece") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					if (strcmp(liste_questions->premier->question->reponse_attendue, "humain") == 0) {
+						//supprimerHerosSelonEspece(liste_heros, HUMAIN);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "extraterrestre") == 0) {
+						//supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "mutant") == 0) {
+						//supprimerHerosSelonEspece(liste_heros, MUTANT);
+					}
+					else if (strcmp(liste_questions->premier->question->reponse_attendue, "humain-altere") == 0) {
+						//supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
+					}
+				}
+
+				// Si l'attribut de la question était "equipement"
+				else if (strcmp(liste_questions->premier->question->attribut, "equipement") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					supprimerHerosSelonEquipement(liste_heros, false);
+				}
+
+				// Si l'attribut de la question était "volant"
+				else if (strcmp(liste_questions->premier->question->attribut, "volant") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					supprimerHerosSelonVolant(liste_heros, false);
+				}
+
+				// Si l'attribut de la question était "masque"
+				else if (strcmp(liste_questions->premier->question->attribut, "masque") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					supprimerHerosSelonMasque(liste_heros, false);
+				}
+
+				// Si l'attribut de la question était "taille"
+				else if (strcmp(liste_questions->premier->question->attribut, "taille") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					supprimerHerosSelonTaille(liste_heros, false);
+				}
+
+				// Si l'attribut de la question était "couleur"
+				else if (strcmp(liste_questions->premier->question->attribut, "couleur") == 0)
+				{
+					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					//supprimerHerosSelonCouleur(liste_heros, liste_questions->premier->question->reponse_attendue);
+				}
+
+				// Supprimer la question que l'ont vient de poser
+				supprimerQuestionListe(liste_questions, liste_questions->premier);
+			}
+
+			// S'il reste moins de 3 héros
+			if (liste_heros->nb_heros < 3) {
+
+				// Tenter le premier choix de personnage
+				printf("Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
+				printf("  1 - Oui\n");
+				printf("  2 - Non\n");
+				choix = demanderIntIntervalle("Votre choix : ", 1, 2);
+
+				// Si c'était le bon personnage
+				if (choix == 1) {
+					printf("Incroyable ! Je suis trop fort :)\n");
+					heros_trouve = true;
+				}
+
+				// Si ce n'était pas le bon personnage
+				else if (choix == 2) {
+
+					// Supprimer le personnage de la liste
+					supprimerHerosListe(liste_heros, liste_heros->premier);
+
+					// Tenter le deuxième choix de personnage
+					printf("Zut ! Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
+					printf("  1 - Oui\n");
+					printf("  2 - Non\n");
+					choix = demanderIntIntervalle("Votre choix : ", 1, 2);
+
+					// Si c'était le bon personnage
+					if (choix == 1) {
+						printf("Excellent ! Je ne suis pas trop mauvais\n");
+						heros_trouve = true;
+					}
+
+					// Si ce n'était toujours pas le bon personnage
+					else if (choix == 2) {
+						printf("Oh non... Je ne connais donc pas votre personnage\n");
+						heros_trouve = true;
+
+						questionAjouterPersoBDD(heros_test);
+						questionAjouterQuestionBDD();
+					}
+				}
+			}
+
+		} while (!heros_trouve);
+
+		rejouer = questionRejouer();
+
+		if (rejouer) {
+			// Vidage des listes
+			viderListeHeros(liste_heros);
+			viderListeQuestions(liste_questions);
+		}
+
+	} while (!rejouer);
+
+}
 
 /**
- * @fn question_rejouer
- * @brief Pose la question d'un nouveau tour de boucle/jeu (et rejoue si la réponse est positive)
- * @return bool : true si le joueur veut rejouer, false sinon
- */
-bool question_rejouer()
-{
-	int choix = 1;
+ * @brief Fonction permettant de demander à l'utilisateur s'il souhaite rejouer
+ * @return bool – True si le joueur veut rejouer, False sinon
+**/
+bool questionRejouer() {
 
 	printf("Voulez-vous rejouer ?\n");
 	printf("  1 - Oui\n");
 	printf("  2 - Non\n");
 
-	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 2)
-	{
+	if (demanderIntIntervalle("Votre choix : ", 1, 2) == 2) {
 		return false;
 	}
-
-	else
-	{
+	else {
 		return true;
 	}
 }
 
 /**
- * @fn question_ajouter_question_BDD
- * @brief Pose la question de l'ajout d'une question dans la base de données Questions (et l'ajoute si la réponse est positive)
- */
-void question_ajouter_question_BDD()
-{
-	int choix = 1;
+ * @brief Fonction permettant de demander à l'utilisateur s'il souhaite ajouter une question dans la base de données
+**/
+void questionAjouterQuestionBDD() {
 
 	printf("Voulez-vous ajouter une question à la base de donn%ces ?\n", e_aigu);
 	printf("  1 - Oui\n");
 	printf("  2 - Non\n");
 
-	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 1)
-	{
-		ajouter_question_BDD();
+	if (demanderIntIntervalle("Votre choix : ", 1, 2) == 1) {
+		ajouterQuestionBDD();
 	}
-
-	else
-	{
-		printf("Vous n'ajouterez pas de question.\n");
+	else {
+		printf("Vous n'ajouterez pas de question\n");
 	}
 }
 
 /**
- * @fn question_ajouter_perso_BDD
- * @brief Pose la question de l'ajout d'un personnage dans la base de données Personnages (et l'ajoute si la réponse est positive)
- * @param heros Structure heros à rentrer dans la base de données Personnages
- */
-void question_ajouter_perso_BDD(Heros heros)
-{
-	int choix = 1;
+ * @brief Fonction permettant de demander à l'utilisateur s'il souhaite ajouter un personnage dans la base de données
+ * @param heros Héros à ajouter
+**/
+void questionAjouterPersoBDD(Heros *heros) {
+
 	printf("Voulez-vous ajouter un personnage %c la base de donn%ces ?\n", a_grave, e_aigu);
 	printf("  1 - Oui\n");
 	printf("  2 - Non\n");
 
-	if (est_un_int_et_est_compris_entre("Votre choix : ", choix, 1, 2) == 1)
-	{
-		ajouter_personnage_BDD(heros);
+	if (demanderIntIntervalle("Votre choix : ", 1, 2) == 1) {
+		ajouterPersonnageBDD(heros);
 	}
-
-	else
-	{
-		printf("Vous n'ajouterez pas de personnages.\n");
+	else {
+		printf("Vous n'ajouterez pas de personnage\n");
 	}
-}
-
-/**
- * @fn attribution_caracteristiques_heros_temporaire
- * @brief Pose la question de l'ajout d'un personnage dans la base de données (et l'ajoute si la réponse est positive)
- * @param heros_temporaire Pointeur sur le heros temporaire
- * @param liste_heros Liste des héros
- * @param liste_questions Liste des questions
- * @return heros_temporaire
- */
-Heros attribution_caracteristiques_heros_temporaire(Heros heros_temporaire, Liste_Heros* liste_heros, Liste_Questions* liste_questions)
-{
-	// TODO : utiliser void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[])
-	int choix_int = 0;
-	Elt_Heros heros_actuel;
-	heros_actuel.heros = liste_heros->premier->heros;
-
-	// Appel fonction pour choisir une question
-	Question *question_actuelle = choisirQuestionAleatoire(liste_questions);
-
-	if (strcmp(question_actuelle->question, "Est-ce que le personnage a plus de") == 0)
-	{
-		// Afficher la question
-		printf("%s %d ans ?\n", question_actuelle->question, calculAgeMoyenHeros(liste_heros));
-		printf("  1 - Oui\n");
-		printf("  2 - Non - Je ne sais pas\n");
-
-		supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage a plus de");
-		supprimerHerosSelonAge(liste_heros);
-	}
-
-	else
-	{
-		// Afficher la question
-		printf("%s\n", question_actuelle->question);
-		printf("  1 - Oui\n");
-		printf("  2 - Non - Je ne sais pas\n");
-
-		choix_int = est_un_int_et_est_compris_entre("Votre choix :", choix_int, 1, 2);
-
-		// C'est un homme
-		if (strcmp(question_actuelle->question, "Est-ce que le personnage est un homme ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des hommes
-			supprimerHerosSelonSexe(liste_heros, HOMME);
-			heros_temporaire.sexe = HOMME;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un homme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est une femme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est ni une femme, ni un homme ?");
-		}
-
-		// C'est une femme
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est une femme ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des femmes
-			supprimerHerosSelonSexe(liste_heros, FEMME);
-			heros_temporaire.sexe = FEMME;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est une femme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un homme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est ni une femme, ni un homme ?");
-		}
-
-		// C'est autre chose (ni un homme, ni une femme)
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est ni une femme, ni un homme ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des hommes ou des femmes
-			supprimerHerosSelonSexe(liste_heros, AUTRE);
-			heros_temporaire.sexe = AUTRE;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est ni une femme, ni un homme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est une femme ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un homme ?");
-		}
-
-		// C'est un humain
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un humain ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des humains
-			supprimerHerosSelonEspece(liste_heros, HUMAIN);
-			heros_temporaire.espece = HUMAIN;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
-		}
-
-		// C'est un mutant
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un mutant ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des mutants
-			supprimerHerosSelonEspece(liste_heros, MUTANT);
-			heros_temporaire.espece = MUTANT;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
-		}
-
-		// C'est un extraterrestre
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est un extraterrestre ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des mutants
-			supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
-			heros_temporaire.espece = EXTRATERRESTRE;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain altere ?");
-		}
-
-		// C'est un humain altéré
-		else if (strcmp(question_actuelle->question, "Est-ce un humain altere ?") == 0 &&
-		choix_int == 1)
-		{
-			// Supprimer tous les héros qui ne sont pas des mutants
-			supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
-			heros_temporaire.espece = HUMAIN_ALTERE;
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce un humain altere ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un humain ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un mutant ?");
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est un extraterrestre ?");
-		}
-
-		// C'est un Etats-Uniens
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage est de nationalite etats-unienne ?") == 0 && choix_int == 1)
-		{
-			// Supprimer tous les héros qui sont de nationalité
-			supprimerHerosSelonNationalite(liste_heros, "Etats-Unis");
-			strcpy(heros_temporaire.nationalite, "Etats-Unis");
-
-			// Supprimer les questions en rapport avec l'attribut
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage est de nationalite etats-unienne ?");
-		}
-
-		// Equipement
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?") == 0)
-		{
-			if (choix_int == 1)
-			{
-				// Supprimer tous les héros qui n'utilisent pas pluis leurs pouvoirs que leur équipement
-				supprimerHerosSelonEquipement(liste_heros, false);
-				heros_temporaire.equipement = false;
-			}
-
-			else
-			{
-				// Supprimer tous les héros qui n'utilisent pas plus leurs pouvoirs que leur équipement
-				supprimerHerosSelonEquipement(liste_heros, true);
-				heros_temporaire.equipement = true;
-			}
-
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?");
-		}
-
-		// Volant
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage vole ?") == 0)
-		{
-			if (choix_int == 1)
-			{
-				// Supprimer tous les héros qui ne volent pas
-				supprimerHerosSelonVolant(liste_heros, "volant");
-				heros_temporaire.volant = true;
-			}
-
-			else
-			{
-				// Supprimer tous les héros qui ne volent pas
-				supprimerHerosSelonVolant(liste_heros, "non-volant");
-				heros_temporaire.volant = false;
-			}
-
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage vole ?");
-		}
-
-		// Masque
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage porte un masque ?") == 0)
-		{
-			if (choix_int == 1)
-			{
-				// Supprimer tous les héros qui ne volent pas
-				supprimerHerosSelonMasque(liste_heros, true);
-				heros_temporaire.masque = true;
-			}
-
-			else
-			{
-				// Supprimer tous les héros qui ne volent pas
-				supprimerHerosSelonVolant(liste_heros, false);
-				heros_temporaire.masque = false;
-			}
-
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage porte un masque ?");
-		}
-
-		// Taille normale
-		else if (strcmp(question_actuelle->question, "Est-ce que le personnage a la taille d'un humain adulte ?") == 0)
-		{
-			if (choix_int == 1)
-			{
-				supprimerHerosSelonTaille(liste_heros, "taille-normale");
-				heros_temporaire.taille = true;
-			}
-
-			else
-			{
-				supprimerHerosSelonTaille(liste_heros, "taille-anormale");
-				heros_temporaire.taille = false;
-			}
-
-			supprimerQuestionSelonQuestion(liste_questions, "Est-ce que le personnage a la taille d'un humain adulte ?");
-		}
-	}
-
-	return heros_temporaire;
-}
-
-/**
- * @fn boucle_jeu
- * @brief Fonction (boucle) principale du jeu
-**/
-void boucle_jeu()
-{
-	bool heros_trouve = false;
-	bool rejouer = true;
-	Elt_Heros heros_actuel;
-	Heros heros_temporaire;
-	bool sortie_boucle_question = false;
-
-	// Création des listes de héros et de questions
-	Liste_Heros* liste_heros = NULL;
-	Liste_Questions* liste_questions = NULL;
-
-	//Boucle générale du jeu
-	do
-	{
-		// Mise à jour des listes
-		liste_heros = chargerDonneesFichierPersonnages();
-		liste_questions = chargerDonneesFichierQuestions();
-
-		test_si_listes_NULL(liste_heros, liste_questions);
-
-		// On pose les questions
-		do
-		{
-			heros_temporaire = attribution_caracteristiques_heros_temporaire(heros_temporaire, liste_heros, liste_questions);
-
-            // test s'il reste moins de 3 héros dans la liste
-            if(inferieurATrois(liste_heros)){
-                // Poser la question si le héros 1 est celui auquel on pense
-                Elt_Heros *elt_hero_actuel = liste_heros->premier;
-                int choix = 0;
-                printf("Est-ce le personnage suivant : %s ans ?\n", elt_hero_actuel->heros->nom);
-                printf("  1 - Oui\n");
-                printf("  2 - Non - Je ne sais pas\n");
-                scanf("%s", choix);
-                // Si oui alors :
-                if (choix == 1){
-                    sortie_boucle_question = true;
-                    heros_trouve = true;
-                }
-                else if (choix == 2){ // sinon Poser la question si le héros 2 est celui auquel on pense
-                    if ( elt_hero_actuel->suivant != NULL){
-                        Elt_Heros *elt_hero_1 = elt_hero_actuel->suivant;
-                        printf("Est-ce le personnage suivant : %s ans ?\n", elt_hero_1->heros->nom);
-                        printf("  1 - Oui\n");
-                        printf("  2 - Non - Je ne sais pas\n");
-                        scanf("%s", choix);
-                        // Si oui alors :
-                        if (choix == 1){
-                            sortie_boucle_question = true;
-                            heros_trouve = true;
-                        } else if(choix == 2){
-                            sortie_boucle_question = true;
-                            heros_trouve = false;
-                        }
-                    }
-                }
-            }
-		} while (sortie_boucle_question == false);
-
-		if (heros_trouve == false)
-		{
-			question_ajouter_perso_BDD(heros_temporaire);
-			question_ajouter_question_BDD();
-		}
-
-		rejouer = question_rejouer();
-
-		// Vidage des listes
-		viderListeHeros(liste_heros);
-		viderListeQuestions(liste_questions);
-
-//		heros_actuel = *heros_actuel.suivant;
-	} while (rejouer == true/* || (heros_trouve == false || heros_actuel.suivant == NULL)*/);
-}
-
-/**
- * @brief Fonction permettant de choisir une question aléatoire parmis la liste de questions (FONCTION TEMPORAIRE)
- * @param liste Liste des questions
- * @return Question* – Pointeur vers la question tirée au sort
-**/
-Question *choisirQuestionAleatoire(Liste_Questions *liste) {
-
-	// Si la liste est NULL
-	if (liste == NULL) {
-		printf("choisirQuestionAleatoire() : La liste des questions est NULL !\n");
-		exit(EXIT_FAILURE);
-	}
-
-	int nb_aleatoire = rand() % liste->nb_questions;
-
-	Elt_Question *elt_actuel = liste->premier;
-
-	for (int i = 0; i < nb_aleatoire; i++) {
-		elt_actuel = elt_actuel->suivant;
-	}
-
-	return elt_actuel->question;
-}
-
-/**
- * @brief Fonction permettant de choisir un suspect dans la liste des héros, s'il reste 2 héros ou moins dans la liste 
- * @param liste Liste des héros
- * @return Heros* – Pointeur vers le suspect identifié (tiré au sort si 2 restants) ou NULL s'il y a plus de 2 héros restants dans la liste
-**/
-Heros *choisirSuspect(Liste_Heros *liste) {
-
-	// Si la liste est NULL
-	if (liste == NULL) {
-		printf("choisirSuspect() : La liste des héros est NULL !\n");
-		exit(EXIT_FAILURE);
-	}
-
-	// S'il reste 2 héros dans la liste
-	if (liste->nb_heros == 2)
-	{
-		// Choisir un héros au hasard
-		int nb_aleatoire = rand() % 2;
-
-		Elt_Heros *elt_actuel = liste->premier;
-
-		for (int i = 0; i < nb_aleatoire; i++) {
-			elt_actuel = elt_actuel->suivant;
-		}
-
-		return elt_actuel->heros;
-	}
-
-	// S'il reste 1 héros dans la liste
-	else if (liste->nb_heros == 1) {
-
-		Elt_Heros *elt_actuel = liste->premier;
-
-		return elt_actuel->heros;
-	}
-
-	return NULL;
 }
 
 /**
@@ -458,7 +357,7 @@ void afficherHeros(Heros *heros) {
 		printf("Nom : %s\n", heros->nom);
 		printf("Age : %d ans\n", heros->age);
 
-		// Afficher le sexe en toute lettre à partir de l'énumération Sexe
+		// Afficher le sexe en toute lettre à partir de l'énumération
 		switch (heros->sexe) {
 			case HOMME:
 				printf("Sexe : Homme\n");
@@ -476,7 +375,7 @@ void afficherHeros(Heros *heros) {
 
 		printf("Nationalite : %s\n", heros->nationalite);
 
-		// Afficher l'espèce en toute lettre à partir de l'énumération Espece
+		// Afficher l'espèce en toute lettre à partir de l'énumération
 		switch (heros->espece) {
 			case HUMAIN:
 				printf("Espece : Humain\n");
@@ -507,13 +406,13 @@ void afficherHeros(Heros *heros) {
 /**
  * @brief Fonction permettant de calculer l'âge moyen des héros suspects restants
  * @param liste Liste des héros
- * @return int – L'âge moyen des héros suspects restants 
+ * @return int – Age moyen des héros suspects restants
 **/
-int calculAgeMoyenHeros(Liste_Heros *liste) {
+int calculAgeMoyenHerosRestants(Liste_Heros *liste) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
-		printf("calculAgeMoyenHeros() : La liste des héros est NULL !\n");
+		printf("calculAgeMoyenHerosRestants() : La liste des héros est NULL !\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -543,7 +442,7 @@ void supprimerHerosSelonAge(Liste_Heros *liste) {
 	}
 
 	Elt_Heros *elt_actuel = liste->premier;
-	int age_moyen = calculAgeMoyenHeros(liste);
+	int age_moyen = calculAgeMoyenHerosRestants(liste);
 
 	while (elt_actuel != NULL)
 	{
@@ -556,7 +455,7 @@ void supprimerHerosSelonAge(Liste_Heros *liste) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont pas du sexe précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS du sexe précisé
  * @param liste Liste des héros
  * @param sexe Sexe précisé par l'utilisateur
 **/
@@ -573,15 +472,16 @@ void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->sexe != sexe) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont pas de la nationalité précisée
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de la nationalité précisée
  * @param liste Liste des héros
  * @param nationalite Nationalité précisée par l'utilisateur
 **/
@@ -597,16 +497,17 @@ void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
 
 	while (elt_actuel != NULL)
 	{
-		if (strcmp(elt_actuel->heros->nationalite, nationalite) == 0) {
-			supprimerHerosListe(liste, elt_actuel);
+		if (strcmp(elt_actuel->heros->nationalite, nationalite) != 0) {
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont pas de l'espèce précisée
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de l'espèce précisée
  * @param liste Liste des héros
  * @param espece Espèce précisée par l'utilisateur
 **/
@@ -623,15 +524,16 @@ void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->espece != espece) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent pas à l'attribut équipement précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut équipement précisé
  * @param liste Liste des héros
  * @param equipement Attribut équipement précisé par l'utilisateur
 **/
@@ -648,15 +550,16 @@ void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->equipement != equipement) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent pas à l'attribut volant précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut volant précisé
  * @param liste Liste des héros
  * @param volant Attribut volant précisé par l'utilisateur
 **/
@@ -673,15 +576,16 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->volant != volant) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent pas à l'attribut masque précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut masque précisé
  * @param liste Liste des héros
  * @param masque Attribut masque précisé par l'utilisateur
 **/
@@ -698,15 +602,16 @@ void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->masque != masque) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent pas à l'attribut taille précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut taille précisé
  * @param liste Liste des héros
  * @param taille Attribut taille précisé par l'utilisateur
 **/
@@ -723,15 +628,16 @@ void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->taille != taille) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont pas de la couleur précisée
+ * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de la couleur précisée
  * @param liste Liste des héros
  * @param couleur Attribut couleur précisé par l'utilisateur
 **/
@@ -747,35 +653,37 @@ void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
 
 	while (elt_actuel != NULL)
 	{
-		if (strcmp(elt_actuel->heros->couleur, couleur) == 0) {
-			supprimerHerosListe(liste, elt_actuel);
+		if (strcmp(elt_actuel->heros->couleur, couleur) != 0) {
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
-
-		elt_actuel = elt_actuel->suivant;
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
 	}
 }
 
 /**
- * @brief Fonction permettant de supprimer de la liste la question précisée
+ * @brief Fonction permettant de supprimer de la liste toutes les questions qui correspondent à l'attribut précisé
  * @param liste Liste des questions
- * @param question Question à supprimer
+ * @param attribut Attribut ciblé par la question
 **/
-void supprimerQuestionSelonQuestion(Liste_Questions *liste, char question[]) {
+void supprimerQuestionsSelonAttribut(Liste_Questions *liste, char attribut[]) {
 
-    // Si la liste est NULL
-    if (liste == NULL) {
-        printf("supprimerQuestionSelonQuestion() : La liste des questions est NULL !\n");
-        exit(EXIT_FAILURE);
-    }
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerQuestionsSelonAttribut() : La liste des questions est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
 
-    Elt_Question *elt_actuel = liste->premier;
+	Elt_Question *elt_actuel = liste->premier;
 
-    while (elt_actuel != NULL)
-    {
-        if (strcmp(elt_actuel->question->question, question) != 0) {
-            supprimerQuestionListe(liste, elt_actuel);
-        }
-
-        elt_actuel = elt_actuel->suivant;
-    }
+	while (elt_actuel != NULL)
+	{
+		if (strcmp(elt_actuel->question->attribut, attribut) == 0) {
+			elt_actuel = supprimerQuestionListe(liste, elt_actuel);
+		}
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
+	}
 }

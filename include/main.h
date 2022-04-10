@@ -11,11 +11,7 @@
 ---------------------*/
 
 #include "librairies.h"
-#include "structs_donnees.h"
 #include "fonctions_utilitaires.h"
-#include "gestion_fichiers.h"
-#include "gestion_BDD.h"
-#include "jeu.h"
 
 /*-----------------------------
    Déclaration des Fonctions

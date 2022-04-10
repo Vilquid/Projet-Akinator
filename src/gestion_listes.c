@@ -6,35 +6,6 @@
 #include "../include/gestion_listes.h"
 
 /**
- * @fn test_si_listes_NULL
- * @brief Teste si les listes passées en paramètres sont nulle ou pas
- * @param liste_heros Liste des héros
- * @param liste_questions Liste des questions
-**/
-void test_si_listes_NULL(Liste_Heros* liste_heros, Liste_Questions* liste_questions)
-{
-	if (liste_heros == NULL)
-	{
-		printf("\nProbl%cme d%ctect%c avec la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu);
-	}
-
-	if (liste_questions == NULL)
-	{
-		printf("\nProbl%cme d%ctect%c avec la liste des questions.\n", e_grave, e_aigu, e_aigu);
-	}
-
-	if (liste_heros->premier == NULL)
-	{
-		printf("\nProbl%cme d%ctect%c avec le premier h%cro de la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu, e_aigu);
-	}
-
-	if (liste_questions->premier == NULL)
-	{
-		printf("\nProbl%cme d%ctect%c avec le premier h%cro de la liste des h%cros.\n", e_grave, e_aigu, e_aigu, e_aigu, e_aigu);
-	}
-}
-
-/**
  * @brief Fonction permettant de créer un héros
  * @param nom Nom du personnage
  * @param age Age du personnage
@@ -100,7 +71,7 @@ Question *creerQuestion(char question[], char reponse_attendue[], int priorite, 
 
 	// Initialiser les chaînes de caractères de question
 	memset(quest->question, '\0', 128 * sizeof(char));
-	memset(quest->reponse_attendue, '\0', 64 * sizeof(char));
+	memset(quest->reponse_attendue, '\0', 25 * sizeof(char));
 	memset(quest->attribut, '\0', 32 * sizeof(char));
 
 	// Initialiser les attributs
@@ -292,8 +263,9 @@ void ajouterQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
  * @brief Fonction permettant de supprimer un héros de la liste de héros
  * @param liste Liste des héros
  * @param elt_heros Héros à supprimer de la liste
+ * @return Elt_Heros* – Pointeur vers l'élément précédent celui supprimé
 **/
-void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
+Elt_Heros *supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
@@ -310,7 +282,7 @@ void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 	// Si la liste est vide
 	if (liste->premier == NULL) {
 		printf("supprimerHerosListe() : La liste des héros est vide !\n");
-		return;
+		return NULL;
 	}
 
 	// Si la liste contient un seul élément
@@ -320,25 +292,44 @@ void supprimerHerosListe(Liste_Heros *liste, Elt_Heros *elt_heros) {
 	}
 
 	else {
-		Elt_Heros *tmp = liste->premier;
+		Elt_Heros *actuel = liste->premier;
+		Elt_Heros *precedent = NULL;
 
-		while (tmp->suivant != elt_heros) {
-			tmp = tmp->suivant;
+		while (actuel != elt_heros) {
+			precedent = actuel;
+			actuel = actuel->suivant;
 		}
 
-		tmp->suivant = elt_heros->suivant;
-		free(elt_heros);
+		// Si c'est le premier élément de la liste
+		if (precedent == NULL) {
+
+			liste->premier = actuel->suivant;
+
+			free(elt_heros);
+			liste->nb_heros--;
+
+			return liste->premier;
+		}
+		else {
+			precedent->suivant = actuel->suivant;
+
+			free(elt_heros);
+			liste->nb_heros--;
+
+			return precedent;
+		}
 	}
 
-	liste->nb_heros--;
+	return liste->premier;
 }
 
 /**
  * @brief Fonction permettant de supprimer une question de la liste des questions
  * @param liste Liste des questions
  * @param elt_question Question à supprimer de la liste
+ * @return Elt_Question* – Pointeur vers l'élément précédent celui supprimé
 **/
-void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
+Elt_Question *supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
@@ -355,7 +346,7 @@ void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) 
 	// Si la liste est vide
 	if (liste->premier == NULL) {
 		printf("supprimerQuestionListe() : La liste des questions est vide !\n");
-		return;
+		return NULL;
 	}
 
 	// Si la liste contient un seul élément
@@ -365,22 +356,40 @@ void supprimerQuestionListe(Liste_Questions *liste, Elt_Question *elt_question) 
 	}
 
 	else {
-		Elt_Question *tmp = liste->premier;
+		Elt_Question *actuel = liste->premier;
+		Elt_Question *precedent = NULL;
 
-		while (tmp->suivant != elt_question) {
-			tmp = tmp->suivant;
+		while (actuel != elt_question) {
+			precedent = actuel;
+			actuel = actuel->suivant;
 		}
 
-		tmp->suivant = elt_question->suivant;
-		free(elt_question);
+		// Si c'est le premier élément de la liste
+		if (precedent == NULL) {
+
+			liste->premier = actuel->suivant;
+
+			free(elt_question);
+			liste->nb_questions--;
+
+			return liste->premier;
+		}
+		else {
+			precedent->suivant = actuel->suivant;
+
+			free(elt_question);
+			liste->nb_questions--;
+
+			return precedent;
+		}
 	}
 
-	liste->nb_questions--;
+	return liste->premier;
 }
 
 /**
  * @brief Fonction permettant de vider la liste des héros
- * @param liste Liste à vider
+ * @param liste Liste des héros à vider
 **/
 void viderListeHeros(Liste_Heros *liste) {
 
@@ -420,7 +429,7 @@ void viderListeHeros(Liste_Heros *liste) {
 
 /**
  * @brief Fonction permettant de vider la liste de questions
- * @param liste Liste à vider
+ * @param liste Liste des questions à vider
 **/
 void viderListeQuestions(Liste_Questions *liste) {
 
@@ -456,39 +465,4 @@ void viderListeQuestions(Liste_Questions *liste) {
 	}
 
 	liste->nb_questions = 0;
-}
-
-bool inferieurATrois(Liste_Heros *liste){
-    // Si la liste est NULL
-    if (liste == NULL) {
-        printf("viderListeHeros() : La liste des héros est NULL !\n");
-        exit(EXIT_FAILURE);
-    }
-
-    // Si la liste est vide
-    if (liste->premier == NULL) {
-        printf("viderListeHeros() : La liste des héros est vide !\n");
-
-    }
-
-    // Si la liste contient un seul élément
-    if (liste->premier->suivant == NULL) {
-        return true;
-    } else{
-        Elt_Heros *tmp = liste->premier;
-        int cpt = 0;
-
-        while (tmp->suivant != NULL){
-            Elt_Heros *tmp2 = tmp->suivant;
-            tmp = tmp2;
-            cpt+=1;
-        }
-
-        if (cpt >= 3){
-            return false;
-        } else if (cpt < 3){
-            return true;
-        }
-    }
-
 }
