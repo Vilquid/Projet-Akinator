@@ -120,7 +120,7 @@ void akinator() {
 		case 2:
 			printf("\n\n");
 			printf("=========================  R%cgles du jeu  ========================\n", e_grave);
-			printf("= Le but du jeu est de faire deviner le nom du personnage.       =\n");
+			printf("= Le but du jeu est de faire deviner le nom du personnage        =\n");
 			printf("= Marvel auquel vous pensez %c Akinator. R%cpondez aux questions   =\n", a_grave, e_aigu);
 			printf("= d'Akinator par Oui ou Non/je ne sais pas et Akinator trouvera  =\n");
 			printf("= le nom du h%cros Marvel auquel vous pensez. Vous pouvez choisir =\n", e_aigu);

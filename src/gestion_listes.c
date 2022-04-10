@@ -414,15 +414,15 @@ void viderListeHeros(Liste_Heros *liste) {
 	}
 
 	else {
-		Elt_Heros *tmp = liste->premier;
+		Elt_Heros *suppr = liste->premier;
 
-		while (tmp->suivant != NULL) {
-			Elt_Heros *tmp2 = tmp->suivant;
-			free(tmp);
-			tmp = tmp2;
+		while (suppr->suivant != NULL) {
+			Elt_Heros *tmp = suppr->suivant;
+			free(suppr);
+			suppr = tmp;
 		}
 
-		free(tmp);
+		free(suppr);
 		liste->premier = NULL;
 	}
 
@@ -454,15 +454,15 @@ void viderListeQuestions(Liste_Questions *liste) {
 	}
 
 	else {
-		Elt_Question *tmp = liste->premier;
+		Elt_Question *suppr = liste->premier;
 
-		while (tmp->suivant != NULL) {
-			Elt_Question *tmp2 = tmp->suivant;
-			free(tmp);
-			tmp = tmp2;
+		while (suppr->suivant != NULL) {
+			Elt_Question *tmp = suppr->suivant;
+			free(suppr);
+			suppr = tmp;
 		}
 
-		free(tmp);
+		free(suppr);
 		liste->premier = NULL;
 	}
 

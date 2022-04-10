@@ -54,16 +54,16 @@ void ajouterQuestionBDD() {
 void ajouterPersonnageBDD(Heros *heros) {
 
 	// string à rentrer dans la BDD
-	char string[256] = "";
+	char string[256];
 	memset(string, '\0', 256 * sizeof(char));
 
 	int choix_int = 1;
-	char choix_string[256] = "";
+	char choix_string[256];
 	memset(choix_string, '\0', 256 * sizeof(char));
 
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
-		printf("De quelle mani%cre vous voulez ajouter un personnage %c la base de donn%ces ?\n", e_grave, a_grave, e_aigu);
+		printf("De quelle mani%cre voulez-vous ajouter un personnage %c la base de donn%ces ?\n", e_grave, a_grave, e_aigu);
 		printf("  1 - De mani%cre automatique ?\n", e_grave);
 		printf("  2 - De mani%cre manuelle ?\n", e_grave);
 
@@ -207,10 +207,10 @@ void ajouterPersonnageBDD(Heros *heros) {
 				strcat(string, "taille-anormale ");
 			}
 
-			printf("Quelle est la.les couleur.s caract%cristique.s du h%cros ?\n", e_aigu, e_aigu);
+			printf("Quelle est la couleur caract%cristique du h%cros ?\n", e_aigu, e_aigu);
 
 //			do {
-				printf("Sa.es couleur.s caract%cristique.s : ", e_aigu);
+				printf("Sa couleur caract%cristique : ", e_aigu);
 				scanf("%s", choix_string);
 				printf("\n");
 //
@@ -443,8 +443,8 @@ void ajouterPersonnageBDD(Heros *heros) {
 				strcat(string, choix_string);
 			}
 
-			printf("Quelle est la.les couleur.s caract%cristique.s du h%cros ?\n", e_aigu, e_aigu);
-			printf("Sa.es couleur.s caract%cristique.s : ", e_aigu);
+			printf("Quelle est la couleur caract%cristique du h%cros ?\n", e_aigu, e_aigu);
+			printf("Sa couleur caract%cristique : ", e_aigu);
 			scanf("%s", choix_string);
 			printf("\n");
 
@@ -458,25 +458,23 @@ void ajouterPersonnageBDD(Heros *heros) {
 		printf("\nProbl%cme dans la cr%cation de la string\n", e_grave, e_aigu);
 	}
 
-    FILE* fichier_personnages = NULL;
+	FILE* fichier_personnages = NULL;
 	// rentrer le personnage dans la BDD
 	fichier_personnages = fopen("../db/personnages.txt", "a");
-    printf("string : %s\n", string);
+	printf("string : %s\n", string);
 
 	if (fichier_personnages != NULL)
 	{
 		fseek(fichier_personnages, 0, SEEK_END);
-        fprintf(fichier_personnages, string);
+		fprintf(fichier_personnages, string);
 		fputc('\n',fichier_personnages);
-        fclose(fichier_personnages);
+		fclose(fichier_personnages);
 	}
 
 	else
 	{
 		printf("\nProbl%cme d'ouverture de la base de donn%ces Personnages\n", e_grave, e_aigu);
 	}
-
-
 
 	/*if (fclose(fichier_personnages) != 0)
 	{
