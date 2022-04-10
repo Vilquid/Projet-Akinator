@@ -221,7 +221,6 @@ void ajouterPersonnageBDD(Heros *heros) {
 //			} while (!isString(choix_string));
 
 			strcat(string, choix_string);
-			strcat(string, '\n');
 		}
 
 		else
@@ -468,6 +467,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 	{
 		fseek(fichier_personnages, 0, SEEK_END);
         fprintf(fichier_personnages, string);
+		fputc('\n',fichier_personnages);
         fclose(fichier_personnages);
 	}
 
