@@ -51,7 +51,7 @@ void jeu() {
 				// Si l'attribut de la question était "age"
 				if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
 				{
-					// TODO
+					supprimerHerosSelonAgeInferieur(liste_heros);
 				}
 
 				// Si l'attribut de la question était "sexe"
@@ -60,15 +60,18 @@ void jeu() {
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					if (strcmp(liste_questions->premier->question->reponse_attendue, "homme") == 0) {
 						heros_test->sexe = HOMME;
-						supprimerHerosSelonSexe(liste_heros, HOMME);
+						supprimerHerosSelonSexe(liste_heros, FEMME);
+						supprimerHerosSelonSexe(liste_heros, AUTRE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "femme") == 0) {
 						heros_test->sexe = FEMME;
-						supprimerHerosSelonSexe(liste_heros, FEMME);
+						supprimerHerosSelonSexe(liste_heros, HOMME);
+						supprimerHerosSelonSexe(liste_heros, AUTRE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "autre") == 0) {
 						heros_test->sexe = AUTRE;
-						supprimerHerosSelonSexe(liste_heros, AUTRE);
+						supprimerHerosSelonSexe(liste_heros, HOMME);
+						supprimerHerosSelonSexe(liste_heros, FEMME);
 					}
 				}
 
@@ -77,7 +80,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					strcpy(heros_test->nationalite, liste_questions->premier->question->reponse_attendue);
-					supprimerHerosSelonNationalite(liste_heros, liste_questions->premier->question->reponse_attendue);
+					supprimerHerosSelonNationaliteDifferente(liste_heros, liste_questions->premier->question->reponse_attendue);
 				}
 
 				// Si l'attribut de la question était "espece"
@@ -86,19 +89,27 @@ void jeu() {
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					if (strcmp(liste_questions->premier->question->reponse_attendue, "humain") == 0) {
 						heros_test->espece = HUMAIN;
-						supprimerHerosSelonEspece(liste_heros, HUMAIN);
+						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+						supprimerHerosSelonEspece(liste_heros, MUTANT);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "extraterrestre") == 0) {
 						heros_test->espece = EXTRATERRESTRE;
-						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN);
+						supprimerHerosSelonEspece(liste_heros, MUTANT);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "mutant") == 0) {
 						heros_test->espece = MUTANT;
-						supprimerHerosSelonEspece(liste_heros, MUTANT);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN);
+						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "humain-altere") == 0) {
 						heros_test->espece = HUMAIN_ALTERE;
-						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN);
+						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+						supprimerHerosSelonEspece(liste_heros, MUTANT);
 					}
 				}
 
@@ -107,7 +118,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					heros_test->equipement = true;
-					supprimerHerosSelonEquipement(liste_heros, true);
+					supprimerHerosSelonEquipement(liste_heros, false);
 				}
 
 				// Si l'attribut de la question était "volant"
@@ -115,7 +126,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					heros_test->volant = true;
-					supprimerHerosSelonVolant(liste_heros, true);
+					supprimerHerosSelonVolant(liste_heros, false);
 				}
 
 				// Si l'attribut de la question était "masque"
@@ -123,7 +134,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					heros_test->masque = true;
-					supprimerHerosSelonMasque(liste_heros, true);
+					supprimerHerosSelonMasque(liste_heros, false);
 				}
 
 				// Si l'attribut de la question était "taille"
@@ -131,7 +142,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					heros_test->taille = true;
-					supprimerHerosSelonTaille(liste_heros, true);
+					supprimerHerosSelonTaille(liste_heros, false);
 				}
 
 				// Si l'attribut de la question était "couleur"
@@ -139,7 +150,7 @@ void jeu() {
 				{
 					// Stocker l'attribut dans heros_test et supprimer les personnages qui ne répondent PAS à l'attribut
 					strcpy(heros_test->couleur, liste_questions->premier->question->reponse_attendue);
-					supprimerHerosSelonCouleur(liste_heros, liste_questions->premier->question->reponse_attendue);
+					supprimerHerosSelonCouleurDifferente(liste_heros, liste_questions->premier->question->reponse_attendue);
 				}
 
 				// Supprimer toutes les questions qui répondent au même attribut
@@ -152,82 +163,82 @@ void jeu() {
 				// Si l'attribut de la question était "age"
 				if (strcmp(liste_questions->premier->question->attribut, "age") == 0)
 				{
-					// TODO
+					supprimerHerosSelonAgeSuperieur(liste_heros);
 				}
 
 				// Si l'attribut de la question était "sexe"
 				else if (strcmp(liste_questions->premier->question->attribut, "sexe") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					// Supprimer les personnages qui correspondent à l'attribut
 					if (strcmp(liste_questions->premier->question->reponse_attendue, "homme") == 0) {
-						//supprimerHerosSelonSexe(liste_heros, HOMME);
+						supprimerHerosSelonSexe(liste_heros, HOMME);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "femme") == 0) {
-						//supprimerHerosSelonSexe(liste_heros, FEMME);
+						supprimerHerosSelonSexe(liste_heros, FEMME);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "autre") == 0) {
-						//supprimerHerosSelonSexe(liste_heros, AUTRE);
+						supprimerHerosSelonSexe(liste_heros, AUTRE);
 					}
 				}
 
 				// Si l'attribut de la question était "nationalite"
 				else if (strcmp(liste_questions->premier->question->attribut, "nationalite") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					//supprimerHerosSelonNationalite(liste_heros, liste_questions->premier->question->reponse_attendue);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonNationalite(liste_heros, liste_questions->premier->question->reponse_attendue);
 				}
 
 				// Si l'attribut de la question était "espece"
 				else if (strcmp(liste_questions->premier->question->attribut, "espece") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
+					// Supprimer les personnages qui correspondent à l'attribut
 					if (strcmp(liste_questions->premier->question->reponse_attendue, "humain") == 0) {
-						//supprimerHerosSelonEspece(liste_heros, HUMAIN);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "extraterrestre") == 0) {
-						//supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
+						supprimerHerosSelonEspece(liste_heros, EXTRATERRESTRE);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "mutant") == 0) {
-						//supprimerHerosSelonEspece(liste_heros, MUTANT);
+						supprimerHerosSelonEspece(liste_heros, MUTANT);
 					}
 					else if (strcmp(liste_questions->premier->question->reponse_attendue, "humain-altere") == 0) {
-						//supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
+						supprimerHerosSelonEspece(liste_heros, HUMAIN_ALTERE);
 					}
 				}
 
 				// Si l'attribut de la question était "equipement"
 				else if (strcmp(liste_questions->premier->question->attribut, "equipement") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					supprimerHerosSelonEquipement(liste_heros, false);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonEquipement(liste_heros, true);
 				}
 
 				// Si l'attribut de la question était "volant"
 				else if (strcmp(liste_questions->premier->question->attribut, "volant") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					supprimerHerosSelonVolant(liste_heros, false);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonVolant(liste_heros, true);
 				}
 
 				// Si l'attribut de la question était "masque"
 				else if (strcmp(liste_questions->premier->question->attribut, "masque") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					supprimerHerosSelonMasque(liste_heros, false);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonMasque(liste_heros, true);
 				}
 
 				// Si l'attribut de la question était "taille"
 				else if (strcmp(liste_questions->premier->question->attribut, "taille") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					supprimerHerosSelonTaille(liste_heros, false);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonTaille(liste_heros, true);
 				}
 
 				// Si l'attribut de la question était "couleur"
 				else if (strcmp(liste_questions->premier->question->attribut, "couleur") == 0)
 				{
-					// Supprimer les personnages qui ne correspondent PAS à l'attribut
-					//supprimerHerosSelonCouleur(liste_heros, liste_questions->premier->question->reponse_attendue);
+					// Supprimer les personnages qui correspondent à l'attribut
+					supprimerHerosSelonCouleur(liste_heros, liste_questions->premier->question->reponse_attendue);
 				}
 
 				// Supprimer la question que l'ont vient de poser
@@ -253,7 +264,7 @@ void jeu() {
 				else if (choix == 2) {
 
 					// Supprimer le personnage de la liste
-					supprimerHerosListe(liste_heros, liste_heros->premier);
+					liste_heros->premier = supprimerHerosListe(liste_heros, liste_heros->premier);
 
 					// Tenter le deuxième choix de personnage
 					printf("Zut ! Est-ce que le personnage est %s ?\n", liste_heros->premier->heros->nom);
@@ -433,11 +444,11 @@ int calculAgeMoyenHerosRestants(Liste_Heros *liste) {
  * @brief Fonction permettant de supprimer des suspects les héros qui ont un âge supérieur à la moyenne des héros suspects restants
  * @param liste Liste des héros
 **/
-void supprimerHerosSelonAge(Liste_Heros *liste) {
+void supprimerHerosSelonAgeSuperieur(Liste_Heros *liste) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
-		printf("supprimerHerosSelonAge() : La liste des héros est NULL !\n");
+		printf("supprimerHerosSelonAgeSuperieur() : La liste des héros est NULL !\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -447,7 +458,7 @@ void supprimerHerosSelonAge(Liste_Heros *liste) {
 	while (elt_actuel != NULL)
 	{
 		if (elt_actuel->heros->age > age_moyen) {
-			supprimerHerosListe(liste, elt_actuel);
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 
 		elt_actuel = elt_actuel->suivant;
@@ -455,9 +466,34 @@ void supprimerHerosSelonAge(Liste_Heros *liste) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS du sexe précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui ont un âge inférieur à la moyenne des héros suspects restants
  * @param liste Liste des héros
- * @param sexe Sexe précisé par l'utilisateur
+**/
+void supprimerHerosSelonAgeInferieur(Liste_Heros *liste) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonAgeInferieur() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	Elt_Heros *elt_actuel = liste->premier;
+	int age_moyen = calculAgeMoyenHerosRestants(liste);
+
+	while (elt_actuel != NULL)
+	{
+		if (elt_actuel->heros->age < age_moyen) {
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
+		}
+
+		elt_actuel = elt_actuel->suivant;
+	}
+}
+
+/**
+ * @brief Fonction permettant de supprimer des suspects les héros sont du sexe précisé
+ * @param liste Liste des héros
+ * @param sexe Sexe à supprimer
 **/
 void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 
@@ -471,7 +507,33 @@ void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->sexe != sexe) {
+		if (elt_actuel->heros->sexe == sexe) {
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
+		}
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
+	}
+}
+
+/**
+ * @brief Fonction permettant de supprimer des suspects les héros qui sont de la nationalité précisée
+ * @param liste Liste des héros
+ * @param nationalite Nationalité à supprimer
+**/
+void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonNationalite() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	Elt_Heros *elt_actuel = liste->premier;
+
+	while (elt_actuel != NULL)
+	{
+		if (strcmp(elt_actuel->heros->nationalite, nationalite) == 0) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -483,13 +545,13 @@ void supprimerHerosSelonSexe(Liste_Heros *liste, Sexe sexe) {
 /**
  * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de la nationalité précisée
  * @param liste Liste des héros
- * @param nationalite Nationalité précisée par l'utilisateur
+ * @param nationalite Nationalité à ne PAS supprimer
 **/
-void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
+void supprimerHerosSelonNationaliteDifferente(Liste_Heros *liste, char nationalite[]) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
-		printf("supprimerHerosSelonNationalite() : La liste des héros est NULL !\n");
+		printf("supprimerHerosSelonNationaliteDifferente() : La liste des héros est NULL !\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -507,9 +569,9 @@ void supprimerHerosSelonNationalite(Liste_Heros *liste, char nationalite[]) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de l'espèce précisée
+ * @brief Fonction permettant de supprimer des suspects les héros qui sont de l'espèce précisée
  * @param liste Liste des héros
- * @param espece Espèce précisée par l'utilisateur
+ * @param espece Espèce à supprimer
 **/
 void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 
@@ -523,7 +585,7 @@ void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->espece != espece) {
+		if (elt_actuel->heros->espece == espece) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -533,9 +595,9 @@ void supprimerHerosSelonEspece(Liste_Heros *liste, Espece espece) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut équipement précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui correspondent à l'attribut équipement précisé
  * @param liste Liste des héros
- * @param equipement Attribut équipement précisé par l'utilisateur
+ * @param equipement Attribut équipement à supprimer
 **/
 void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 
@@ -549,7 +611,7 @@ void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->equipement != equipement) {
+		if (elt_actuel->heros->equipement == equipement) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -559,9 +621,9 @@ void supprimerHerosSelonEquipement(Liste_Heros *liste, bool equipement) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut volant précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui correspondent à l'attribut volant précisé
  * @param liste Liste des héros
- * @param volant Attribut volant précisé par l'utilisateur
+ * @param volant Attribut volant à supprimer
 **/
 void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 
@@ -575,7 +637,7 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->volant != volant) {
+		if (elt_actuel->heros->volant == volant) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -585,9 +647,9 @@ void supprimerHerosSelonVolant(Liste_Heros *liste, bool volant) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut masque précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui correspondent à l'attribut masque précisé
  * @param liste Liste des héros
- * @param masque Attribut masque précisé par l'utilisateur
+ * @param masque Attribut masque à supprimer
 **/
 void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 
@@ -601,7 +663,7 @@ void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->masque != masque) {
+		if (elt_actuel->heros->masque == masque) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -611,9 +673,9 @@ void supprimerHerosSelonMasque(Liste_Heros *liste, bool masque) {
 }
 
 /**
- * @brief Fonction permettant de supprimer des suspects les héros qui ne correspondent PAS à l'attribut taille précisé
+ * @brief Fonction permettant de supprimer des suspects les héros qui correspondent à l'attribut taille précisé
  * @param liste Liste des héros
- * @param taille Attribut taille précisé par l'utilisateur
+ * @param taille Attribut taille à supprimer
 **/
 void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 
@@ -627,7 +689,33 @@ void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 
 	while (elt_actuel != NULL)
 	{
-		if (elt_actuel->heros->taille != taille) {
+		if (elt_actuel->heros->taille == taille) {
+			elt_actuel = supprimerHerosListe(liste, elt_actuel);
+		}
+		else {
+			elt_actuel = elt_actuel->suivant;
+		}
+	}
+}
+
+/**
+ * @brief Fonction permettant de supprimer des suspects les héros qui sont de la couleur précisée
+ * @param liste Liste des héros
+ * @param couleur Attribut couleur à supprimer
+**/
+void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
+
+	// Si la liste est NULL
+	if (liste == NULL) {
+		printf("supprimerHerosSelonCouleur() : La liste des héros est NULL !\n");
+		exit(EXIT_FAILURE);
+	}
+
+	Elt_Heros *elt_actuel = liste->premier;
+
+	while (elt_actuel != NULL)
+	{
+		if (strcmp(elt_actuel->heros->couleur, couleur) == 0) {
 			elt_actuel = supprimerHerosListe(liste, elt_actuel);
 		}
 		else {
@@ -639,9 +727,9 @@ void supprimerHerosSelonTaille(Liste_Heros *liste, bool taille) {
 /**
  * @brief Fonction permettant de supprimer des suspects les héros qui ne sont PAS de la couleur précisée
  * @param liste Liste des héros
- * @param couleur Attribut couleur précisé par l'utilisateur
+ * @param couleur Attribut couleur à ne PAS supprimer
 **/
-void supprimerHerosSelonCouleur(Liste_Heros *liste, char couleur[]) {
+void supprimerHerosSelonCouleurDifferente(Liste_Heros *liste, char couleur[]) {
 
 	// Si la liste est NULL
 	if (liste == NULL) {
