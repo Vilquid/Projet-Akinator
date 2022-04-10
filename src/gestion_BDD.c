@@ -53,14 +53,13 @@ void ajouterQuestionBDD() {
 **/
 void ajouterPersonnageBDD(Heros *heros) {
 
-
-
 	// string à rentrer dans la BDD
-	char string[256];
+	char string[256] = "";
 	memset(string, '\0', 256 * sizeof(char));
 
 	int choix_int = 1;
 	char choix_string[256] = "";
+	memset(choix_string, '\0', 256 * sizeof(char));
 
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
@@ -70,7 +69,10 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 		if (demanderIntIntervalle("Votre choix : ", 1, 2) == 1)
 		{
-			strcat(string, heros->nom);
+			printf("\nSaisissez le nom du personnage que vous voulez ajouter.\n");
+			printf("Son nom : ");
+			scanf("%s", heros->nom);
+			strcpy(string, heros->nom);
 			strcat(string, " ");
 
 			switch (heros->sexe)
@@ -85,6 +87,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 					strcat(string, "autre ");
 					break;
 			}
+			printf("%s\n", string);
 
 			printf("Quelle est la nationalit%c du h%cros ?\n", e_aigu, e_aigu);
 			printf("  1 - Etats-Unis\n");
@@ -218,7 +221,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 //			} while (!isString(choix_string));
 
 			strcat(string, choix_string);
-			strcpy(string, " ");
+			strcat(string, '\n');
 		}
 
 		else
@@ -464,9 +467,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 	if (fichier_personnages != NULL)
 	{
 		fseek(fichier_personnages, 0, SEEK_END);
-		//fputs(string, fichier_personnages);
         fprintf(fichier_personnages, string);
-        printf("à écrit\n");
         fclose(fichier_personnages);
 	}
 
