@@ -112,18 +112,18 @@ Liste_Heros *chargerDonneesFichierPersonnages() {
 		}
 
 		// Afficher tous les attributs récupérés
-		printf("===============================\n");
-		printf("Nom : %s\n", nom);
-		printf("Sexe : %s\n", sexe_tmp);
-		printf("Nationalite : %s\n", nationalite);
-		printf("Age : %d\n", age);
-		printf("Equipement : %s\n", equipement_tmp);
-		printf("Espece : %s\n", espece_tmp);
-		printf("Volant : %s\n", volant_tmp);
-		printf("Masque : %s\n", masque_tmp);
-		printf("Taille : %s\n", taille_tmp);
-		printf("Couleur : %s\n", couleur);
-		printf("===============================\n");
+//		printf("===============================\n");
+//		printf("Nom : %s\n", nom);
+//		printf("Sexe : %s\n", sexe_tmp);
+//		printf("Nationalite : %s\n", nationalite);
+//		printf("Age : %d\n", age);
+//		printf("Equipement : %s\n", equipement_tmp);
+//		printf("Espece : %s\n", espece_tmp);
+//		printf("Volant : %s\n", volant_tmp);
+//		printf("Masque : %s\n", masque_tmp);
+//		printf("Taille : %s\n", taille_tmp);
+//		printf("Couleur : %s\n", couleur);
+//		printf("===============================\n");
 
 		// Créer et ajouter à la liste des héros un nouvel élément à partir des données récupérées
 		ajouterHerosListe(liste_heros, creerEltHeros(creerHeros(nom, age, sexe, nationalite, espece, equipement, volant, masque, taille, couleur)));
@@ -174,12 +174,12 @@ Liste_Questions *chargerDonneesFichierQuestions() {
 		fscanf(fichier_questions, "%d %s %s %[^\n]", &priorite, attribut, reponse_attendue, question);
 
 		// Afficher tous les attributs récupérés
-		printf("===============================\n");
-		printf("Question : %s\n", question);
-		printf("Reponse attendue : %s\n", reponse_attendue);
-		printf("Priorite : %d\n", priorite);
-		printf("Attribut : %s\n", attribut);
-		printf("===============================\n");
+//		printf("===============================\n");
+//		printf("Question : %s\n", question);
+//		printf("Reponse attendue : %s\n", reponse_attendue);
+//		printf("Priorite : %d\n", priorite);
+//		printf("Attribut : %s\n", attribut);
+//		printf("===============================\n");
 
 		// Créer et ajouter à la liste des questions un nouvel élément à partir des données récupérées
 		ajouterQuestionListe(liste_questions, creerEltQuestion(creerQuestion(question, reponse_attendue, priorite, attribut)));

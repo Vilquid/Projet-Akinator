@@ -21,15 +21,15 @@ void jeu() {
 		Liste_Questions *liste_questions = NULL;
 		Heros *heros_test = NULL;
 
-		// Charger les données des personnages et des questions
-		liste_heros = chargerDonneesFichierPersonnages();
-		liste_questions = chargerDonneesFichierQuestions();
-
 		// Initialisation du héros pour faire nos tests
 		heros_test = creerHeros("", 0, HOMME, "", HUMAIN, false, false, false, false, "");
 
 		// Boucle de jeu
 		do {
+			// Charger les données des personnages et des questions
+			liste_heros = chargerDonneesFichierPersonnages();
+			liste_questions = chargerDonneesFichierQuestions();
+
 			// Poser la question suivante de la liste
 
 			// Cas particulier pour l'âge
@@ -299,7 +299,7 @@ void jeu() {
 			viderListeQuestions(liste_questions);
 		}
 
-	} while (!rejouer);
+	} while (rejouer);
 
 }
 
