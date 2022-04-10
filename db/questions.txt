@@ -6,12 +6,6 @@
 0 humain humain-altere Est-ce un humain-altere ?
 1 nationalite Etats-Unis Est-ce que le personnage est de nationalite Americaine ?
 1 age true Est-ce qu'il a plus de
-1 equipement true Utilise-t-il plus ses pouvoirs que ses equipements ?
-1 volant true Peut-il voler ?
-1 masque true Est-il masque ?
-1 taille true A-t-il la taille d'un humain adulte ?
-2 color rouge Est-ce que sa couleur caracteristique est le rouge ?
-2 color bleu Est-ce que sa couleur caracteristique est le bleu ?
-2 color noir Est-ce que sa couleur caracteristique est le noir ?
-2 color gris Est-ce que sa couleur caracteristique est le gris ?
-2 color marron Est-ce que sa couleur caracteristique est le marron ?
+1 equipement true Est-ce que le personnage utilise plus ses pouvoirs que ses equipements ?
+1 volant true Est-ce que le personnage vole ?
+1 masque true Est-ce que le personnage porte un masque ?
