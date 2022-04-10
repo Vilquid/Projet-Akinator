@@ -25,7 +25,7 @@ bool isString(char string[]) {
 
 	size_t test = 0;
 
-	for (int i = 0; i < 256; i++) {
+	for (int i = 0; i < strlen(string); i++) {
 		if (isalpha(string[i]) == 0 && isblank(string[i]) == 0) {
 			test++;
 		}
@@ -60,7 +60,8 @@ int demanderIntIntervalle(char texte[], int borne_inf, int borne_sup) {
 
 	} while (choix < borne_inf || choix > borne_sup);
 
-	return choix;
+	printf("\n");
+return choix;
 }
 
 /**
@@ -149,6 +150,5 @@ void akinator() {
 		// Quitter
 		case 4:
 			exit(EXIT_SUCCESS);
-		break;
 	}
 }

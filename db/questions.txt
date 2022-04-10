@@ -1,16 +1,16 @@
-0 sexe homme Est-ce un homme ?
-0 sexe femme Est-ce une femme ?
-0 sexe autre Est-ce ni un homme ni une femme ?
-0 espece humain Est-ce un humain ?
-0 espece extraterrestre Est-ce un extraterrestre ?
-0 espece mutant Est-ce un mutant ?
-0 espece humain-altere Est-ce un humain-altere ?
+0 sexe homme Est-ce que le personnage est un homme ?
+0 sexe femme Est-ce que le personnage est une femme ?
+0 sexe autre Est-ce que le personnage est ni une femme, ni un homme ?
+0 espece humain Est-ce que le personnage est un humain ?
+0 espece extraterrestre Est-ce que le personnage est un extraterrestre ?
+0 espece mutant Est-ce que le personnage est un mutant ?
+0 espece humain-altere Est-ce que le personnage est un humain altere ?
 1 nationalite Etats-Unis Est-ce que le personnage est de nationalite Americaine ?
-1 age true Est-ce qu'il a plus de
+1 age true Est-ce que le personnage a plus de
 1 equipement true Est-ce que le personnage utilise plus ses equipements que ses pouvoirs ?
 1 volant true Est-ce que le personnage vole ?
 1 masque true Est-ce que le personnage porte un masque ?
-1 taille true A-t-il la taille d'un humain adulte ?
+1 taille true Est-ce que le personnage a la taille d'un humain adulte ?
 2 color rouge Est-ce que sa couleur caracteristique est le rouge ?
 2 color bleu Est-ce que sa couleur caracteristique est le bleu ?
 2 color noir Est-ce que sa couleur caracteristique est le noir ?

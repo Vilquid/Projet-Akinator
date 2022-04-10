@@ -64,29 +64,29 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 	if (string != NULL) // ajouter les caractéristiques d'un personnage à la string
 	{
-		printf("De quelle manière vous voulez ajouter un personnage à la base de donn%ces ?\n", e_aigu);
+		printf("De quelle mani%cre vous voulez ajouter un personnage %c la base de donn%ces ?\n", e_grave, a_grave, e_aigu);
 		printf("  1 - De mani%cre automatique ?\n", e_grave);
 		printf("  2 - De mani%cre manuelle ?\n", e_grave);
 
 		if (demanderIntIntervalle("Votre choix : ", 0, 3) == 1)
 		{
 			strcat(string, heros->nom);
-			strcat(string, ",");
+			strcat(string, " ");
 
 			switch (heros->sexe)
 			{
 				case HOMME:
-					strcat(string, "homme,");
+					strcat(string, "homme ");
 					break;
 				case FEMME:
-					strcat(string, "femme,");
+					strcat(string, "femme ");
 					break;
 				default:
-					strcat(string, "autre,");
+					strcat(string, "autre ");
 					break;
 			}
 
-			printf("Quel est le nationalit%c du h%cros ?\n", e_aigu, e_aigu);
+			printf("Quelle est la nationalit%c du h%cros ?\n", e_aigu, e_aigu);
 			printf("  1 - Etats-Unis\n");
 			printf("  2 - Russie\n");
 			printf("  3 - France\n");
@@ -96,134 +96,129 @@ void ajouterPersonnageBDD(Heros *heros) {
 			{
 				case 1:
 				{
-					strcpy(choix_string, "Etats-Unis,");
+					strcpy(choix_string, "Etats-Unis ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 2:
 				{
-					strcpy(choix_string, "Russie,");
+					strcpy(choix_string, "Russie ");
+					strcat(string, choix_string);
+					break;
+				}
+				case 3:
+				{
+					strcpy(choix_string, "France ");
 					strcat(string, choix_string);
 					break;
 				}
 				default:
 				{
-					do {
-						printf("Son sexe personnalis%c : ", e_aigu);
+//					do {
+						printf("Quelle est la nationalit%c personnalis%c du h%cros ?\n", e_aigu, e_aigu, e_aigu);
 						scanf("%s", choix_string);
 						printf("\n");
-
-						for (size_t i = 0; i < strlen(choix_string); i++)
-						{
-							if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
-							{
-								printf("\nSaisie incorrecte. Veillez recommencer.\n");
-							}
-						}
-					} while (!isString(string));
+//
+//						for (size_t i = 0; i < strlen(choix_string); i++)
+//						{
+//							if (isalpha(choix_string[i]) == 0 && isblank(choix_string[i]) == 0)
+//							{
+//								printf("\nSaisie incorrecte. Veillez recommencer.\n");
+//							}
+//						}
+//					} while (isString(choix_string) == false);
 
 					stringToLower(choix_string);
 					strcat(string, choix_string);
-					strcat(string, ",");
+					strcat(string, " ");
 
 					break;
 				}
 			}
 
-			printf("Quel est l'age du h%cros ?\n", e_aigu);
-			do {
-				printf("Son %cge : ", a_circonflexe);
-				scanf("%d", &choix_int);
-
-				if (!isdigit(choix_int))
-				{
-					printf("\nChoix incorrect. Veillez recommencer.\n");
-				}
-			} while (!isdigit(choix_int) && (choix_int < 0 || choix_int > 2000));
-
-			sprintf(choix_string, "%d", choix_int);
+			sprintf(choix_string, "%d", demanderIntIntervalle("Quel est l'age du heros ?\n", 0, 2000));
 			strcat(string, choix_string);
-			strcat(string, ",");
+			strcat(string, " ");
 
 			if (heros->equipement)
 			{
-				strcat(string, "equipement,");
+				strcat(string, "equipement ");
 			}
 
 			else
 			{
-				strcat(string, "pouvoirs,");
+				strcat(string, "pouvoirs ");
 			}
 
 			switch (heros->espece)
 			{
 				case HUMAIN:
 				{
-					strcat(string, "humain,");
+					strcat(string, "humain ");
 					break;
 				}
 				case HUMAIN_ALTERE:
 				{
-					strcat(string, "humain-altere,");
+					strcat(string, "humain-altere ");
 					break;
 				}
 				case MUTANT:
 				{
-					strcat(string, "mutant,");
+					strcat(string, "mutant ");
 					break;
 				}
 				default:
 				{
-					strcat(string, "extraterrestre,");
+					strcat(string, "extraterrestre ");
 					break;
 				}
 			}
 
 			if (heros->volant)
 			{
-				strcat(string, "volant,");
+				strcat(string, "volant ");
 			}
 
 			else
 			{
-				strcat(string, "non-volant,");
+				strcat(string, "non-volant ");
 			}
 
 			if (heros->masque)
 			{
-				strcat(string, "masque,");
+				strcat(string, "masque ");
 			}
 
 			else
 			{
-				strcat(string, "non-masque,");
+				strcat(string, "non-masque ");
 			}
 
 			if (heros->taille)
 			{
-				strcat(string, "taille-normale,");
+				strcat(string, "taille-normale ");
 			}
 
 			else
 			{
-				strcat(string, "taille-anormale,");
+				strcat(string, "taille-anormale ");
 			}
 
 			printf("Quelle est la.les couleur.s caract%cristique.s du h%cros ?\n", e_aigu, e_aigu);
 
-			do {
+//			do {
 				printf("Sa.es couleur.s caract%cristique.s : ", e_aigu);
 				scanf("%s", choix_string);
 				printf("\n");
-
-				if (!isString(choix_string))
-				{
-					printf("\nSaisie incorrecte. Veillez recommencer.\n");
-				}
-			} while (!isString(choix_string));
+//
+//				if (!isString(choix_string))
+//				{
+//					printf("\nSaisie incorrecte. Veillez recommencer.\n");
+//				}
+//			} while (!isString(choix_string));
 
 			strcat(string, choix_string);
-			strcpy(string, ",");
+			strcpy(string, " ");
 		}
 
 		else
@@ -254,13 +249,13 @@ void ajouterPersonnageBDD(Heros *heros) {
 			{
 				case 1:
 				{
-					strcpy(choix_string, "homme,");
+					strcpy(choix_string, "homme ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 2:
 				{
-					strcpy(choix_string, "femme,");
+					strcpy(choix_string, "femme ");
 					strcat(string, choix_string);
 					break;
 				}
@@ -275,7 +270,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 					stringToLower(choix_string);
 
-					strcat(choix_string, ",");
+					strcat(choix_string, " ");
 					strcat(string, choix_string);
 					break;
 				}
@@ -291,13 +286,13 @@ void ajouterPersonnageBDD(Heros *heros) {
 			{
 				case 1:
 				{
-					strcpy(choix_string, "Etats-Unis,");
+					strcpy(choix_string, "Etats-Unis ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 2:
 				{
-					strcpy(choix_string, "Russie,");
+					strcpy(choix_string, "Russie ");
 					strcat(string, choix_string);
 					break;
 				}
@@ -342,13 +337,13 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 			if (choix_int == demanderIntIntervalle("Votre choix : ", 1, 2))
 			{
-				strcpy(choix_string, "pouvoirs,");
+				strcpy(choix_string, "pouvoirs ");
 				strcat(string, choix_string);
 			}
 
 			else
 			{
-				strcpy(choix_string, "equipement,");
+				strcpy(choix_string, "equipement ");
 				strcat(string, choix_string);
 			}
 
@@ -363,25 +358,25 @@ void ajouterPersonnageBDD(Heros *heros) {
 			{
 				case 1:
 				{
-					strcpy(choix_string, "humain,");
+					strcpy(choix_string, "humain ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 2:
 				{
-					strcpy(choix_string, "humain-altere,");
+					strcpy(choix_string, "humain-altere ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 3:
 				{
-					strcpy(choix_string, "mutant,");
+					strcpy(choix_string, "mutant ");
 					strcat(string, choix_string);
 					break;
 				}
 				case 4:
 				{
-					strcat(string, "extraterrestre,");
+					strcat(string, "extraterrestre ");
 					break;
 				}
 				default:
@@ -394,7 +389,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 					stringToLower(choix_string);
 
-					strcat(choix_string, ",");
+					strcat(choix_string, " ");
 					strcat(string, choix_string);
 					break;
 				}
@@ -406,13 +401,13 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 			if (choix_int == demanderIntIntervalle("Votre choix : ", 1, 2))
 			{
-				strcpy(choix_string, "volant,");
+				strcpy(choix_string, "volant ");
 				strcat(string, choix_string);
 			}
 
 			else
 			{
-				strcpy(choix_string, "non-volant,");
+				strcpy(choix_string, "non-volant ");
 				strcat(string, choix_string);
 			}
 
@@ -427,7 +422,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 			else
 			{
-				strcat(string, "non-masque,");
+				strcat(string, "non-masque ");
 			}
 
 			printf("Est-ce que le h%cros a-t-il une taille d'%ctre humain normal ?\n", e_aigu, e_circonflexe);
@@ -436,30 +431,22 @@ void ajouterPersonnageBDD(Heros *heros) {
 
 			if (choix_int == demanderIntIntervalle("Votre choix : ", 0, 5))
 			{
-				strcpy(choix_string, "taille-normale,");
+				strcpy(choix_string, "taille-normale ");
 				strcat(string, choix_string);
 			}
 
 			else
 			{
-				strcpy(choix_string, "taille-anormale,");
+				strcpy(choix_string, "taille-anormale ");
 				strcat(string, choix_string);
 			}
 
 			printf("Quelle est la.les couleur.s caract%cristique.s du h%cros ?\n", e_aigu, e_aigu);
+			printf("Sa.es couleur.s caract%cristique.s : ", e_aigu);
+			scanf("%s", choix_string);
+			printf("\n");
 
-			do {
-				printf("Sa.es couleur.s caract%cristique.s : ", e_aigu);
-				scanf("%s", choix_string);
-				printf("\n");
-
-				if (!isString(choix_string))
-				{
-					printf("\nSaisie incorrecte. Veillez recommencer.\n");
-				}
-			} while (!isString(choix_string));
-
-			strcpy(choix_string, ",");
+			strcpy(choix_string, " ");
 			strcat(string, choix_string);
 		}
 	}
@@ -470,7 +457,7 @@ void ajouterPersonnageBDD(Heros *heros) {
 	}
 
 	// rentrer le personnage dans la BDD
-	fichier_personnages = fopen("personnages.txt", "r+");
+	fichier_personnages = fopen("personnages.txt", "a");
 
 	if (fichier_personnages != NULL)
 	{
