@@ -376,7 +376,7 @@ void questionAjouterQuestionBDD() {
 		ajouterQuestionBDD();
 	}
 	else {
-		printf("Vous n'ajouterez pas de question\n");
+		printf("Vous n'ajoutez pas de question\n\n");
 	}
 }
 
@@ -394,7 +394,7 @@ void questionAjouterPersoBDD(Heros *heros) {
 		ajouterPersonnageBDD(heros);
 	}
 	else {
-		printf("Vous n'ajouterez pas de personnage\n");
+		printf("Vous n'ajoutez pas de personnage\n\n");
 	}
 }
 
